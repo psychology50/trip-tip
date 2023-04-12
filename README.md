@@ -71,7 +71,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
 
 ### 2.1) Use case diagram
   
-// 이미지 삽입
+![UseCaseDiagram](https://user-images.githubusercontent.com/96044622/231446271-4ee20ea8-a3c4-4160-8fca-8e53662efe64.png)
 
 ### 2.2) Use case description
 
