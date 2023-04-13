@@ -1,10 +1,12 @@
-package yu.softwareDesign.TripTip.domain;
+package yu.softwareDesign.TripTip.domain.group.domain;
 
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
+import yu.softwareDesign.TripTip.domain.Member;
+import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
 
 import java.util.ArrayList;
 import java.util.List;

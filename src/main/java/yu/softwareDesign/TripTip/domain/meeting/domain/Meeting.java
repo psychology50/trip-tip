@@ -1,8 +1,10 @@
-package yu.softwareDesign.TripTip.domain;
+package yu.softwareDesign.TripTip.domain.meeting.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.NoArgsConstructor;
+import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
+import yu.softwareDesign.TripTip.domain.group.domain.Group;
+import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

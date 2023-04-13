@@ -1,8 +1,11 @@
-package yu.softwareDesign.TripTip.domain;
+package yu.softwareDesign.TripTip.domain.receipt.domain;
 
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
+import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
+import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
 
 import java.util.List;
 

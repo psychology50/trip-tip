@@ -1,8 +1,10 @@
-package yu.softwareDesign.TripTip.domain;
+package yu.softwareDesign.TripTip.domain.participant.domain;
 
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
+import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
 
 @Entity(name="participant")
 @Table(name="PARTICIPANT")

@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip;
+package yu.softwareDesign.TripTip.domain.member.domain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

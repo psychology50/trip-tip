@@ -3,6 +3,8 @@ package yu.softwareDesign.TripTip.domain;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import yu.softwareDesign.TripTip.domain.group.domain.Group;
+import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
 
 @Entity(name="member")
 @Table(name="MEMBER")

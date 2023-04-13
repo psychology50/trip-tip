@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip.domain;
+package yu.softwareDesign.TripTip.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
