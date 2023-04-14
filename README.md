@@ -75,8 +75,184 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
 
 ### 2.2) Use case description
 
-<!-- 1. -->
-<table style="border: 2px;" width="800">
+<!-- 1. Register -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #1 : Register  </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    클라이언트가 TripTip의 기능들을 사용하기 위해 사용자 정보를 등록하는 기능
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.13
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    TripTip System이 실행되어야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    Main Page 혹은 Login Page에서 회원가입 버튼을 눌렀을 때
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    TripTip 클라이언트로 등록되며 기능들을 사용할 수 있다.
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    TripTip 클라이언트로 등록되지 않고 기능들을 사용할 수 없다.
+    </td>
+  </tr>
+  
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    클라이언트가 TripTip에 회원가입을 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    클라이언트가 회원가입 버튼을 누르면 시작한다.
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    클라이언트 정보를 입력받기 위한 페이지로 이동한다.
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    클라이언트는 아이디와 이메일 정보를 기입하고 중복체크 버튼을 누르고 사용 가능 메시지를 받는다.
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    클라이언트는 제출 양식에 맞게 나머지 필수 항목들을 작성하여 회원가입 버튼을 누른다.
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    회원가입이 완료되고, 로그인 페이지로 돌아간다.
+    </td>
+  </tr>
+  
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    3a. 닉네임 혹은 이메일이 중복되는 경우 <br/>
+    &nbsp;&nbsp;
+    3a.1. 사용할 수 없는 닉네임 혹은 이메일임을 경고창으로 알린다.<br/>
+    &nbsp;&nbsp;
+    3a.2. 회원가입 페이지로 돌아온다.
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    4a. 필수 항목을 모두 기입하지 않은 경우 <br/> 
+    &nbsp;&nbsp;
+      4a.1. 기입하지 않은 입력폼이 있음을 경고창으로 알린다.<br/>
+    &nbsp;&nbsp;
+      4a.2. 미기입 항목이 복수 개라면 최상단의 항목으로 포커싱한다.<br/>
+    4b. 유효한 패스워드 패턴이 아닌 경우 <br/>
+    &nbsp;&nbsp;
+      4b.1. <br/>
+    4c. 기존 회원 정보가 존재하는 경우 <br/>
+    &nbsp;&nbsp;
+      4c.1. <br/>
+    </td>
+  </tr>
+  
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 2. -->
+<table style="border: 2px;">
   <tr><th colspan="2"> Use Case #1 :  </th></tr>
   <!-- GENERAL CHARACTERISTICS -->
   <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
@@ -89,7 +265,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Scope</td>
     <td>
-    -
+    TripTip
     </td>
   </tr>
   <tr>
@@ -101,19 +277,19 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Author</td>
     <td>
-    -
+    YANG JAESEO
     </td>
   </tr>
   <tr>
     <td>Last Update</td>
     <td>
-    -
+    2023.04.
     </td>
   </tr>
   <tr>
     <td>Status</td>
     <td>
-    -
+    Analysis
     </td>
   </tr>
   <tr>
@@ -146,12 +322,18 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     -
     </td>
   </tr>
-  
+
   <!-- MAIN SUCCESS SCENARIO -->
   <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
   <tr>
     <td>Step</td>
     <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
   </tr>
   <tr>
     <td>1</td>
@@ -183,7 +365,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     -
     </td>
   </tr>
-  
+
   <!-- EXTENSION SCENARIOS -->
   <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
   <tr>
@@ -202,7 +384,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     -
     </td>
   </tr>
-  
+
   <!-- RELATED INFORMATION -->
   <tr><th colspan="2">RELATED INFORMATION</th></tr>
   <tr>
@@ -229,7 +411,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     -
     </td>
   </tr>
-</table>
+</table><br/>
 
 ## 3. Domain analysis
 

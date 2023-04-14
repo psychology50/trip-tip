@@ -1,7 +1,9 @@
 package yu.softwareDesign.TripTip.domain.meeting.domain;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
@@ -13,6 +15,8 @@ import java.util.List;
 @Entity(name="meeting")
 @Table(name="MEETING")
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"meeting_id"})
+@ToString(of = {"meeting_name", "is_clear"})
 public class Meeting extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long meeting_id;
@@ -35,9 +39,4 @@ public class Meeting extends BaseDateEntity {
     private Group group;
     @OneToMany(mappedBy = "meeting")
     private List<Receipt> receipts = new ArrayList<>();
-
-    @Override
-    public String toString() {
-        return this.meeting_name + " when " + this.meeting_day;
-    }
 }

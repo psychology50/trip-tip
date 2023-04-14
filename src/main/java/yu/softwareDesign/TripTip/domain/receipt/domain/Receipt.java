@@ -2,7 +2,9 @@ package yu.softwareDesign.TripTip.domain.receipt.domain;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
@@ -12,6 +14,8 @@ import java.util.List;
 @Entity(name="receipt")
 @Table(name="RECEIPT")
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"receipt_id"})
+@ToString(of = {"receipt_name", ""})
 public class Receipt extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long receipt_id;
@@ -21,6 +25,7 @@ public class Receipt extends BaseDateEntity {
     private Double total;
     @Column(name="IS_CLEAR")
     private Boolean is_clear;
+
     // 이미지 필드 추가
 
     @Builder

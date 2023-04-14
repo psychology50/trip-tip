@@ -1,9 +1,10 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3330/SpringStudy?serverTimezone=UTC&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3330/TripTip?serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: aespa0519
+
   jpa:
     show-sql: true
     hibernate:
@@ -14,6 +15,7 @@ spring:
     defer-datasource-initialization: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
   thymeleaf:
     prefix: classpath:templates/
     check-template-location: true
