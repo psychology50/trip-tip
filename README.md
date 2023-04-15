@@ -251,9 +251,9 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   </tr>
 </table><br/>
 
-<!-- 2. -->
+<!-- 2. Log in -->
 <table style="border: 2px;">
-  <tr><th colspan="2"> Use Case #1 :  </th></tr>
+  <tr><th colspan="2"> Use Case #2 : Log in </th></tr>
   <!-- GENERAL CHARACTERISTICS -->
   <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
   <tr>
@@ -412,6 +412,493 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     </td>
   </tr>
 </table><br/>
+
+<!-- 3. View user profile -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #3 : View user profile </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 4. Update user profile -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #4 : Update user profile </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 5. Delete user profile -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #5 : Delete user profile </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
 
 ## 3. Domain analysis
 
