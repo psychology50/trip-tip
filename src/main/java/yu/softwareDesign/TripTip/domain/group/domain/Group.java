@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Entity(name="member")
-@Table(name="MEMBER")
+@Entity(name="group")
+@Table(name="GROUP")
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"group_id"})
 @ToString(of = {"group_name", "group_code", "leader"})

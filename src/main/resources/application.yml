@@ -1,7 +1,9 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3330/TripTip?serverTimezone=UTC&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3330/TripTip?serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: aespa0519
 
@@ -12,9 +14,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+#        dialect: org.hibernate.dialect.Dialect
     defer-datasource-initialization: true
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
   thymeleaf:
     prefix: classpath:templates/
