@@ -12,19 +12,20 @@ import java.util.List;
 
 @Entity(name="subscriber")
 @Table(name="SUBSCRIBER")
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @EqualsAndHashCode(of = {"subscriber_id"})
 @ToString(of = {"username", "nickname"})
 public class Subscriber extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="SUBSCRIBER_ID")
+    @Column(name="SUBSCRIBER_ID", updatable = false)
     private Long subscriber_id;
 
     @Column(name = "username") @NonNull
     private String username;
     @Column(name = "password") @NonNull
     private String password;
-    @Column(name = "nickname") @NonNull
+    @Column(name = "nickname", unique = true) @NonNull
     private String nickname;
 
     @Embedded private Phone phone;
