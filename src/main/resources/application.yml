@@ -18,6 +18,12 @@ spring:
     defer-datasource-initialization: true
     database: mysql
 
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+
   thymeleaf:
     prefix: classpath:templates/
     check-template-location: true

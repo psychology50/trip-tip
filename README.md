@@ -201,9 +201,9 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     <td>
     3a. 닉네임 혹은 이메일이 중복되는 경우 <br/>
     &nbsp;&nbsp;
-    3a.1. 사용할 수 없는 닉네임 혹은 이메일임을 경고창으로 알린다.<br/>
+      3a.1. 사용할 수 없는 닉네임 혹은 이메일임을 경고창으로 알린다.<br/>
     &nbsp;&nbsp;
-    3a.2. 회원가입 페이지로 돌아온다.
+      3a.2. 회원가입 페이지로 돌아온다.
     </td>
   </tr>
   <tr>
@@ -216,10 +216,14 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
       4a.2. 미기입 항목이 복수 개라면 최상단의 항목으로 포커싱한다.<br/>
     4b. 유효한 패스워드 패턴이 아닌 경우 <br/>
     &nbsp;&nbsp;
-      4b.1. <br/>
+      4b.1. 잘못된 패스워드 패턴임을 경고창으로 알린다.<br/>
+    &nbsp;&nbsp;
+      4b.2. 패스워드 입력 항목으로 포커싱한다.<br/>
     4c. 기존 회원 정보가 존재하는 경우 <br/>
     &nbsp;&nbsp;
-      4c.1. <br/>
+      4c.1. 같은 이메일로 등록된 계정일 경우 회원 생성 불가 문구를 경고창으로 알린다.<br/>
+    &nbsp;&nbsp;
+      4c.2. 회원가입 창으로 리다이렉션한다.
     </td>
   </tr>
   
@@ -228,19 +232,19 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 2 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자 당 1번
     </td>
   </tr>
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -259,6 +263,168 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Summary</td>
     <td>
+    사용자 모두가 TripTip의 기능들을 사용하기 위해 회원 인증을 받는 기능
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.26
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 TripTip DB에 회원 정보가 등록되어 있어야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 3. Social login -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #3 : Social login </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
     -
     </td>
   </tr>
@@ -271,7 +437,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    -
+    User Level
     </td>
   </tr>
   <tr>
@@ -295,7 +461,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Primary Actor</td>
     <td>
-    -
+    User
     </td>
   </tr>
   <tr>
@@ -413,9 +579,9 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   </tr>
 </table><br/>
 
-<!-- 3. View user profile -->
+<!-- 4. View user profile -->
 <table style="border: 2px;">
-  <tr><th colspan="2"> Use Case #3 : View user profile </th></tr>
+  <tr><th colspan="2"> Use Case #4 : View user profile </th></tr>
   <!-- GENERAL CHARACTERISTICS -->
   <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
   <tr>
@@ -433,7 +599,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    -
+    User Level
     </td>
   </tr>
   <tr>
@@ -457,13 +623,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Primary Actor</td>
     <td>
-    -
+    User Level
     </td>
   </tr>
   <tr>
     <td>Preconditions</td>
     <td>
-    -
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
     </td>
   </tr>
   <tr>
@@ -575,9 +741,9 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   </tr>
 </table><br/>
 
-<!-- 4. Update user profile -->
+<!-- 5. Update user profile -->
 <table style="border: 2px;">
-  <tr><th colspan="2"> Use Case #4 : Update user profile </th></tr>
+  <tr><th colspan="2"> Use Case #5 : Update user profile </th></tr>
   <!-- GENERAL CHARACTERISTICS -->
   <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
   <tr>
@@ -595,7 +761,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    -
+    User Level
     </td>
   </tr>
   <tr>
@@ -619,13 +785,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Primary Actor</td>
     <td>
-    -
+    User
     </td>
   </tr>
   <tr>
     <td>Preconditions</td>
     <td>
-    -
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
     </td>
   </tr>
   <tr>
@@ -737,9 +903,9 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   </tr>
 </table><br/>
 
-<!-- 5. Delete user profile -->
+<!-- 6. Delete user profile -->
 <table style="border: 2px;">
-  <tr><th colspan="2"> Use Case #5 : Delete user profile </th></tr>
+  <tr><th colspan="2"> Use Case #6 : Delete user profile </th></tr>
   <!-- GENERAL CHARACTERISTICS -->
   <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
   <tr>
@@ -757,7 +923,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    -
+    User Level
     </td>
   </tr>
   <tr>
@@ -781,13 +947,3577 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Primary Actor</td>
     <td>
-    -
+    User
     </td>
   </tr>
   <tr>
     <td>Preconditions</td>
     <td>
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
     -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 7. View client list -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #7 : View client list </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    Admin Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    Administrator
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    어드민은 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 8. Delete client -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #8 : Delete client </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    Admin Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    Administrator
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    어드민은 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 9. Create group -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #9 : Create group </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 10. Search user -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #10 : Search user </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 11. Join group -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #11 : Join group </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 12. View group -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #12 : View group </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 13. Search group -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #13 : Search group </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 로그인된 상태이고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 14. Exit group -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #14 : Exit group </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 15. Create meeting -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #15 : Create meeting </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 16. View meeting -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #16 : View meeting </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 17. Search meeting -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #17 : Search meeting </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 18. Update meeting -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #18 : Update meeting </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 19. Delete meeting -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #19 : Delete meeting </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 20. Add receipt -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #20 : Add receipt </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 21. View receipt -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #21 : View receipt </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 22. Search receipt -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #22 : Search receipt </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 23. Update receipt -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #23 : Update receipt </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 24. Delete receipt -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #24 : Delete receipt </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임에 소속되어 있고 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 25. Delete group -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #25 : Delete group </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    Leader
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임의 리더 권한을 가지고 있으며 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 26. Add member -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #26 : Add member </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임의 리더 권한을 가지고 있으며 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 27. Expel member -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #27 : Expel member </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임의 리더 권한을 가지고 있으며 통신이 가능해야 한다.
+    </td>
+  </tr>
+  <tr>
+    <td>Trigger</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Success Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Failed Post Condition</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- MAIN SUCCESS SCENARIO -->
+  <tr><th colspan="2">MAIN SUCCESS SCENARIO</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Action</td>
+  </tr>
+  <tr>
+    <td>S</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- EXTENSION SCENARIOS -->
+  <tr><th colspan="2">EXTENSION SCENARIOS</th></tr>
+  <tr>
+    <td>Step</td>
+    <td>Branching Action</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>
+    -
+    </td>
+  </tr>
+
+  <!-- RELATED INFORMATION -->
+  <tr><th colspan="2">RELATED INFORMATION</th></tr>
+  <tr>
+    <td>Performance</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Frequency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Concurrency</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Due Date</td>
+    <td>
+    -
+    </td>
+  </tr>
+</table><br/>
+
+<!-- 28. Calculate cost -->
+<table style="border: 2px;">
+  <tr><th colspan="2"> Use Case #28 : Calculate cost </th></tr>
+  <!-- GENERAL CHARACTERISTICS -->
+  <tr><th colspan="2">GENERAL CHARACTERISTICS</th></tr>
+  <tr>
+    <td>Summary</td>
+    <td>
+    -
+    </td>
+  </tr>
+  <tr>
+    <td>Scope</td>
+    <td>
+    TripTip
+    </td>
+  </tr>
+  <tr>
+    <td>Level</td>
+    <td>
+    User Level
+    </td>
+  </tr>
+  <tr>
+    <td>Author</td>
+    <td>
+    YANG JAESEO
+    </td>
+  </tr>
+  <tr>
+    <td>Last Update</td>
+    <td>
+    2023.04.
+    </td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>
+    Analysis
+    </td>
+  </tr>
+  <tr>
+    <td>Primary Actor</td>
+    <td>
+    User
+    </td>
+  </tr>
+  <tr>
+    <td>Preconditions</td>
+    <td>
+    사용자는 해당 모임의 리더 권한을 가지고 있으며 통신이 가능해야 한다.
     </td>
   </tr>
   <tr>
