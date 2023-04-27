@@ -186,7 +186,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>5</td>
     <td>
-    회원가입이 완료되고, 로그인 페이지로 돌아간다.
+    이 Use case는 회원가입이 성공하면 끝나고, 로그인 페이지로 돌아간다.
     </td>
   </tr>
   
@@ -311,19 +311,19 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Trigger</td>
     <td>
-    -
+    로그인 화면에서 닉네임과 비밀번호를 입력하고 로그인을 눌렀을 때
     </td>
   </tr>
   <tr>
     <td>Success Post Condition</td>
     <td>
-    -
+    회원 인증에 성공하여 권한에 맞는 TripTip 서비스를 사용할 수 있다.
     </td>
   </tr>
   <tr>
     <td>Failed Post Condition</td>
     <td>
-    -
+    회원 인증에 실패하여 권한에 맞는 TripTip 서비스를 사용할 수 없다.
     </td>
   </tr>
 
@@ -336,37 +336,26 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>S</td>
     <td>
-    -
+    Main Page에서 로그인 버튼을 누르거나 세션이 만료되면 Login Page로 이동한다.
     </td>
   </tr>
   <tr>
     <td>1</td>
     <td>
-    -
+    사용자는 로그인 화면에서 닉네임과 비밀번호를 입력하고 로그인 버튼을 누른다.
     </td>
   </tr>
   <tr>
     <td>2</td>
     <td>
-    -
+    시스템은 입력 정보를 DB에서 조회하여 일치하는 회원 정보가 있는지 확인한다. 
+    등록된 회원이라면 회원 인증에 성공하고 Home Page로 이동한다.
     </td>
   </tr>
   <tr>
     <td>3</td>
     <td>
-    -
-    </td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>
-    -
-    </td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>
-    -
+    이 Use case는 로그인이 성공하면 끝난다.
     </td>
   </tr>
 
@@ -377,15 +366,14 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     <td>Branching Action</td>
   </tr>
   <tr>
-    <td>1</td>
-    <td>
-    -
-    </td>
-  </tr>
-  <tr>
     <td>2</td>
     <td>
-    -
+    2a. 입력되지 않은 정보가 있는경우<br/>
+    &nbsp;&nbsp;
+        2a.1. 경고창으로 알린다. 입력되지 않은 폼에 포커싱한다.<br/>
+    2b. 회원 정보가 일치하지 않는 경우<br/>
+    &nbsp;&nbsp;
+        2b.1. 아이디 혹은 비밀번호가 틀렸다는 메시지를 띄운다.<br/>
     </td>
   </tr>
 
@@ -394,19 +382,19 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    <= 2 Seconds
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 1번
     </td>
   </tr>
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -437,7 +425,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    System level
     </td>
   </tr>
   <tr>
@@ -568,7 +556,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -599,7 +587,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -730,7 +718,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -761,7 +749,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -892,7 +880,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -923,7 +911,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -1054,7 +1042,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -1085,7 +1073,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    Admin Level
+    Admin level
     </td>
   </tr>
   <tr>
@@ -1216,7 +1204,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -1247,7 +1235,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    Admin Level
+    Admin level
     </td>
   </tr>
   <tr>
@@ -1378,7 +1366,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -1409,7 +1397,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -1540,7 +1528,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -1571,7 +1559,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -1702,7 +1690,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -1733,7 +1721,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -1864,7 +1852,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -1895,7 +1883,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2026,7 +2014,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -2057,7 +2045,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2188,7 +2176,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -2219,7 +2207,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2350,7 +2338,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -2381,7 +2369,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2512,7 +2500,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -2543,7 +2531,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2674,7 +2662,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -2705,7 +2693,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2836,7 +2824,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -2867,7 +2855,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -2998,7 +2986,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -3029,7 +3017,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -3160,7 +3148,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -3191,7 +3179,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -3322,7 +3310,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -3353,7 +3341,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -3484,7 +3472,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -3515,7 +3503,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -3646,7 +3634,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -3677,7 +3665,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -3808,7 +3796,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -3839,7 +3827,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -3970,7 +3958,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -4001,7 +3989,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -4132,7 +4120,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -4163,7 +4151,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -4294,7 +4282,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -4325,7 +4313,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -4456,7 +4444,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -4487,7 +4475,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Level</td>
     <td>
-    User Level
+    User level
     </td>
   </tr>
   <tr>
@@ -4618,7 +4606,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Concurrency</td>
     <td>
-    -
+    No Limit
     </td>
   </tr>
   <tr>
@@ -4671,5 +4659,4 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
 
 
 ## 6. References
-
 
