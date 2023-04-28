@@ -38,7 +38,7 @@ Software Design Web Service
   + [1.3) Technical Goals](#1-3--technical-goals)
 - [2. Use case analysis](#2-use-case-analysis)
   + [2.1) Use case diaram](#21--use-case-diagram)
-  + [2.1) Use case description](#22--use-case-description) 
+  + [2.2) Use case description](#22--use-case-description) 
 - [3. Domain analysis](#3-domain-analysis)
 - [4. User Interface prototype](#4-user-interface-prototype)
 - [5. Glossary](#5-glossary)
@@ -71,7 +71,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
 
 ### 2.1) Use case diagram
   
-![UseCaseDiagram](https://user-images.githubusercontent.com/96044622/234626885-53fd216c-f889-4efd-aca9-a4cabf315154.png)
+![UseCaseDiagram](https://user-images.githubusercontent.com/96044622/235103894-733cd82a-3673-4239-8932-115e7136a54d.png)
 
 ### 2.2) Use case description
 
@@ -83,7 +83,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Summary</td>
     <td>
-    클라이언트가 TripTip의 기능들을 사용하기 위해 사용자 정보를 등록하는 기능
+    사용자가 TripTip의 기능들을 사용하기 위해 사용자 정보를 등록하는 기능
     </td>
   </tr>
   <tr>
@@ -137,13 +137,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Success Post Condition</td>
     <td>
-    TripTip 클라이언트로 등록되며 기능들을 사용할 수 있다.
+    TripTip 사용자로 등록되며 기능들을 사용할 수 있다.
     </td>
   </tr>
   <tr>
     <td>Failed Post Condition</td>
     <td>
-    TripTip 클라이언트로 등록되지 않고 기능들을 사용할 수 없다.
+    TripTip 사용자로 등록되지 않고 기능들을 사용할 수 없다.
     </td>
   </tr>
   
@@ -156,31 +156,31 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>S</td>
     <td>
-    클라이언트가 TripTip에 회원가입을 한다.
+    사용자가 TripTip에 회원가입을 한다.
     </td>
   </tr>
   <tr>
     <td>1</td>
     <td>
-    클라이언트가 회원가입 버튼을 누르면 시작한다.
+    사용자가 회원가입 버튼을 누르면 시작한다.
     </td>
   </tr>
   <tr>
     <td>2</td>
     <td>
-    클라이언트 정보를 입력받기 위한 페이지로 이동한다.
+    사용자 정보를 입력받기 위한 페이지로 이동한다.
     </td>
   </tr>
   <tr>
     <td>3</td>
     <td>
-    클라이언트는 아이디와 이메일 정보를 기입하고 중복체크 버튼을 누르고 사용 가능 메시지를 받는다.
+    사용자는 아이디와 이메일 정보를 기입하고 중복체크 버튼을 누르고 사용 가능 메시지를 받는다.
     </td>
   </tr>
   <tr>
     <td>4</td>
     <td>
-    클라이언트는 제출 양식에 맞게 나머지 필수 항목들을 작성하여 회원가입 버튼을 누른다.
+    사용자는 제출 양식에 맞게 나머지 필수 항목들을 작성하여 회원가입 버튼을 누른다.
     </td>
   </tr>
   <tr>
@@ -544,13 +544,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 2 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 평균 하루 1번
     </td>
   </tr>
   <tr>
@@ -575,7 +575,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Summary</td>
     <td>
-    -
+    유저가 자신의 프로필을 볼 수 있다.
     </td>
   </tr>
   <tr>
@@ -599,7 +599,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Last Update</td>
     <td>
-    2023.04.
+    2023.04.28
     </td>
   </tr>
   <tr>
@@ -623,19 +623,19 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Trigger</td>
     <td>
-    -
+    사용자가 프로필 아이콘을 클릭했을 때
     </td>
   </tr>
   <tr>
     <td>Success Post Condition</td>
     <td>
-    -
+    자신의 프로필 정보를 확인할 수 있다.
     </td>
   </tr>
   <tr>
     <td>Failed Post Condition</td>
     <td>
-    -
+    자신의 프로필 정보를 확인하지 못한다.
     </td>
   </tr>
 
@@ -648,37 +648,25 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>S</td>
     <td>
-    -
+    사용자가 서버에 저장된 자신의 정보를 확인하고 싶을 때 시작한다.
     </td>
   </tr>
   <tr>
     <td>1</td>
     <td>
-    -
+    사용자는 우상단의 프로필 아이콘을 클릭한다.
     </td>
   </tr>
   <tr>
     <td>2</td>
     <td>
-    -
+    시스템은 데이터 베이스에서 해당 사용자 정보를 조회한다.
     </td>
   </tr>
   <tr>
     <td>3</td>
     <td>
-    -
-    </td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>
-    -
-    </td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>
-    -
+    이 Use case는 프로필 정보를 화면에 렌더링하면 끝난다.
     </td>
   </tr>
 
@@ -689,15 +677,11 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
     <td>Branching Action</td>
   </tr>
   <tr>
-    <td>1</td>
-    <td>
-    -
-    </td>
-  </tr>
-  <tr>
     <td>2</td>
     <td>
-    -
+    2a. 통신 문제로 DB 조회가 실패하는 경우<br/>
+    &nbsp;&nbsp;
+    2a.1. 실패 메시지를 띄운다.
     </td>
   </tr>
 
@@ -706,13 +690,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 2번 이하
     </td>
   </tr>
   <tr>
@@ -868,13 +852,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 한 달 평균 1번
     </td>
   </tr>
   <tr>
@@ -1030,13 +1014,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 한 번
     </td>
   </tr>
   <tr>
@@ -1192,13 +1176,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 2 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -1354,13 +1338,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -1516,7 +1500,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
@@ -1678,7 +1662,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
@@ -1840,13 +1824,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -2002,13 +1986,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 5회 이상
     </td>
   </tr>
   <tr>
@@ -2164,13 +2148,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 5회 이상
     </td>
   </tr>
   <tr>
@@ -2326,13 +2310,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -2488,13 +2472,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -2650,13 +2634,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자 당 하루 평균 5회 이상
     </td>
   </tr>
   <tr>
@@ -2812,13 +2796,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 5회 이상
     </td>
   </tr>
   <tr>
@@ -2974,13 +2958,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -3136,13 +3120,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -3298,13 +3282,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -3460,13 +3444,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 5회 이상
     </td>
   </tr>
   <tr>
@@ -3622,13 +3606,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    사용자당 하루 평균 5회 이상
     </td>
   </tr>
   <tr>
@@ -3784,13 +3768,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -3946,13 +3930,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -4108,13 +4092,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -4270,13 +4254,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -4432,13 +4416,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -4594,13 +4578,13 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
   <tr>
     <td>Performance</td>
     <td>
-    -
+    < 1 second
     </td>
   </tr>
   <tr>
     <td>Frequency</td>
     <td>
-    -
+    None
     </td>
   </tr>
   <tr>
@@ -4620,43 +4604,131 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
 
 ## 3. Domain analysis
 
+![EER Diagram](https://user-images.githubusercontent.com/96044622/235119853-b0a41478-6f40-4703-87a1-0a8da98ae7c6.png)
+
 ### 1) Subscriber
+
+&nbsp;&nbsp;&nbsp;
+유저의 기본 정보를 가진다. 닉네임, 비밀번호, 프로필 사진 등. 추후 기능 확장성을 고려하여 집 주소 필드를 가지고 있다.<br/>
+&nbsp;&nbsp;&nbsp;
+Domain 이름이 Subscriber인 것은 User 이름이 이미 MySQL에서 예약어로 사용되고 있기 때문에 대체어로 채택하였다.
 
 ### 2) Member
 
+&nbsp;&nbsp;&nbsp;
+유저와 그룹의 다대다 관계를 분리하기 위한 중계 테이블이다. 유저가 그룹에 가입하면 Member 테이블에 정보가 추가된다. 유저가 그룹을 탈퇴하면 Member 테이블에서 정보가 삭제된다.
+
 ### 3) Group
+
+&nbsp;&nbsp;&nbsp;
+그룹 정보를 관리한다. leader 필드가 참조하는 유저는 해당 그룹의 생성자로서, 일반 멤버보다 많은 권한을 수행할 수 있다. 그룹에 소속된 멤버는 단기 모임이 될 수도 있지만 정기적으로 모이는 동호회나 동아리 등의 그룹이 될 수도 있다.
 
 ### 4) Meeting
 
+&nbsp;&nbsp;&nbsp;
+그룹 내에서 진행되는 다양한 모임을 분류할 수 있으며, 모임 이름과 생성일자 등을 관리하고 있다. 해당 모임에서 발생한 결제 내역에 대한 정산을 실행해도, 그룹 내 다른 진행 중인 모임에 영향을 주지 않는다.
+
 ### 5) Receipt
+
+&nbsp;&nbsp;&nbsp;
+모임 내에서 발생하는 결제 내역을 관리한다. 내역은 결제한 당사자가 작성하며, 결제 금액은 모임의 리더가 정산을 실행할 때, 모임 내의 멤버들에게 분배된다.
 
 ### 6) Participant
 
-### 7) BaseDateEntity
-
+&nbsp;&nbsp;&nbsp;
+Subscrber와 Receipt의 다대다 관계를 분리하기 위한 중계 테이블이다.
 
 ## 4. User Interface prototype
 
-### 1) Main Page
+### 1) Home Page : Not Signed
+
+![MainPage](https://user-images.githubusercontent.com/96044622/235105183-ad5d0356-38ce-47cc-9a18-b357db1aa5ed.png)
+
+&nbsp;&nbsp;&nbsp;
+사용자가 로그인 하지 않은 상태로 TripTip Main Page에 접속하면 나타나는 UI다. TripTip에 대한 소개와 로그인/회원가입 버튼이 있다.
 
 ### 2) Login Page
 
+![login](https://user-images.githubusercontent.com/96044622/235107564-d1d0077c-bfcf-40a2-8919-f4e674c9bf3c.png)
+
+&nbsp;&nbsp;&nbsp;
+사용자가 로그인 하기 버튼을 누르거나 세션이 만료된 경우, 다음과 같은 로그인 화면으로 이동한다. 가입된 회원이라면 정보를 입력 후 로그인 버튼을 누르면 메인 화면으로 넘어간다. 가입된 회원이 아닐 때 회원가입 버튼을 누르면 회원가입 화면으로 넘어간다.<br/>
+&nbsp;&nbsp;&nbsp;
+화면 하단에 소셜 로그인 버튼이 추가되어야 한다.
+
 ### 3) Register Page
 
-### 4) Create Group
+![회원가입](https://user-images.githubusercontent.com/96044622/235107698-f3c84638-5b56-4778-85b2-7e9cbe81f8a6.png)
 
-### 5) User Profile Page
+&nbsp;&nbsp;&nbsp;
+사용자가 회원가입 버튼을 누르면 회원가입 페이지로 이동한다. 회원이 입력한 정보가 유효하지 않을 경우, 회원가입 버튼을 눌러도 회원가입이 되지 않는다. 회원가입이 완료되면 로그인 페이지로 이동한다. <br/>
+&nbsp;&nbsp;&nbsp;
+페이지 좌상단에 뒤로 가기 버튼이 추가되어야 한다. 해당 버튼을 클릭하면 회원가입을 하지 않고도 다시 로그인 화면으로 이동할 수 있다.
 
-### 6) Group Page
+### 4) Home Page : Signed
 
-### 7) Join Group Page
+![SECOND MAIN](https://user-images.githubusercontent.com/96044622/235108431-964ccb28-a3ab-4b48-bdaf-3209e92b6426.png)
 
-### 8) 
+&nbsp;&nbsp;&nbsp;
+로그인을 하거나, 세션이 만료되지 않은 사용자가 TripTip Main Page에 접근했을 때 나타나는 화면이다. 우상단의 벨 모양 버튼을 누르면 최근 알림을 확인할 수 있고, 프로필 이미지를 누르면 My Profile Page로 이동한다. <br/>
+&nbsp;&nbsp;&nbsp;
+그룹 참여 및 생성 버튼이 있고 가장 최근에 가입한 4개의 그룹 리스트를 확인할 수 있다. 활동 내역을 클릭하면 전체 그룹 리스트를 확인할 수 있는 Page로 이동한다.
 
+### 5) My Profile Page
+
+![내 정보](https://user-images.githubusercontent.com/96044622/235108527-acf0b4dd-c498-461b-974c-9b7dd7cadbc2.png)
+
+&nbsp;&nbsp;&nbsp;
+사용자는 자신의 정보를 확인할 수 있다. 프로필 사진과 이름, 주 계좌번호와 정산 관련 내역들이 한 눈에 보기 쉽도록 나타난다.
+
+### 6) Group List Page
+
+![GroupList](https://user-images.githubusercontent.com/96044622/235108631-8fd549c8-2637-4f63-9245-9b744f53778a.png)
+
+### 7) Group Create Page
+
+![GroupCreate](https://user-images.githubusercontent.com/96044622/235109207-76cb0a71-4709-4418-857b-bced06ead9b2.png)
+
+### 8) User Search Page
+
+![User Search](https://user-images.githubusercontent.com/96044622/235109341-b2d2ccc4-5d38-4d18-89c9-d3b158801b97.png)
+
+### 9) Group Join Page
+
+![그룹 참여](https://user-images.githubusercontent.com/96044622/235109435-29e8dc15-3fed-4a20-ba27-497b9c027a1d.png)
+
+### 10) Group Detail Page
+
+![Group Detail](https://user-images.githubusercontent.com/96044622/235110091-163d094c-4003-4e6f-9253-46593439060c.png)
+
+### 11) Meeting Detail Page
+
+![Meeting Detail](https://user-images.githubusercontent.com/96044622/235110829-7db69308-3c7b-41e9-b17f-dde0586179c2.png)
+
+### 12) Meeting Update Page
+
+![Meeting Update](https://user-images.githubusercontent.com/96044622/235111126-ae6702af-4082-4767-a67d-82ecf82a5270.png)
+
+### 13) Receipt Create Page
+
+![N분의 1](https://user-images.githubusercontent.com/96044622/235111414-769ccd8a-5908-4355-a519-70f343c131c0.png)
+
+![직접 입력](https://user-images.githubusercontent.com/96044622/235111522-130d00bb-6962-4073-aeb1-d1b226884db7.png)
+
+### 14) Receipt Detail Page
+
+![Receipt Detail](https://user-images.githubusercontent.com/96044622/235112003-ef942e8e-d065-43e6-9f33-c9ce12663930.png)
+
+### 15) Clear Page
+
+![CLEAR](https://user-images.githubusercontent.com/96044622/235111631-ec0e8d3d-2f5a-4b06-b6a4-f81e13703a41.png)
+
+### 16) Notification Page
+
+![알림](https://user-images.githubusercontent.com/96044622/235111662-676c5033-ddca-4ee6-be8f-1d384e3e370f.png)
 
 ## 5. Glossary
 
-
-
 ## 6. References
 
+1) 하루 5분 UX, 조엘 마시 지음
