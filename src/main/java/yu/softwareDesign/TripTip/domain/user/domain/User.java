@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip.domain.subscriber.domain;
+package yu.softwareDesign.TripTip.domain.user.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @EqualsAndHashCode(of = {"subscriber_id"})
 @ToString(of = {"username", "nickname"})
-public class Subscriber extends BaseDateEntity {
+public class User extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="SUBSCRIBER_ID", updatable = false)
     private Long subscriber_id;
@@ -38,11 +38,12 @@ public class Subscriber extends BaseDateEntity {
 //    private Long file_size;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private RoleType role;
 
     @Builder
-    public Subscriber(Long subscriber_id, String username, String password, String nickname,
-                      Phone phone, Bank bank, Address address, RoleType role)
+    public User(Long subscriber_id, String username, String password, String nickname,
+                Phone phone, Bank bank, Address address, RoleType role)
     {
         this.subscriber_id = subscriber_id;
         this.username = username;
@@ -54,10 +55,10 @@ public class Subscriber extends BaseDateEntity {
         this.role = role;
     }
 
-    @OneToMany(mappedBy = "subscriber")
+    @OneToMany(mappedBy = "user")
     private List<Member> members = new ArrayList<>();
     @OneToMany(mappedBy = "leader")
     private List<Group> is_leader = new ArrayList<>();
-    @OneToMany(mappedBy = "subscriber")
+    @OneToMany(mappedBy = "user")
     private List<Participant> participants = new ArrayList<>();
 }

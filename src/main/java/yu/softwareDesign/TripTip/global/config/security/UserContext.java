@@ -1,18 +1,17 @@
 package yu.softwareDesign.TripTip.global.config.security;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
+import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.Collection;
 
-public class UserContext extends User {
-    private final Subscriber subscriber;
+public class UserContext extends org.springframework.security.core.userdetails.User {
+    private final User user;
 
-    public UserContext(Subscriber subscriber, Collection<? extends GrantedAuthority> authorities) {
-        super(subscriber.getUsername(), subscriber.getPassword(), authorities);
-        this.subscriber = subscriber;
+    public UserContext(User user, Collection<? extends GrantedAuthority> authorities) {
+        super(user.getUsername(), user.getPassword(), authorities);
+        this.user = user;
     }
 
-    Subscriber getUser() { return subscriber; }
+    User getUser() { return user; }
 }
