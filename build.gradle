@@ -35,6 +35,9 @@ dependencies {
 	// OAuth2
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
+	// Swagger
+	implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	compileOnly 'org.projectlombok:lombok'

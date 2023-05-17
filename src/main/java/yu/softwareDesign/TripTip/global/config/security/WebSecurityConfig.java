@@ -49,24 +49,25 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable(); // REST API 에서는 제거
         http.authorizeHttpRequests()
-                    .requestMatchers("/").permitAll()
+                    .requestMatchers("/", "/api/users/signup", "/api/users/signin").permitAll()
+                    .requestMatchers("/api/admin/*").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
-                    .loginPage("/login")
-                    .loginProcessingUrl("/login_proc")
                     .usernameParameter("nickname")
-                    .defaultSuccessUrl("/")
+                    .loginPage("/api/users/signin")
                     .failureHandler(authenticationFailureHandler())
+                    .loginProcessingUrl("/api/users/signin")
+                    .defaultSuccessUrl("/api")
                     .permitAll()
                 .and()
                     .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/")
+                    .logoutRequestMatcher(new AntPathRequestMatcher("api/users/logout"))
+                    .logoutSuccessUrl("/api/users/signin")
                     .invalidateHttpSession(true)
                     .permitAll();
 
-
+        http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
         return http.build();
     }
 }

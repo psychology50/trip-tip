@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
-import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
+import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 @Entity(name="participant")
 @Table(name="PARTICIPANT")
@@ -29,7 +29,7 @@ public class Participant {
     }
 
     @ManyToOne @JoinColumn(name="USER_ID")
-    private Subscriber subscriber;
+    private User user;
 
     @ManyToOne @JoinColumn(name="RECEIPT_ID")
     private Receipt receipt;

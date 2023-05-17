@@ -2,10 +2,9 @@ package yu.softwareDesign.TripTip.domain.group.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.stereotype.Component;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
-import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
+import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.UUID;
 @Entity(name="group")
 @Table(name="GROUP")
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"group_id"})
+@EqualsAndHashCode(of = {"group_id"}, callSuper=false)
 @ToString(of = {"group_name", "group_code", "leader"})
 public class Group extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,7 +34,7 @@ public class Group extends BaseDateEntity {
     }
 
     @ManyToOne @JoinColumn(name="LEADER")
-    private Subscriber leader;
+    private User leader;
     @OneToMany(mappedBy = "group")
     private List<Member> members = new ArrayList<>();
 }

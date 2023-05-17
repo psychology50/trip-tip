@@ -1,11 +1,15 @@
 package yu.softwareDesign.TripTip.domain.user.dto;
 
 import lombok.Builder;
-import yu.softwareDesign.TripTip.domain.user.domain.Address;
-import yu.softwareDesign.TripTip.domain.user.domain.Bank;
-import yu.softwareDesign.TripTip.domain.user.domain.Phone;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import yu.softwareDesign.TripTip.domain.user.domain.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class UserRegisterDto {
     private Long id;
     private String username;
@@ -20,8 +24,6 @@ public class UserRegisterDto {
     private String state;
     private String city;
     private String zipCode;
-
-    public String getNickname() {return nickname;}
 
     @Builder
     public UserRegisterDto(Long id, String username,
@@ -47,9 +49,9 @@ public class UserRegisterDto {
 
     public User toEntity() {
         return User.builder()
-                .subscriber_id(id)
+                .user_id(id)
                 .username(username)
-                .password(password)
+                .password(new BCryptPasswordEncoder().encode(password))
                 .nickname(nickname)
                 .phone(Phone.builder()
                         .local(local)
@@ -66,6 +68,7 @@ public class UserRegisterDto {
                         .city(city)
                         .zipCode(zipCode)
                         .build())
+                .role(RoleType.USER)
                 .build();
     }
 

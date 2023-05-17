@@ -1,9 +1,13 @@
-package yu.softwareDesign.TripTip.domain.subscriber.domain;
+package yu.softwareDesign.TripTip.domain.user.domain;
 
 import jakarta.persistence.Column;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+@Getter
+@NoArgsConstructor
 public class Address {
     @Column(name = "country") @NonNull
     private String country;

@@ -15,7 +15,7 @@ import java.util.List;
 @Entity(name="meeting")
 @Table(name="MEETING")
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"meeting_id"})
+@EqualsAndHashCode(of = {"meeting_id"}, callSuper=false)
 @ToString(of = {"meeting_name", "is_clear"})
 public class Meeting extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

@@ -7,6 +7,9 @@ import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserRegisterDto;
 
+/**
+ * @sample [yu.softwareDesign.TripTip.domain.user.application.UserSignServiceTest]
+ */
 @Service
 @Transactional
 @RequiredArgsConstructor

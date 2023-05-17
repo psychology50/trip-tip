@@ -1,2 +1,72 @@
+a:link, a:visited {
+    width: 100%;
+    margin: 10px 0;
 
+    padding: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+a:hover, a:active {
+    background-color: #FF4500;
+}
+.login-btn {
+    background: #0065FF;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+.register-btn {
+    background: #FFFFFF;
+    border-radius: 4px;
+    color: #000000
+}
 
+.section-box {
+    width: 800px;
+    height: 800px;
+}
+
+.right-section {
+    align-items: center;
+    margin-left: 70px;
+}
+
+.main-nav {
+    min-width: 450px;
+    height: 60%;
+
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slogan {
+    width: 100%;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150.8%;
+    /* or 54px */
+
+    text-align: start;
+    letter-spacing: 0.01em;
+    margin-bottom: 5px;
+}
+
+.description {
+    width: 100%;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    /* identical to box height */
+
+    text-align: start;
+    letter-spacing: 0.01em;
+
+    margin-bottom: 20px;
+
+    color: #747474;
+}

@@ -6,13 +6,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
-import yu.softwareDesign.TripTip.domain.subscriber.domain.Subscriber;
+import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 @Entity(name="member")
 @Table(name="MEMBER")
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"member_id"})
-@ToString(of = {"subscriber", "group"})
+@ToString(of = {"user", "group"})
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="MEMBER_ID")
@@ -23,8 +23,8 @@ public class Member {
         this.member_id = member_id;
     }
 
-    @ManyToOne @JoinColumn(name="SUBSCRIBER_ID")
-    private Subscriber subscriber;
+    @ManyToOne @JoinColumn(name="USER_ID")
+    private User user;
 
     @ManyToOne @JoinColumn(name="GROUP_ID")
     private Group group;

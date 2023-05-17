@@ -1,10 +1,13 @@
-package yu.softwareDesign.TripTip.domain.subscriber.domain;
+package yu.softwareDesign.TripTip.domain.user.domain;
 
 import jakarta.persistence.Column;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.ToString;
 
+@Getter
+@NoArgsConstructor
 public class Bank {
     @Column(name="bank_name") @NonNull
     private String bank_name;

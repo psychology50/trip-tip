@@ -14,8 +14,8 @@ import java.util.List;
 @Entity(name="receipt")
 @Table(name="RECEIPT")
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"receipt_id"})
-@ToString(of = {"receipt_name", ""})
+@EqualsAndHashCode(of = {"receipt_id"}, callSuper=false)
+@ToString(of = {"receipt_name"})
 public class Receipt extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long receipt_id;
@@ -40,9 +40,4 @@ public class Receipt extends BaseDateEntity {
     private Meeting meeting;
     @OneToMany(mappedBy = "receipt")
     private List<Participant> participants;
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }

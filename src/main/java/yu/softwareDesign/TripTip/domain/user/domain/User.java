@@ -6,20 +6,21 @@ import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
+import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name="subscriber")
-@Table(name="SUBSCRIBER")
+@Entity(name="user")
+@Table(name="USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@EqualsAndHashCode(of = {"subscriber_id"})
+@EqualsAndHashCode(of = {"user_id"}, callSuper=false)
 @ToString(of = {"username", "nickname"})
 public class User extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="SUBSCRIBER_ID", updatable = false)
-    private Long subscriber_id;
+    @Column(name="USER_ID", updatable = false)
+    private Long user_id;
 
     @Column(name = "username") @NonNull
     private String username;
@@ -42,10 +43,10 @@ public class User extends BaseDateEntity {
     private RoleType role;
 
     @Builder
-    public User(Long subscriber_id, String username, String password, String nickname,
+    public User(Long user_id, String username, String password, String nickname,
                 Phone phone, Bank bank, Address address, RoleType role)
     {
-        this.subscriber_id = subscriber_id;
+        this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.nickname = nickname;
@@ -61,4 +62,16 @@ public class User extends BaseDateEntity {
     private List<Group> is_leader = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<Participant> participants = new ArrayList<>();
+
+    public UserDto toDto() {
+        return UserDto.builder()
+                .username(username)
+                .nickname(nickname)
+                .local(phone.getLocal())
+                .local_prefix(phone.getLocal_prefix())
+                .local_suffix(phone.getLocal_suffix())
+                .bank_name(bank.getBank_name())
+                .bank_account(bank.getBank_account())
+                .build();
+    }
 }

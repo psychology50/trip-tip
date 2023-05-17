@@ -9,6 +9,9 @@ import yu.softwareDesign.TripTip.domain.user.domain.User;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @sample [yu.softwareDesign.TripTip.domain.user.application.UserSearchServiceTest]
+ */
 @Service
 @Transactional
 @RequiredArgsConstructor

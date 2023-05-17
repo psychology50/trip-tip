@@ -1,0 +1,73 @@
+.login-box {
+    width: 430px;
+
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.login-text {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.input-item {
+    box-sizing: border-box;
+    display: block;
+    margin: 20px auto;
+
+    width: 434px;
+    height: 61px;
+
+    border: 1px solid #C7C7C7;
+    border-radius: 40px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    padding-left: 20px;
+    /* identical to box height */
+
+    letter-spacing: 0.07em;
+}
+
+.login-btn {
+    display: block;
+    margin: 80px auto 0 auto;
+
+    width: 362px;
+    height: 64px;
+
+    background: #0065FF;
+    box-shadow: 0px 3px 9px #B5D2FF;
+    border-radius: 4px;
+    border-color: #0065FF;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    /* identical to box height */
+
+    letter-spacing: 0.15em;
+
+    color: #FFFFFF;
+}
+
+.go-register {
+    margin-top: 20px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 0.03em;
+
+    color: #6A6A6A;
+}
