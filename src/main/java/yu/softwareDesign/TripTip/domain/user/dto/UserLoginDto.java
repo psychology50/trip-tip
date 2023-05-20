@@ -12,10 +12,9 @@ import yu.softwareDesign.TripTip.domain.user.domain.RoleType;
 public class UserLoginDto {
     private String nickname;
     private String password;
-    private RoleType roleType;
 
     @Builder
-    public UserLoginDto(String nickname, String password, RoleType roleType) {
+    public UserLoginDto(String nickname, String password) {
         this.nickname = nickname;
         this.password = password;
 

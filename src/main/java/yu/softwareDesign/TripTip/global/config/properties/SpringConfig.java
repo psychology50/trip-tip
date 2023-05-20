@@ -3,6 +3,7 @@ package yu.softwareDesign.TripTip.global.config.properties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
 import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
 import yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo;
 import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
@@ -31,4 +32,7 @@ public class SpringConfig {
     public UserSignService userSignService() {
         return new UserSignService(userRepo);
     }
+
+    @Bean
+    public GroupSearchService groupSearchService() {return new GroupSearchService(groupRepo);}
 }

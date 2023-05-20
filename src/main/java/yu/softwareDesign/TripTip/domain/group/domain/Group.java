@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity(name="group")
-@Table(name="GROUP")
+@Table(name="GROUP_TBL")
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"group_id"}, callSuper=false)
 @ToString(of = {"group_name", "group_code", "leader"})
@@ -37,4 +37,8 @@ public class Group extends BaseDateEntity {
     private User leader;
     @OneToMany(mappedBy = "group")
     private List<Member> members = new ArrayList<>();
+
+    public String getGroup_name() {
+        return group_name;
+    }
 }

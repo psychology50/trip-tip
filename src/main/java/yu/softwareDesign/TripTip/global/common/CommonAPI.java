@@ -9,25 +9,42 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
+import yu.softwareDesign.TripTip.domain.group.domain.Group;
+import yu.softwareDesign.TripTip.domain.group.dto.RecentGroupDto;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/api")
 @RequiredArgsConstructor
 @Log4j2
 public class CommonAPI {
+    private final GroupSearchService groupSearchService;
+
     @GetMapping("")
     public String index(Authentication authentication, Model model) {
         log.info("authentication : {}", authentication);
         User user = (User) authentication.getPrincipal();
 
         UserDto userDto = null;
-        if (user != null)
+        if (user != null) {
             userDto = user.toDto();
 
+            // 추후 최적화 필요
+            List<Group> groups =  groupSearchService.findRecentGroupByUser(user);
+            List<RecentGroupDto> recentGroupDto = null;
+            for (Group group : groups) {
+                recentGroupDto.add(RecentGroupDto.builder()
+                        .group_name(group.getGroup_name()).build());
+            }
+            log.info("recentGroupDto : {}", recentGroupDto);
+        }
+
         log.info("userDto : {}", userDto);
-//        model.addAttribute("loginUser", userDto);
+        model.addAttribute("loginUser", userDto);
         return "index";
     }
 
