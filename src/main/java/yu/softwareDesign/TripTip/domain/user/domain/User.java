@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
-import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
+import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 

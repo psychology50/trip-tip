@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- *
+ * @sample [yu.softwareDesign.TripTip.domain.group.application.GroupSearchServiceTest]
  */
 @Service
 @Transactional
@@ -23,6 +23,8 @@ public class GroupSearchService {
     public Optional<Group> findGroupById(Long id) { return groupRepo.findById(id); }
 
     public List<Group> findGroupAll() {return groupRepo.findAll();}
+
+    public List<Group> findGroupByUser(User user) {return groupRepo.findGroupByUser(user);}
 
     public List<Group> findRecentGroupByUser(User user) {
         return groupRepo.findRecentGroupByUser(user, PageRequest.of(0, 3));

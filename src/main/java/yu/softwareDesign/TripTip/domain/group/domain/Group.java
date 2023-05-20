@@ -3,7 +3,7 @@ package yu.softwareDesign.TripTip.domain.group.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
-import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
+import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;

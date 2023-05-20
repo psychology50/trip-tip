@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
-import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
+import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 
 import java.util.List;
 

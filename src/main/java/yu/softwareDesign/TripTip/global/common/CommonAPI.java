@@ -1,5 +1,6 @@
 package yu.softwareDesign.TripTip.global.common;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;
@@ -17,6 +18,7 @@ import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
 import java.util.List;
 
+@Tag(name = "home", description = "HomePage API")
 @Controller
 @RequestMapping("/api")
 @RequiredArgsConstructor

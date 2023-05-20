@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
-import yu.softwareDesign.TripTip.domain.model.BaseDateEntity;
+import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
