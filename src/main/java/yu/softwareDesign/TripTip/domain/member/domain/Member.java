@@ -29,6 +29,9 @@ public class Member {
     private Group group;
 
     public void setUser(User user) {
+        if (this.user != null && this.user.equals(user)) {
+            return;
+        }
         if (this.user != null) {
             this.user.getMembers().remove(this);
         }
@@ -39,6 +42,10 @@ public class Member {
     }
 
     public void setGroup(Group group) {
+        if (this.group != null && this.group.equals(group)) {
+            return;
+        }
+
         if (this.group != null) {
             this.group.getMembers().remove(this);
         }
