@@ -36,22 +36,42 @@
         </div>
 
         <!-- 로그인 했을 시 -->
-        <div class="content-box flex" th:if="${loginUser != null}">
-            <div>
-                <section>
-                    <article>
-                        <button>그룹 참여</button>
-                        <button>그룹 생성</button>
+        <div class="content-box flex" sec:authorize="isAuthenticated()">
+            <div class="content-inner-box">
+                <section class="content-nav flex">
+                    <article class="btn-wrapper">
+                        <button class="btn-group">그룹 참여</button>
+                        <button class="btn-group">그룹 생성</button>
                     </article>
-                    <article>
-                        <p th:text="안녕하세요, ${loginUser.username}!"></p><br/>
-                        <p>Trip Tip이 여러분들의 총무가 되어드립니다.</p>
+                    <article class="description-group">
+                        <span>안녕하세요, </span>
+                        <span sec:authorize="isAuthenticated()" th:text="${loginUser.getUsername()}"></span><span>님!</span>
+                        <span>Trip Tip이 여러분들의 총무가 되어드립니다.</span>
                         <img src="/img/main_page_logo.png">
                     </article>
                 </section>
-                <section>
+                <section class="group-box">
                     <a href="@{}">활동 내역 ></a>
-
+<!--                    <table>-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th>id</th>-->
+<!--                            <th>name</th>-->
+<!--                            <th>nickname</th>-->
+<!--                            <th>email</th>-->
+<!--                            <th>phone</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                        <tr th:each="user : ${users}">-->
+<!--                            <td th:text="${user.id}" ></td>-->
+<!--                            <td><a th:text="${user.username}" th:href="@{'/users/' + ${user.id} + '/update'}"></a></td>-->
+<!--                            <td th:text="${user.nickname}"></td>-->
+<!--                            <td th:text="${user.email}"></td>-->
+<!--                            <td th:text="${user.phone}"></td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
                 </section>
             </div>
         </div>
