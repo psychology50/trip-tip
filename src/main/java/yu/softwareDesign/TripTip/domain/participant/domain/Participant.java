@@ -34,4 +34,23 @@ public class Participant {
     @ManyToOne @JoinColumn(name="RECEIPT_ID")
     private Receipt receipt;
 
+    public void setUser(User user) {
+        if (this.user != null) {
+            this.user.getParticipants().remove(this);
+        }
+        this.user = user;
+        if (user != null) {
+            user.getParticipants().add(this);
+        }
+    }
+
+    public void setReceipt(Receipt receipt) {
+        if (this.receipt != null) {
+            this.receipt.getParticipants().remove(this);
+        }
+        this.receipt = receipt;
+        if (receipt != null) {
+            receipt.getParticipants().add(this);
+        }
+    }
 }

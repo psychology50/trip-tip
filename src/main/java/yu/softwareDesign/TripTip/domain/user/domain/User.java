@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name="USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@EqualsAndHashCode(of = {"user_id"}, callSuper=false)
+//@EqualsAndHashCode(of = {"user_id"}, callSuper=false)
 @ToString(of = {"username", "nickname"})
 public class User extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

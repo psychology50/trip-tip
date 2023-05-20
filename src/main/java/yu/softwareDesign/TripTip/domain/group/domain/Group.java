@@ -2,6 +2,7 @@ package yu.softwareDesign.TripTip.domain.group.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
@@ -13,7 +14,7 @@ import java.util.UUID;
 @Entity(name="group")
 @Table(name="GROUP_TBL")
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"group_id"}, callSuper=false)
+@Getter
 @ToString(of = {"group_name", "group_code", "leader"})
 public class Group extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,8 +38,16 @@ public class Group extends BaseDateEntity {
     private User leader;
     @OneToMany(mappedBy = "group")
     private List<Member> members = new ArrayList<>();
+    @OneToMany(mappedBy = "group")
+    private List<Meeting> meetings = new ArrayList<>();
 
-    public String getGroup_name() {
-        return group_name;
+    public void setLeader(User leader) {
+        if (this.leader != null) {
+            this.leader.getIs_leader().remove(this);
+        }
+        this.leader = leader;
+        if (leader != null) {
+            leader.getIs_leader().add(this);
+        }
     }
 }

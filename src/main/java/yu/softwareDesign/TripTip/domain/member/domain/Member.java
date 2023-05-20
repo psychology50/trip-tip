@@ -11,7 +11,6 @@ import yu.softwareDesign.TripTip.domain.user.domain.User;
 @Entity(name="member")
 @Table(name="MEMBER")
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"member_id"})
 @ToString(of = {"user", "group"})
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,4 +27,24 @@ public class Member {
 
     @ManyToOne @JoinColumn(name="GROUP_ID")
     private Group group;
+
+    public void setUser(User user) {
+        if (this.user != null) {
+            this.user.getMembers().remove(this);
+        }
+        this.user = user;
+        if (user != null) {
+            user.getMembers().add(this);
+        }
+    }
+
+    public void setGroup(Group group) {
+        if (this.group != null) {
+            this.group.getMembers().remove(this);
+        }
+        this.group = group;
+        if (group != null) {
+            group.getMembers().add(this);
+        }
+    }
 }

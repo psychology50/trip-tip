@@ -2,6 +2,7 @@ package yu.softwareDesign.TripTip.domain.meeting.domain;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
@@ -15,6 +16,7 @@ import java.util.List;
 @Entity(name="meeting")
 @Table(name="MEETING")
 @NoArgsConstructor
+@Getter
 @EqualsAndHashCode(of = {"meeting_id"}, callSuper=false)
 @ToString(of = {"meeting_name", "is_clear"})
 public class Meeting extends BaseDateEntity {
@@ -39,4 +41,14 @@ public class Meeting extends BaseDateEntity {
     private Group group;
     @OneToMany(mappedBy = "meeting")
     private List<Receipt> receipts = new ArrayList<>();
+
+    public void setGroup(Group group) {
+        if (this.group != null) {
+            this.group.getMeetings().remove(this);
+        }
+        this.group = group;
+        if (group != null) {
+            group.getMeetings().add(this);
+        }
+    }
 }
