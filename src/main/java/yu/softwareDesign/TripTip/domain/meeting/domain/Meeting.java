@@ -1,10 +1,7 @@
 package yu.softwareDesign.TripTip.domain.meeting.domain;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
@@ -30,6 +27,7 @@ public class Meeting extends BaseDateEntity {
     private Boolean is_clear;
     // 이미지 필드 추가
 
+    @Builder
     public Meeting(Long meeting_id, String meeting_name, LocalDate meeting_day, Boolean is_clear) {
         this.meeting_id = meeting_id;
         this.meeting_name = meeting_name;

@@ -41,7 +41,7 @@ public class GroupManageService {
                 ? group_form.toEntity(group_form.getGroup_code())
                 : group_form.toEntity(generateGroupCode());
 
-        if (groupRepo.existsByGroupId(group.getGroup_id())) {// create
+        if (!groupRepo.existsByGroupId(group.getGroup_id())) { // create
             group.setLeader(user);
             groupRepo.saveAndFlush(group);
         }

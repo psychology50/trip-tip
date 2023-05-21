@@ -3,8 +3,11 @@ package yu.softwareDesign.TripTip.global.config.properties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import yu.softwareDesign.TripTip.domain.group.application.GroupJoinService;
+import yu.softwareDesign.TripTip.domain.group.application.GroupManageService;
 import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
 import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
+import yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService;
 import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService;
 import yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo;
 import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
@@ -38,10 +41,16 @@ public class SpringConfig {
     // group service
     @Bean
     public GroupSearchService groupSearchService() {return new GroupSearchService(groupRepo);}
+    @Bean
+    public GroupManageService groupManageService() {return new GroupManageService(groupRepo);}
+    @Bean
+    public GroupJoinService groupJoinService() {return new GroupJoinService(groupRepo, memberRepo);}
 
     // meeting service
     @Bean
     public MeetingSearchService meetingSearchService() {return new MeetingSearchService(meetingRepo);}
+    @Bean
+    public MeetingManageService meetingManageService() {return new MeetingManageService(groupRepo, meetingRepo);}
 
     // receipt service
     @Bean

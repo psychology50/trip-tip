@@ -3,8 +3,8 @@ package yu.softwareDesign.TripTip.domain.group.application;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
+import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
 import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
@@ -18,18 +18,16 @@ public class GroupJoinService {
 
     /**
      * @param user
-     * @param groupCode
+     * @param dto
      * @return Boolean
      */
-    public Boolean joinGroup(User user, String groupCode) {
-        if (groupRepo.existsByGroupCode(groupCode)) {
-            Member member = new Member();
-            member.setUser(user);
-            member.setGroup(groupRepo.findByGroupCode(groupCode).get());
-            memberRepo.save(member);
-            return true;
-        } else {
-            return false;
-        }
+    public Boolean joinGroup(User user, GroupJoinDto dto) {
+        if (!groupRepo.existsByGroupCode(dto.getGroup_code())) return false;
+
+        Member member = new Member();
+        member.setUser(user);
+        member.setGroup(groupRepo.findByGroupCode(dto.getGroup_code()).get());
+        memberRepo.save(member);
+        return true;
     }
 }
