@@ -2,14 +2,13 @@ package yu.softwareDesign.TripTip.domain.group.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
-import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity(name="group")
 @Table(name="GROUP_TBL")
@@ -28,10 +27,10 @@ public class Group extends BaseDateEntity {
     private String group_code;
 
     @Builder
-    public Group(Long group_id, @NonNull String group_name) {
+    public Group(Long group_id, @NonNull String group_name, String group_code) {
         this.group_id = group_id;
         this.group_name = group_name;
-        this.group_code = UUID.randomUUID().toString();
+        this.group_code = group_code;
     }
 
     @ManyToOne @JoinColumn(name="LEADER")

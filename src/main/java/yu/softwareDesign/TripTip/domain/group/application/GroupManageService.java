@@ -9,6 +9,10 @@ import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 /**
  * @sample [yu.softwareDesign.TripTip.domain.group.application.GroupCreateServiceTest]
  */
@@ -17,24 +21,48 @@ import yu.softwareDesign.TripTip.domain.user.domain.User;
 public class GroupManageService {
     private final GroupRepo groupRepo;
 
+    private String generateGroupCode() {
+        String code;
+        do {
+            code = UUID.randomUUID().toString();
+        } while (groupRepo.existsByGroupCode(code));
+
+        return code;
+    }
+
+    /**
+     * @param user
+     * @param group_form
+     * @return Group
+     */
     @Transactional
     public Group saveGroup(User user, GroupCreateDto group_form) {
-        Group group = group_form.toEntity();
-        group.setLeader(user);
+        Group group = (group_form.getGroup_id() != null)
+                ? group_form.toEntity(group_form.getGroup_code())
+                : group_form.toEntity(generateGroupCode());
 
-        Member member = Member.builder().build();
-        member.setUser(user); member.setGroup(group);
-
-        if (group.getGroup_id() != null) { // update
-            return groupRepo.save(group);
-        } else { // create
-            return groupRepo.saveAndFlush(group);
+        if (groupRepo.existsByGroupId(group.getGroup_id())) {// create
+            group.setLeader(user);
+            groupRepo.saveAndFlush(group);
         }
+
+        List<User> members = group_form.getMembers();
+        List<Member> memberList = new ArrayList<>();
+        if (!members.isEmpty()) {
+            members.forEach(member_user -> {
+                Member member = new Member();
+                member.setUser(member_user);
+                member.setGroup(group);
+                memberList.add(member);
+            });
+        }
+
+        return groupRepo.save(group); // update
     }
 
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
     @Transactional
-    public void resetGroup(Group group) {
+    public void clearGroup(Group group) {
 
         groupRepo.save(group);
     }
@@ -46,6 +74,7 @@ public class GroupManageService {
             member.setUser(null);
             member.setGroup(null);
         });
+        group.setLeader(null);
         groupRepo.delete(group);
     }
 }
