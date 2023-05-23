@@ -44,11 +44,10 @@
                         <button class="btn-group">그룹 생성</button>
                     </article>
                     <article class="description-group">
-                        <span>안녕하세요, </span>
-                        <span sec:authorize="isAuthenticated()" th:text="${loginUser.getUsername()}"></span><span>님!</span>
-                        <span>Trip Tip이 여러분들의 총무가 되어드립니다.</span>
-                        <img src="/img/main_page_logo.png">
+                        <p sec:authorize="isAuthenticated()" th:text="|안녕하세요, ${loginUser.getUsername()}님!|"></p>
+                        <p>Trip Tip이 여러분들의 총무가 되어드립니다.</p>
                     </article>
+                    <img src="/img/main_page_logo.png">
                 </section>
                 <section class="group-box">
                     <a href="@{}">활동 내역 ></a>

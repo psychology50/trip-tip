@@ -62,16 +62,4 @@ public class User extends BaseDateEntity {
     private List<Group> is_leader = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<Participant> participants = new ArrayList<>();
-
-    public UserDto toDto() {
-        return UserDto.builder()
-                .username(username)
-                .nickname(nickname)
-                .local(phone.getLocal())
-                .local_prefix(phone.getLocal_prefix())
-                .local_suffix(phone.getLocal_suffix())
-                .bank_name(bank.getBank_name())
-                .bank_account(bank.getBank_account())
-                .build();
-    }
 }

@@ -26,6 +26,7 @@ public class UserSearchService {
         return userRepo.findByNickname(nickname);
     }
 
+    public List<User> findUserByGroupId(Long group_id) {return userRepo.findByGroupId(group_id);}
     public List<User> findUserAll() {
         return userRepo.findAll();
     }

@@ -16,6 +16,7 @@ import yu.softwareDesign.TripTip.domain.group.dto.RecentGroupDto;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Tag(name = "home", description = "HomePage API")
@@ -31,21 +32,20 @@ public class CommonAPI {
         log.info("authentication : {}", authentication);
         User user = (User) authentication.getPrincipal();
 
-        UserDto userDto = null;
-        if (user != null) {
-            userDto = user.toDto();
+        UserDto userDto = (user != null)
+                ? UserDto.builder().username(user.getUsername())
+                                   .nickname(user.getNickname())
+                                   .address(user.getAddress())
+                                   .bank(user.getBank())
+                                   .phone(user.getPhone()).build()
+                : null;
 
-            // 추후 최적화 필요
-            List<Group> groups =  groupSearchService.findRecentGroupByUser(user);
-            List<RecentGroupDto> recentGroupDto = null;
-            for (Group group : groups) {
-                recentGroupDto.add(RecentGroupDto.builder()
-                        .group_name(group.getGroup_name()).build());
-            }
-            log.info("recentGroupDto : {}", recentGroupDto);
-        }
+        // TODO: 최적화 필요
+        if (user != null)
+            groupSearchService.findRecentGroupByUser(user).forEach(group -> userDto.addGroup(group));
 
         log.info("userDto : {}", userDto);
+        log.info("userDto.groups : {}", userDto.getGroupList());
         model.addAttribute("loginUser", userDto);
         return "index";
     }

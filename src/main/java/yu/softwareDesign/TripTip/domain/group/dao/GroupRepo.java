@@ -17,12 +17,12 @@ public interface GroupRepo extends JpaRepository<Group, Long> {
     @Query("SELECT g FROM group g JOIN g.members m WHERE m.user = :user ORDER BY g.created_date DESC")
     List<Group> findRecentGroupByUser(@Param("user") User user, Pageable pageable);
 
-    @Query("SELECT g FROM group g WHERE g.group_code = :groupCode")
-    Optional<Group> findByGroupCode(@Param("group_code")String group_code);
+    @Query("SELECT g FROM group g WHERE g.group_code = :group_code")
+    Optional<Group> findByGroupCode(@Param("group_code") String group_code);
 
-    @Query("SELECT case when count(g) > 0 then true else false end from group g where g.group_id = :groupId")
-    Boolean existsByGroupId(Long groupId);
+    @Query("SELECT case when count(g) > 0 then true else false end from group g where g.group_id = :group_id")
+    Boolean existsByGroupId(Long group_id);
 
-    @Query("SELECT case when count(g) > 0 then true else false end from group g where g.group_code = :groupCode")
-    Boolean existsByGroupCode(String groupCode);
+    @Query("SELECT case when count(g) > 0 then true else false end from group g where g.group_code = :group_code")
+    Boolean existsByGroupCode(String group_code);
 }

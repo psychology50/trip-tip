@@ -12,6 +12,7 @@ import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService
 import yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo;
 import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
 import yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo;
+import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService;
 import yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
@@ -55,6 +56,7 @@ public class SpringConfig {
     // receipt service
     @Bean
     public ReceiptSearchService receiptSearchService() {return new ReceiptSearchService(receiptRepo);}
-
+    @Bean
+    public ReceiptManageService receiptManageService() {return new ReceiptManageService(meetingRepo, receiptRepo, participantRepo);}
 
 }

@@ -1,7 +1,14 @@
 package yu.softwareDesign.TripTip.domain.user.dto;
 
 import lombok.*;
+import yu.softwareDesign.TripTip.domain.group.domain.Group;
+import yu.softwareDesign.TripTip.domain.user.domain.Address;
+import yu.softwareDesign.TripTip.domain.user.domain.Bank;
+import yu.softwareDesign.TripTip.domain.user.domain.Phone;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,17 +22,19 @@ public class UserDto {
     private String local_suffix;
     private String bank_name;
     private String bank_account;
+    private List<Group> groupList = new ArrayList<>();
 
     @Builder
     public UserDto(String username, String nickname,
-                   String local, String local_prefix, String local_suffix,
-                   String bank_name, String bank_account) {
+                   Address address, Bank bank, Phone phone) {
         this.username = username;
         this.nickname = nickname;
-        this.local = local;
-        this.local_prefix = local_prefix;
-        this.local_suffix = local_suffix;
-        this.bank_name = bank_name;
-        this.bank_account = bank_account;
+        this.local = phone.getLocal();
+        this.local_prefix = phone.getLocal_prefix();
+        this.local_suffix = phone.getLocal_suffix();
+        this.bank_name = bank.getBank_name();
+        this.bank_account = bank.getBank_account();
     }
+
+    public void addGroup(Group group) { groupList.add(group); }
 }

@@ -3,6 +3,7 @@ package yu.softwareDesign.TripTip.domain.receipt.dto;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
+import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,8 @@ public class ReceiptSelectDto {
     private Double total;
     private Boolean is_clear;
 
-    List<Participant> participants = new ArrayList<>();
+    // user 닉네임 정보와 각 cost 수집
+    private List<User> users;
 
     @Builder
     public ReceiptSelectDto(Long receipt_id, String receipt_name, Double total, Boolean is_clear) {
@@ -31,7 +33,7 @@ public class ReceiptSelectDto {
                 .receipt_id(receipt_id)
                 .receipt_name(receipt_name)
                 .total(total)
-                .is_clear(Boolean.FALSE)
+                .is_clear(is_clear)
                 .build();
     }
 }
