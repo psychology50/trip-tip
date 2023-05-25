@@ -15,6 +15,9 @@ public interface UserRepo extends JpaRepository<User, Long> {
     @Query("SELECT u FROM user u INNER JOIN u.members m WHERE m.group.group_id = :group_id")
     List<User> findByGroupId(@Param("group_id") Long group_id);
 
+    @Query("SELECT u FROM user u INNER JOIN u.participants p WHERE p.receipt.receipt_id = :receipt_id")
+    List<User> findByReceiptId(Long receipt_id);
+
     @Query("select case when count(u) > 0 then true else false end from user u where u.nickname = :nickname")
     Boolean existsByNickname(String nickname);
 }

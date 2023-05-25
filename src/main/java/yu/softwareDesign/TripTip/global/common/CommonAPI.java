@@ -21,13 +21,18 @@ import java.util.List;
 
 @Tag(name = "home", description = "HomePage API")
 @Controller
-@RequestMapping("/api")
+@RequestMapping("")
 @RequiredArgsConstructor
 @Log4j2
 public class CommonAPI {
     private final GroupSearchService groupSearchService;
 
     @GetMapping("")
+    public String home() {
+        return "redirect:/api";
+    }
+
+    @GetMapping("/api")
     public String index(Authentication authentication, Model model) {
         log.info("authentication : {}", authentication);
         User user = (User) authentication.getPrincipal();
@@ -50,7 +55,7 @@ public class CommonAPI {
         return "index";
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/api/admin")
     public String admin(@SessionAttribute(value = "admin", required = false) UserDto admin, Model model) {
         log.info("admin : {}", admin);
         model.addAttribute("admin", admin);

@@ -19,6 +19,7 @@ public class ReceiptSelectDto {
 
     // user 닉네임 정보와 각 cost 수집
     private List<User> users;
+    private List<Participant> participants;
 
     @Builder
     public ReceiptSelectDto(Long receipt_id, String receipt_name, Double total, Boolean is_clear) {
@@ -35,5 +36,9 @@ public class ReceiptSelectDto {
                 .total(total)
                 .is_clear(is_clear)
                 .build();
+    }
+
+    public void addParticipant(Participant participant) {
+        participants.add(participant);
     }
 }

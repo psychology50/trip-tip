@@ -16,7 +16,7 @@
       <h1 class="bold">TRIP TIP</h1>
     </header>
 
-    <div>
+    <div class="content-box flex">
       <form th:action="@{'/api/groups/' + ${group_id} + '/meetings/' + ${meeting_id} + '/receipts/create'}" th:object="${receiptSelectDto}" method="post">
         <table>
           <tbody>

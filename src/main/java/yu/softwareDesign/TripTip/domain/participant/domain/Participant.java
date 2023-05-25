@@ -1,15 +1,13 @@
 package yu.softwareDesign.TripTip.domain.participant.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 @Entity(name="participant")
 @Table(name="PARTICIPANT")
+@Getter
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"participant_id"})
 @ToString(of = {"cost"})

@@ -40,7 +40,7 @@ public class UserAPI {
         model.addAttribute("userRegisterDto", new UserRegisterDto());
         log.info("회원 가입 페이지 : {}", model.getAttribute("userRegisterDto"));
 
-        return "users/signUpPage";
+        return "users/SignUpPage";
     }
 
     @Operation(summary = "회원 가입", description = "회원 가입 처리")
@@ -64,7 +64,7 @@ public class UserAPI {
         model.addAttribute("userLoginDto", new UserLoginDto());
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
-        return "users/signInPage";
+        return "users/SignInPage";
     }
 
     @Operation(summary = "로그아웃", description = "로그아웃 처리")
@@ -75,7 +75,39 @@ public class UserAPI {
         if (authentication != null) {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
-        return "users/signInPage";
+        return "users/SignInPage";
+    }
+
+    @Operation(summary = "유저 프로필", description = "유저 개인 정보와 영수증 정보들을 확인할 수 있는 페이지")
+    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
+    @GetMapping("/{user_id}/detail")
+    public String profileRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+
+        return "users/UserProfilePage";
+    }
+
+    @Operation(summary = "유저 프로필 편집 페이지", description = "유저 개인 정보 수정 페이지")
+    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
+    @GetMapping("/{user_id}/")
+    public String profileUpdatePageRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+
+        return "users/UserEditPage";
+    }
+
+    @Operation(summary = "유저 프로필 편집", description = "유저 개인 정보 편집")
+    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
+    @PostMapping("/{user_id}/")
+    public RedirectView profileUpdateRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+
+        return new RedirectView("api/users/" + user_id + "/detail");
+    }
+
+    @Operation(summary = "알림 페이지", description = "유저의 알림을 확인할 수 있는 페이지")
+    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
+    @GetMapping("/{user_id}/notify")
+    public String notifyPageRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+
+        return "users/NotifyPage";
     }
 
     @Operation(summary = "접근 거부", description = "접근 거부 페이지")
@@ -86,6 +118,6 @@ public class UserAPI {
         User user = (User) authentication.getPrincipal();
         model.addAttribute("username", user.getUsername());
         model.addAttribute("exception", exception);
-        return "users/deniedPage";
+        return "users/DeniedPage";
     }
 }

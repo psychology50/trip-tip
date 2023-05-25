@@ -9,4 +9,7 @@ import java.util.List;
 public interface ParticipantRepo extends JpaRepository<Participant, Long> {
     @Query("SELECT p FROM participant p WHERE p.receipt.receipt_id = :receipt_id")
     List<Participant> findByReceiptId(Long receipt_id);
+
+    @Query("SELECT p FROM participant p WHERE p.receipt.meeting.meeting_id = :meeting_id")
+    List<Participant> findByMeetingId(Long meeting_id);
 }

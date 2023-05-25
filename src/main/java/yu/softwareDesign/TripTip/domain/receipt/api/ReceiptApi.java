@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
+import yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService;
+import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService;
 import yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo;
@@ -29,6 +31,7 @@ public class ReceiptApi {
     private final ReceiptSearchService receiptSearchService;
     private final ReceiptManageService receiptManageService;
     private final UserSearchService userSearchService;
+    private final ParticipantSearchService participantSearchService;
 
     @GetMapping("/create")
     public String createForm(@PathVariable(value = "group_id") Long group_id,
@@ -37,7 +40,13 @@ public class ReceiptApi {
         ReceiptSelectDto receiptSelectDto = ReceiptSelectDto.builder()
                 .total(Double.NaN)
                 .is_clear(Boolean.FALSE).build();
-        receiptSelectDto.setUsers(userSearchService.findUserByGroupId(group_id));
+        List<User> users = userSearchService.findUserByGroupId(group_id);
+        receiptSelectDto.setUsers(users);
+        for (int i=0; i<users.size(); i++) {
+            receiptSelectDto.addParticipant(Participant.builder()
+                    .cost(Double.NaN)
+                    .is_clear(Boolean.FALSE).build());
+        }
 
         log.info("Receipt Create Form : {}", receiptSelectDto.getUsers());
 
@@ -53,7 +62,7 @@ public class ReceiptApi {
                                Authentication authentication) {
         log.info("user_list = {}", receiptSelectDto);
         log.info("user_list = {}", receiptSelectDto.getUsers());
-        receiptManageService.selectPay(receiptSelectDto, (User)authentication.getPrincipal(), meeting_id);
+        receiptManageService.selectPay(receiptSelectDto, (User)authentication.getPrincipal(), group_id, meeting_id);
 
 //        return new RedirectView("/api");
     }

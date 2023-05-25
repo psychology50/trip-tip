@@ -57,6 +57,6 @@ public class SpringConfig {
     @Bean
     public ReceiptSearchService receiptSearchService() {return new ReceiptSearchService(receiptRepo);}
     @Bean
-    public ReceiptManageService receiptManageService() {return new ReceiptManageService(meetingRepo, receiptRepo, participantRepo);}
+    public ReceiptManageService receiptManageService() {return new ReceiptManageService(userRepo, meetingRepo, receiptRepo, participantRepo);}
 
 }
