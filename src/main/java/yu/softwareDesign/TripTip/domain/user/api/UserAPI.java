@@ -24,6 +24,11 @@ import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserLoginDto;
 import yu.softwareDesign.TripTip.domain.user.dto.UserRegisterDto;
 
+/**
+ * User API
+ * 회원 가입, 로그인, 로그아웃, 회원 정보 수정, 회원 탈퇴
+ *
+ */
 @Tag(name = "users", description = "User API")
 @Controller
 @RequestMapping("/api/users")
@@ -33,6 +38,11 @@ public class UserAPI {
     private final UserSearchService userSearchService;
     private final UserSignService userSignService;
 
+    /**
+     * 회원 가입 페이지
+     * @param Model
+     * @return 회원 가입 페이지
+     */
     @Operation(summary = "회원 가입", description = "회원 가입 페이지")
     @GetMapping("/signup")
     public String registerRequest(Model model) {
@@ -43,6 +53,11 @@ public class UserAPI {
         return "users/SignUpPage";
     }
 
+    /**
+     * 회원 가입 처리
+     * @param form
+     * @return 로그인 페이지
+     */
     @Operation(summary = "회원 가입", description = "회원 가입 처리")
     @PostMapping("/signup")
     public RedirectView registerResponse(UserRegisterDto form) {
@@ -51,6 +66,13 @@ public class UserAPI {
         return new RedirectView("users/signInPage");
     }
 
+    /**
+     * 로그인 페이지
+     * @param error
+     * @param exception
+     * @param model
+     * @return 로그인 페이지
+     */
     @Operation(summary = "로그인", description = "로그인 페이지")
     @Parameters({
             @Parameter(name = "error", description = "로그인 실패 시 에러 메시지"),
@@ -67,6 +89,12 @@ public class UserAPI {
         return "users/SignInPage";
     }
 
+    /**
+     * 로그인 처리
+     * @param request
+     * @param response
+     * @return 메인 페이지
+     */
     @Operation(summary = "로그아웃", description = "로그아웃 처리")
     @GetMapping("/logout")
     public String logoutRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -78,38 +106,77 @@ public class UserAPI {
         return "users/SignInPage";
     }
 
+    // TODO: 구현
+    /**
+     * 유저 프로필 페이지
+     * @param model
+     * @return 유저 프로필 페이지
+     */
     @Operation(summary = "유저 프로필", description = "유저 개인 정보와 영수증 정보들을 확인할 수 있는 페이지")
-    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
-    @GetMapping("/{user_id}/detail")
-    public String profileRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+    @GetMapping("/detail")
+    public String profileRequest(Model model) {
 
         return "users/UserProfilePage";
     }
 
+    // TODO: 구현
+    /**
+     * 유저 프로필 편집 페이지
+     * @param model
+     * @return 유저 프로필 편집 페이지
+     */
     @Operation(summary = "유저 프로필 편집 페이지", description = "유저 개인 정보 수정 페이지")
-    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
-    @GetMapping("/{user_id}/")
-    public String profileUpdatePageRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+    @GetMapping("/update")
+    public String profileUpdatePageRequest(Model model) {
 
         return "users/UserEditPage";
     }
 
+    // TODO: 구현
+    /**
+     * 유저 프로필 편집 처리
+     * @param model
+     * @return 유저 프로필 페이지
+     */
     @Operation(summary = "유저 프로필 편집", description = "유저 개인 정보 편집")
-    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
-    @PostMapping("/{user_id}/")
-    public RedirectView profileUpdateRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+    @PostMapping("/update")
+    public RedirectView profileUpdateRequest(Model model) {
 
-        return new RedirectView("api/users/" + user_id + "/detail");
+        return new RedirectView("api/users/detail");
     }
 
+    // TODO: 구현
+    /**
+     * 알림 페이지
+     * @param model
+     * @return 알림 페이지
+     */
     @Operation(summary = "알림 페이지", description = "유저의 알림을 확인할 수 있는 페이지")
-    @Parameters({@Parameter(name = "user_id", description = "유저 아이디")})
-    @GetMapping("/{user_id}/notify")
-    public String notifyPageRequest(@RequestParam(value="user_id", required = true) Long user_id, Model model) {
+    @GetMapping("/notify")
+    public String notifyPageRequest(Model model) {
 
         return "users/NotifyPage";
     }
 
+    // TODO: 구현
+    /**
+     * 회원 탈퇴 페이지
+     * @param model
+     * @return 회원 탈퇴 페이지
+     */
+    @Operation(summary = "회원 탈퇴", description = "회원 탈퇴 페이지")
+    @GetMapping("/delete")
+    public RedirectView deleteRequest(Model model) {
+
+        return new RedirectView("/api");
+    }
+
+    /**
+     * 접근 거부 페이지
+     * @param exception
+     * @param model
+     * @return 접근 거부 페이지
+     */
     @Operation(summary = "접근 거부", description = "접근 거부 페이지")
     @Parameters({@Parameter(name = "exception", description = "접근 거부 시 예외 메시지")})
     @GetMapping("/denied")

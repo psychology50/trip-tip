@@ -30,6 +30,13 @@ spring:
     suffix: .html
     cache: false
 
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:58080
+#        instance:
+#          name: jayang
+
 logging:
   level:
     org.hibernate.sql: debug

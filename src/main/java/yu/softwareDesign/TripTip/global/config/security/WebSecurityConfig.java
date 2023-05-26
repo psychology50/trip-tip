@@ -1,5 +1,6 @@
 package yu.softwareDesign.TripTip.global.config.security;
 
+import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.security.ConditionalOnDefaultWebSecurity;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -44,6 +45,10 @@ public class WebSecurityConfig {
         return accessDeniedHandler;
     }
 
+//    private providerAdminServer(AdminServerProperties adminServerProperties) {
+//        return
+//    }
+
     @Bean
     @Order(SecurityProperties.BASIC_AUTH_ORDER)
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -65,7 +70,10 @@ public class WebSecurityConfig {
                     .logoutRequestMatcher(new AntPathRequestMatcher("api/users/logout"))
                     .logoutSuccessUrl("/api/users/signin")
                     .invalidateHttpSession(true)
-                    .permitAll();
+                    .permitAll()
+                .and()
+                    .httpBasic();
+
 
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler());
         return http.build();

@@ -11,6 +11,7 @@ import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -36,7 +37,7 @@ public class GroupManageService {
      * @return Group
      */
     @Transactional
-    public Group saveGroup(User user, GroupCreateDto group_form) {
+    public Optional<Group> saveGroup(User user, GroupCreateDto group_form) {
         Group group = (group_form.getGroup_id() != null)
                 ? group_form.toEntity(group_form.getGroup_code())
                 : group_form.toEntity(generateGroupCode());
@@ -57,7 +58,7 @@ public class GroupManageService {
             });
         }
 
-        return groupRepo.save(group); // update
+        return Optional.ofNullable(groupRepo.save(group)); // update
     }
 
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
@@ -69,7 +70,10 @@ public class GroupManageService {
 
     // TODO: group과 관련된 모든 정보를 삭제해야 함
     @Transactional
-    public void deleteGroup(Group group) {
+    public void deleteGroup(Long group_id) {
+        Group group = groupRepo.findById(group_id).orElseThrow(() ->
+                new IllegalArgumentException("해당 그룹이 존재하지 않습니다.")
+        );
         group.getMembers().forEach(member -> {
             member.setUser(null);
             member.setGroup(null);
