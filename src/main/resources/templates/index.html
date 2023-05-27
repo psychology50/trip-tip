@@ -29,8 +29,8 @@
                         저희가 합니다, 그 총무!
                     </h1>
                     <p class="description flex-item">Trip Tip으로 쉽게 정산하세요.</p>
-                    <a th:href="@{'/api/users/signin'}" class="login-btn bold">로그인</a>
-                    <a th:href="@{'/api/users/signup'}" class="register-btn bold">회원가입</a>
+                    <a th:href="@{'/api/users/signin'}" class="submit-a-group login-btn bold">로그인</a>
+                    <a th:href="@{'/api/users/signup'}" class="submit-a-group register-btn bold">회원가입</a>
                 </article>
             </section>
         </div>
@@ -39,18 +39,20 @@
         <div class="content-box flex" sec:authorize="isAuthenticated()">
             <div class="content-inner-box">
                 <section class="content-nav flex">
-                    <article class="btn-wrapper">
-                        <button class="btn-group">그룹 참여</button>
-                        <button class="btn-group">그룹 생성</button>
+                    <form class="group-search-form" th:action="@{/api/groups/join}" th:object="${groupJoinDto}" method="post">
+                        <input type="text" id="group-code-input" class="bold" th:field="*{group_code}" placeholder="그룹 코드">
+                        <button type="submit" class="btn-group bold">그룹 참여</button>
+                    </form>
+                    <article class="description-group flex">
+                        <p class="description" sec:authorize="isAuthenticated()">
+                            안녕하세요, [[${loginUser.getUsername()}]]님! <br/>
+                            Trip Tip이 여러분들의 총무가 되어드립니다.
+                        </p>
+                        <img src="/img/main_page_logo.png">
                     </article>
-                    <article class="description-group">
-                        <p sec:authorize="isAuthenticated()" th:text="|안녕하세요, ${loginUser.getUsername()}님!|"></p>
-                        <p>Trip Tip이 여러분들의 총무가 되어드립니다.</p>
-                    </article>
-                    <img src="/img/main_page_logo.png">
                 </section>
                 <section class="group-box">
-                    <a href="@{}">활동 내역 ></a>
+                    <a class="group-list-btn" th:href="@{/api/groups/list}">활동 내역 ></a>
 <!--                    <table>-->
 <!--                        <thead>-->
 <!--                        <tr>-->
@@ -72,6 +74,9 @@
 <!--                        </tbody>-->
 <!--                    </table>-->
                 </section>
+                <div class="flex" style="justify-content: flex-end; margin-top: 15px;">
+                    <button class="btn-group bold" type="button" th:onclick="|location.href='@{/api/groups/create}'|">그룹 생성</button>
+                </div>
             </div>
         </div>
     </div>

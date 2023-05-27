@@ -1,5 +1,4 @@
 a:link, a:visited {
-    width: 100%;
     margin: 10px 0;
 
     padding: 15px 0px;
@@ -11,11 +10,13 @@ a:hover, a:active {
     background-color: #FF4500;
 }
 .login-btn {
+    width: 100%;
     background: #0065FF;
     border-radius: 4px;
     color: #FFFFFF;
 }
 .register-btn {
+    width: 100%;
     background: #FFFFFF;
     border-radius: 4px;
     color: #000000
@@ -54,25 +55,46 @@ a:hover, a:active {
     margin-bottom: 5px;
 }
 
-.description {
-    width: 100%;
+#group-code-input {
+    box-sizing: border-box;
+
+    width: 447px;
+    height: 65px;
+
+    background: #FFFFFF;
+    border: 3px solid #B5D2FF;
+    border-radius: 97px;
+    padding-left: 20px;
+
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 26px;
-    /* identical to box height */
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.07em;
 
-    text-align: start;
-    letter-spacing: 0.01em;
-
-    margin-bottom: 20px;
-
-    color: #747474;
+    margin-right: 15px;
 }
 
 .content-nav {
     justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.description-group {
+    width: 450px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    /* or 29px */
+
+    color: #282828;
 }
 
 .btn-group {
@@ -83,6 +105,17 @@ a:hover, a:active {
     box-shadow: 0px 2px 7px rgba(181, 210, 255, 0.4);
     border-radius: 4px;
     border-color: #0065FF;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.15em;
+
+    color: #FFFFFF;
 }
 
 .btn-group:hover {
@@ -90,10 +123,32 @@ a:hover, a:active {
 }
 
 .group-box {
+    box-sizing: border-box;
+
     width: 1342px;
     height: 394px;
+
+    padding: 10px 40px;
 
     background: #FFFFFF;
     box-shadow: 0px 3px 15px rgba(0, 101, 255, 0.15);
     border-radius: 5px;
+}
+
+.group-list-btn {
+    width: auto;
+    height: 45px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 43px;
+    letter-spacing: 0.03em;
+
+    color: #0065FF;
+}
+
+.group-list-btn:hover {
+    background-color: #FFFFFF;
 }

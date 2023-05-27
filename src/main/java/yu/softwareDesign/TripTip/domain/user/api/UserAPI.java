@@ -40,7 +40,7 @@ public class UserAPI {
 
     /**
      * 회원 가입 페이지
-     * @param Model
+     * @param model
      * @return 회원 가입 페이지
      */
     @Operation(summary = "회원 가입", description = "회원 가입 페이지")

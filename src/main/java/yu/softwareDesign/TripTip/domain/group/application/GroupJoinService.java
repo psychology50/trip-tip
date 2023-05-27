@@ -21,7 +21,7 @@ public class GroupJoinService {
      * @param dto
      * @return Boolean
      */
-    public Boolean joinGroup(User user, GroupJoinDto dto) {
+    public boolean joinGroup(User user, GroupJoinDto dto) {
         if (!groupRepo.existsByGroupCode(dto.getGroup_code())) return false;
 
         Member member = new Member();
