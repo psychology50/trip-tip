@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <title>Trip Tip</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/groups/create_form.css">
 </head>
 <body>
 <div id="wrapper">
@@ -17,7 +18,39 @@
   </header>
 
   <div class="content-box flex">
+    <form id="group-create-form" th:action="@{/api/groups/save}" th:object="${groupCreateDto}" th:method="post">
+      <h3>그룹 이름</h3>
 
+      <label th:for="group_name"></label><br/>
+      <input class="group-name-input" th:field="*{group_name}" placeholder="그룹 이름 입력" required/>
+
+      <p class="member-count">그룹 0명</p>
+
+      <div class="member-box">
+        <table class="member-list">
+          <tbody>
+          <tr class="member-item">
+            <td>
+              <input type="checkbox" th:checked=true disabled/>
+            </td>
+            <td class="profile"><img src="/icon/ic_boy1.png" alt="default profile img"></td>
+            <td class="name" th:text="${leader.username}"></td>
+            <td class="nickname" th:text="${leader.nickname}"></td>
+          </tr>
+          <tr class="member-item add-member">
+            <td>
+              <input type="checkbox" th:checked=true />
+            </td>
+            <td class="profile"><img src="/icon/ic_girl1.png" alt="default profile img"></td> <!-- user_profile -->
+            <td class="name">유저1</td> <!-- user_name -->
+            <td class="nickname">닉네임</td> <!-- user_nickname -->
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flex" style="justify-content: center"><button class="submit-btn" type="submit">그룹 만들기</button></div>
+    </form>
   </div>
 </div>
 </body>

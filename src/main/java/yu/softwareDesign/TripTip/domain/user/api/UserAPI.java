@@ -13,14 +13,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
 import yu.softwareDesign.TripTip.domain.user.application.UserSignService;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
 import yu.softwareDesign.TripTip.domain.user.dto.UserLoginDto;
 import yu.softwareDesign.TripTip.domain.user.dto.UserRegisterDto;
 
@@ -64,6 +62,23 @@ public class UserAPI {
         log.info("회원 가입 처리 : {}", form);
         userSignService.register(form);
         return new RedirectView("users/signInPage");
+    }
+
+    /**
+     * 비동기 유저 검색
+     * @param keyword
+     * @return 유저 정보
+     */
+    @GetMapping("/search")
+    @ResponseBody
+    public UserDefaultDto addUser(@RequestParam("keyword") String keyword) {
+        User user = userSearchService.findUserByNickname(keyword).orElseThrow(()
+                        -> new IllegalArgumentException("해당 사용자가 존재하지 않습니다."));
+
+        UserDefaultDto newUserDto = UserDefaultDto.builder()
+                .username(user.getUsername()).nickname(user.getNickname()).build();
+
+        return newUserDto;
     }
 
     /**

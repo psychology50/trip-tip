@@ -54,7 +54,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable(); // REST API 에서는 제거
         http.authorizeHttpRequests()
-                    .requestMatchers("/", "/api/users/signup", "/api/users/signin").permitAll()
+                    .requestMatchers("/", "/api", "/api/users/signup", "/api/users/signin").permitAll()
                     .requestMatchers("/api/admin/*").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and()

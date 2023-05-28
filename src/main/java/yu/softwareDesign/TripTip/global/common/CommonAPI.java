@@ -32,7 +32,7 @@ public class CommonAPI {
     @GetMapping("/api")
     public String index(Authentication authentication, Model model) {
         log.info("authentication : {}", authentication);
-        User user = (User) authentication.getPrincipal();
+        User user = (authentication != null) ? (User) authentication.getPrincipal() : null;
 
         UserDto userDto = (user != null)
                 ? UserDto.builder().username(user.getUsername())
@@ -44,10 +44,9 @@ public class CommonAPI {
 
         // TODO: 최적화 필요
         if (user != null)
-            groupSearchService.findRecentGroupByUser(user).forEach(group -> userDto.addGroup(group));
+            groupSearchService.findRecentGroupByUser(user).forEach(userDto::addGroup);
 
         log.info("userDto : {}", userDto);
-        log.info("userDto.groups : {}", userDto.getGroupList());
         model.addAttribute("loginUser", userDto);
         model.addAttribute("groupJoinDto", new GroupJoinDto());
         return "index";

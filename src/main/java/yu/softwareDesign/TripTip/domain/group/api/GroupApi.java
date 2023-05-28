@@ -1,15 +1,16 @@
 package yu.softwareDesign.TripTip.domain.group.api;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.group.application.GroupJoinService;
 import yu.softwareDesign.TripTip.domain.group.application.GroupManageService;
@@ -17,6 +18,7 @@ import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
 
 @Tag(name = "groups", description = "Group API")
 @Controller
@@ -36,9 +38,13 @@ public class GroupApi {
      */
     @Operation(summary = "그룹 생성 페이지", description = "그룹을 생성할 수 있는 페이지")
     @GetMapping("/create")
-    public String groupCreateRequest(Model model) {
+    public String groupCreateRequest(Authentication authentication, Model model) {
         model.addAttribute("groupCreateDto", new GroupCreateDto());
         log.info("그룹 생성 페이지 : {}", model.getAttribute("groupCreateDto"));
+
+        User user = (User)authentication.getPrincipal();
+        UserDefaultDto leader_info = UserDefaultDto.builder().username(user.getUsername()).nickname(user.getNickname()).build();
+        model.addAttribute("leader", leader_info);
 
         return "groups/GroupCreatePage";
     }
@@ -123,7 +129,7 @@ public class GroupApi {
     @PostMapping("/join")
     public RedirectView groupJoinRequest(GroupJoinDto dto, Authentication authentication) {
         boolean flag = groupJoinService.joinGroup((User) authentication.getPrincipal(), dto);
-        return new RedirectView("/api/groups");
+        return new RedirectView("/api/groups/list");
     }
 
     /**

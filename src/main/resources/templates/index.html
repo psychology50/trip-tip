@@ -19,7 +19,7 @@
 
         <!-- 로그인 안 했을 시 -->
         <div class="content-box flex" th:if="${loginUser == null}">
-            <section class="section-box">
+            <section class="section-box" style="margin-left: 200px">
                 <img src="/img/main_page_image.png" alt="main_img">
             </section>
             <section class="section-box right-section flex">
@@ -28,7 +28,7 @@
                         이번 모임 총부하실 분..? <br/>
                         저희가 합니다, 그 총무!
                     </h1>
-                    <p class="description flex-item">Trip Tip으로 쉽게 정산하세요.</p>
+                    <p class="slogan-description flex-item">Trip Tip으로 쉽게 정산하세요.</p>
                     <a th:href="@{'/api/users/signin'}" class="submit-a-group login-btn bold">로그인</a>
                     <a th:href="@{'/api/users/signup'}" class="submit-a-group register-btn bold">회원가입</a>
                 </article>
