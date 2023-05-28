@@ -9,11 +9,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class UserDefaultDto {
+    private Long user_id;
     private String username;
     private String nickname;
 
     @Builder
-    public UserDefaultDto(String username, String nickname) {
+    public UserDefaultDto(Long user_id, String username, String nickname) {
+        this.user_id = user_id;
         this.username = username;
         this.nickname = nickname;
     }

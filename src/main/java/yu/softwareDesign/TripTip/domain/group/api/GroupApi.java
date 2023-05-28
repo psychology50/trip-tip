@@ -26,7 +26,6 @@ import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
 @RequiredArgsConstructor
 @Log4j2
 public class GroupApi {
-    //update(get, post), delete(post)
     private final GroupJoinService groupJoinService;
     private final GroupSearchService groupSearchService;
     private final GroupManageService groupManageService;
@@ -88,6 +87,7 @@ public class GroupApi {
     @Operation(summary = "그룹 목록 페이지", description = "그룹 목록을 확인할 수 있는 페이지")
     @GetMapping("/list")
     public String groupListRequest(Authentication authentication, Model model) {
+        model.addAttribute("groupList", groupSearchService.findGroupByUser((User)authentication.getPrincipal()));
         return "groups/GroupListPage";
     }
 

@@ -1,5 +1,6 @@
 package yu.softwareDesign.TripTip.domain.user.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
@@ -11,6 +12,7 @@ import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"members", "is_leader", "participants"})
 @Entity(name="user")
 @Table(name="USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

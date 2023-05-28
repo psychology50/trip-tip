@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -66,19 +67,22 @@ public class UserAPI {
 
     /**
      * 비동기 유저 검색
-     * @param keyword
+     * @param nickname
      * @return 유저 정보
      */
     @GetMapping("/search")
     @ResponseBody
-    public UserDefaultDto addUser(@RequestParam("keyword") String keyword) {
-        User user = userSearchService.findUserByNickname(keyword).orElseThrow(()
-                        -> new IllegalArgumentException("해당 사용자가 존재하지 않습니다."));
+    public ResponseEntity<UserDefaultDto> searchUser(@RequestParam("nickname") String nickname) {
+        User user = userSearchService.findUserByNickname(nickname).orElse(null);
+        log.info("유저 검색 : {}", user);
 
-        UserDefaultDto newUserDto = UserDefaultDto.builder()
-                .username(user.getUsername()).nickname(user.getNickname()).build();
-
-        return newUserDto;
+        return (user != null)
+                ? ResponseEntity.ok().body(UserDefaultDto.builder()
+                    .user_id(user.getUser_id())
+                    .username(user.getUsername())
+                    .nickname(user.getNickname())
+                    .build())
+                : ResponseEntity.notFound().build();
     }
 
     /**

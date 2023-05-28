@@ -27,6 +27,8 @@
       <p class="member-count">그룹 0명</p>
 
       <div class="member-box">
+        <input id="user-search-bar" placeholder="유저 검색">
+
         <table class="member-list">
           <tbody>
           <tr class="member-item">
@@ -37,14 +39,14 @@
             <td class="name" th:text="${leader.username}"></td>
             <td class="nickname" th:text="${leader.nickname}"></td>
           </tr>
-          <tr class="member-item add-member">
-            <td>
-              <input type="checkbox" th:checked=true />
-            </td>
-            <td class="profile"><img src="/icon/ic_girl1.png" alt="default profile img"></td> <!-- user_profile -->
-            <td class="name">유저1</td> <!-- user_name -->
-            <td class="nickname">닉네임</td> <!-- user_nickname -->
-          </tr>
+<!--          <tr class="member-item add-member">-->
+<!--            <td>-->
+<!--              <input type="checkbox" th:checked=true />-->
+<!--            </td>-->
+<!--            <td class="profile"><img src="/icon/ic_girl1.png" alt="default profile img"></td> &lt;!&ndash; user_profile &ndash;&gt;-->
+<!--            <td class="name">유저1</td> &lt;!&ndash; user_name &ndash;&gt;-->
+<!--            <td class="nickname">닉네임</td> &lt;!&ndash; user_nickname &ndash;&gt;-->
+<!--          </tr>-->
           </tbody>
         </table>
       </div>
@@ -53,5 +55,6 @@
     </form>
   </div>
 </div>
+<script src="/js/groupCreate.js"></script>
 </body>
 </html>
