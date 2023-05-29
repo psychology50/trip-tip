@@ -71,12 +71,15 @@
 
 .list-title {
     box-sizing: border-box;
-    padding: 25px
+    padding: 25px;
+    margin-bottom: 20px;
 }
 
 .meeting-item {
     width: 466px;
     height: 71px;
+
+    margin: 10px auto;
 
     background: #EDF4FF;
     border-radius: 6px;
@@ -84,24 +87,16 @@
 .meeting-item:hover {
     background: #DCEBFF;
 }
-.meeting-item:nth-child(1) {
+#meeting-day {
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 23px;
 
-    color: #0065FF;
-}
-.meeting-item:nth-child(2) {
-    text-align: end;
-    font-family: 'Noto Sans KR';
-    font-style: normal;
-    font-weight: 350;
-    font-size: 12px;
-    line-height: 17px;
+    margin: auto 25px;
 
-    color: #7E7E7E;
+    color: #0065FF;
 }
 
 .result {

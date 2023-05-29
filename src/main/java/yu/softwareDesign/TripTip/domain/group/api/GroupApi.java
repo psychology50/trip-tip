@@ -17,8 +17,12 @@ import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupDetailDto;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
+import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
+
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 @Tag(name = "groups", description = "Group API")
 @Controller
@@ -80,8 +84,11 @@ public class GroupApi {
                 .group_id(group.getGroup_id())
                 .group_name(group.getGroup_name())
                 .group_code(group.getGroup_code())
-                .meetings(group.getMeetings())
-                .leader(group.getLeader().getUsername())
+                .meetings(group.getMeetings().stream()
+                                             .sorted(Comparator.comparing(Meeting::getMeeting_day).reversed())
+                                             .collect(Collectors.toList()))
+                .leader_id(group.getLeader().getUser_id())
+                .leader_username(group.getLeader().getUsername())
                 .build());
         return "groups/GroupDetailPage";
     }

@@ -23,25 +23,29 @@
         <img class="group-image" src="/img/trip_tip_logo.png" alt="그룹 로고">
         <p class="group-code" th:text="*{group_code}"></p>
         <p class="group-name" th:text="*{group_name}"></p>
-        <p class="leader" th:text="*{leader}"></p>
+        <p class="leader" th:text="*{leader_username}"></p>
+        <input id="group-id" type="hidden" th:value="*{group_id}">
         <button class="btn-group meeting-add-btn bold">모임 추가</button>
       </section>
+
       <section class="meeting-list">
         <h3 class="list-title">미팅 목록</h3>
         <article class="meeting-item flex" th:each="m, stat : *{meetings}">
-          <p th:text="${m.meeting_name}"></p>
-          <p th:text="${m.meeting_day}"></p>
+          <input id="meeting-id" th:value="${m.meeting_id}" type="hidden">
+          <p id="meeting-day" th:text="${m.meeting_day}"></p>
         </article>
       </section>
+
       <section class="result">
         <article class="total-cost bold">
             <h3>총 비용</h3>
             <p class="cost bold">0원</p>
         </article>
-        <button class="btn-group clear-btn bold">정산하기</button>
+        <button class="btn-group clear-btn bold" th:onclick="|location.href='@{/api/groups/clear}'|">정산하기</button>
       </section>
     </div>
   </div>
+  <script src="/js/meetings/meetingCreate.js"></script>
 </div>
 </body>
 </html>

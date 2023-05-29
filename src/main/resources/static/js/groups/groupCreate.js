@@ -108,7 +108,7 @@ groupCreateForm.addEventListener("submit", (e) => {
             const group_id = JSON.parse(xhr.responseText);
             console.log(group_id);
             alert("그룹 생성에 성공했습니다.");
-            window.location.href = "/api/group/" + group_id + "/detail";
+            window.location.href = "/api/groups/" + group_id + "/detail";
         } else {
             // 오류 처리
             console.error(xhr.responseText);

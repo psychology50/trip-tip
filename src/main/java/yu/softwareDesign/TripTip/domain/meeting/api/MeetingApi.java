@@ -1,18 +1,23 @@
 package yu.softwareDesign.TripTip.domain.meeting.api;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService;
 import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService;
-import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingCreateDto;
+import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
+import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingListDto;
+
+import java.time.LocalDate;
 
 @Tag(name = "meetings", description = "Meeting API")
 @Controller
@@ -20,40 +25,14 @@ import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingCreateDto;
 @RequiredArgsConstructor
 @Log4j2
 public class MeetingApi {
-    MeetingSearchService meetingSearchService;
-    MeetingManageService meetingManageService;
+    private final MeetingSearchService meetingSearchService;
+    private final MeetingManageService meetingManageService;
 
-    // create(get, post), update(get, post), delete(post), list(get), detail(get)
-
-    // TODO
-    /**
-     * 모임 생성 페이지
-     * @param group_id
-     * @param model
-     * @return 모임 생성 페이지
-     */
-    @Operation(summary = "모임 생성 페이지", description = "모임을 생성할 수 있는 페이지")
-    @GetMapping("/create")
-    public String meetingCreatePageRequest(@PathVariable(name = "group_id") Long group_id, Model model) {
-
-        return "meetings/MeetingCreatePage";
-    }
-
-    // TODO
-    /**
-     * 모임 생성 및 수정 요청
-     * @param group_id
-     * @param dto
-     * @return 모임 목록 페이지
-     */
     @Operation(summary = "모임 생성 및 수정 요청", description = "모임을 생성 및 수정 요청")
-    @PostMapping("/save")
-    public RedirectView meetingSaveRequest(@PathVariable(name = "group_id") Long group_id, MeetingCreateDto dto) {
-
-
-        return (dto.getMeeting_id() != null)
-            ? new RedirectView("/api/groups/" + group_id + "/meetings/" + dto.getMeeting_id() + "/detail")
-            : new RedirectView("/api/groups/" + group_id + "/detail");
+    @GetMapping("/save")
+    public ResponseEntity<MeetingListDto> meetingSaveRequest(@PathVariable(name = "group_id") Long group_id) {
+        Meeting m = meetingManageService.save(group_id);
+        return ResponseEntity.ok(MeetingListDto.builder().meeting_id(m.getMeeting_id()).meeting_day(m.getMeeting_day()).build());
     }
 
     // TODO
