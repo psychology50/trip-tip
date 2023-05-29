@@ -45,25 +45,25 @@ public class GroupManageService {
         Group group = (group_form.getGroup_id() != null)
                 ? group_form.toEntity(group_form.getGroup_code())
                 : group_form.toEntity(generateGroupCode());
-
+        User leader = userRepo.findById(user.getUser_id()).orElseThrow(() ->
+                new IllegalArgumentException("해당 유저가 존재하지 않습니다."));
 
         if (!groupRepo.existsByGroupId(group.getGroup_id())) { // create
-            group.setLeader(userRepo.findById(user.getUser_id()).orElseThrow(() ->
-                    new IllegalArgumentException("해당 유저가 존재하지 않습니다.")));
+            group.setLeader(leader);
             groupRepo.saveAndFlush(group);
         }
 
         List<User> members = group_form.getMembers();
         List<Member> memberList = new ArrayList<>();
-        if (!members.isEmpty()) {
-            members.forEach(member_user -> {
-                Member member = new Member();
-                member.setUser(member_user);
-                member.setGroup(group);
-                memberList.add(member);
-            });
-            memberRepo.saveAll(memberList);
-        }
+
+        members.add(leader);
+        members.forEach(member_user -> {
+            Member member = new Member();
+            member.setUser(member_user);
+            member.setGroup(group);
+            memberList.add(member);
+        });
+        memberRepo.saveAll(memberList);
 
         return Optional.of(group); // update
     }

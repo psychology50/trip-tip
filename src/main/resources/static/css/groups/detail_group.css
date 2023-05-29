@@ -1,0 +1,162 @@
+.btn-group {
+    width: 236px;
+    height: 39px;
+    border-radius: 4px;
+    border: 1px solid #0065FF;
+}
+
+.content-inner-box {
+    width: 1040px;
+    height: 524px;
+    justify-content: space-between;
+}
+
+.group-profile {
+    width: 236px;
+    height: 396px;
+}
+
+.group-image {
+    width: 236px;
+    height: 157px;
+    border-radius: 4px;
+}
+
+.group-code {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 16px;
+    line-height: 23px;
+
+    color: #747474;
+}
+.group-name {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 46px;
+
+    color: #0065FF;
+}
+.leader {
+    margin-bottom: 25px;
+}
+
+.meeting-add-btn {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+
+    color: #0065FF;
+    background-color: #FFFFFF;
+}
+.meeting-add-btn:hover {
+    background-color: #F5F5F5;
+}
+
+.meeting-list {
+    width: 514px;
+    min-height: 524px;
+    overflow: auto;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3px 7px rgba(0, 101, 255, 0.15);
+    border-radius: 4px;
+}
+
+.list-title {
+    box-sizing: border-box;
+    padding: 25px
+}
+
+.meeting-item {
+    width: 466px;
+    height: 71px;
+
+    background: #EDF4FF;
+    border-radius: 6px;
+}
+.meeting-item:hover {
+    background: #DCEBFF;
+}
+.meeting-item:nth-child(1) {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+
+    color: #0065FF;
+}
+.meeting-item:nth-child(2) {
+    text-align: end;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 12px;
+    line-height: 17px;
+
+    color: #7E7E7E;
+}
+
+.result {
+    width: 236px;
+    height: 231px;
+}
+.total-cost {
+    box-sizing: border-box;
+    padding: 15px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3px 7px rgba(0, 101, 255, 0.15);
+    border-radius: 4px;
+
+    margin-bottom: 25px;
+}
+.total-cost > h3 {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #282828;
+    border-bottom: 1px solid #B5D2FF;
+}
+
+.cost {
+    text-align: end;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 46px;
+    letter-spacing: 0.095em;
+
+    color: #0065FF;
+}
+
+.clear-btn {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+
+    color: #FFFFFF;
+
+    background: #0065FF;
+}
+.clear-btn:hover {
+    background: #0052CC;
+}
+

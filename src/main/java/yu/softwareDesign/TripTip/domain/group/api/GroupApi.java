@@ -13,7 +13,9 @@ import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.group.application.GroupJoinService;
 import yu.softwareDesign.TripTip.domain.group.application.GroupManageService;
 import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
+import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
+import yu.softwareDesign.TripTip.domain.group.dto.GroupDetailDto;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
@@ -73,7 +75,14 @@ public class GroupApi {
     @Operation(summary = "그룹 상세 페이지", description = "해당 그룹의 상세한 정보를 확인할 수 있는 페이지")
     @GetMapping("/{group_id}/detail")
     public String groupDetailRequest(@PathVariable(value="group_id", required = true) Long group_id, Model model) {
-
+        Group group = groupSearchService.findGroupById(group_id).orElseGet(null);
+        model.addAttribute("groupDetailDto", GroupDetailDto.builder()
+                .group_id(group.getGroup_id())
+                .group_name(group.getGroup_name())
+                .group_code(group.getGroup_code())
+                .meetings(group.getMeetings())
+                .leader(group.getLeader().getUsername())
+                .build());
         return "groups/GroupDetailPage";
     }
 

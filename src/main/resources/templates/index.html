@@ -53,26 +53,14 @@
                 </section>
                 <section class="group-box">
                     <a class="group-list-btn" th:href="@{/api/groups/list}">활동 내역 ></a>
-<!--                    <table>-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th>id</th>-->
-<!--                            <th>name</th>-->
-<!--                            <th>nickname</th>-->
-<!--                            <th>email</th>-->
-<!--                            <th>phone</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        <tr th:each="user : ${users}">-->
-<!--                            <td th:text="${user.id}" ></td>-->
-<!--                            <td><a th:text="${user.username}" th:href="@{'/users/' + ${user.id} + '/update'}"></a></td>-->
-<!--                            <td th:text="${user.nickname}"></td>-->
-<!--                            <td th:text="${user.email}"></td>-->
-<!--                            <td th:text="${user.phone}"></td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
+
+                    <div class="recent-group-list flex" th:if="${!loginUser.groupList.isEmpty()}" th:object="${loginUser}">
+                        <div class="group-item" th:each="g, stat : *{groupList}">
+                            <input id="group-id" th:value="${g.group_id}" type="hidden">
+                            <p class="bold" style="margin: 15px" th:text="${g.group_name}"></p>
+<!--                            <img th:src="${}" alt="group_image">-->
+                        </div>
+                    </div>
                 </section>
                 <div class="flex" style="justify-content: flex-end; margin-top: 15px;">
                     <button class="btn-group bold" type="button" th:onclick="|location.href='@{/api/groups/create}'|">그룹 생성</button>
@@ -80,5 +68,6 @@
             </div>
         </div>
     </div>
+    <script src="/js/moveGroupDetail.js"></script>
 </body>
 </html>

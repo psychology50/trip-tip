@@ -81,6 +81,35 @@ a:hover, a:active {
     margin-right: 15px;
 }
 
+.recent-group-list {
+    box-sizing: border-box;
+    padding-top: 25px;
+    justify-content: space-between;
+}
+
+.group-item {
+    box-sizing: border-box;
+
+    width: 381px;
+    height: 176px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+
+    color: #000000;
+
+
+    background: #F9F9F9;
+    border-radius: 14px;
+}
+
+.group-item:hover {
+    background: #EAEAEA;
+}
+
 .content-nav {
     justify-content: space-between;
     margin-bottom: 15px;
