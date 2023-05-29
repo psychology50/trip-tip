@@ -7,6 +7,7 @@ import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
+import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -30,7 +31,12 @@ public class MeetingManageService {
     }
 
     @Transactional
-    public void deleteMeeting(Long meeting_id) {
-        meetingRepo.deleteById(meeting_id);
+    public void deleteMeeting(User user, Long meeting_id) {
+        Meeting meeting = meetingRepo.findById(meeting_id).orElseThrow(() ->
+                new IllegalArgumentException("해당 모임이 존재하지 않습니다."));
+        if (!meeting.getGroup().getLeader().getUser_id().equals(user.getUser_id())) {
+            throw new IllegalArgumentException("모임을 삭제할 권한이 없습니다.");
+        }
+        meetingRepo.delete(meeting);
     }
 }

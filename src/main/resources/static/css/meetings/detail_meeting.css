@@ -1,0 +1,101 @@
+.meeting-date {
+    margin-bottom: 25px;
+}
+
+.receipt-add-btn {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+
+    color: #FFFFFF;
+
+    background: #0065FF;
+    margin-bottom: 15px;
+}
+.receipt-add-btn:hover {
+    background: #0052CC;
+}
+
+.meeting-del-btn {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+
+    color: #0065FF;
+    background-color: #FFFFFF;
+}
+.meeting-del-btn:hover {
+    background-color: #F5F5F5;
+}
+
+.receipt-list {
+    width: 514px;
+    min-height: 716px;
+    overflow: auto;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3px 7px rgba(0, 101, 255, 0.15);
+    border-radius: 4px;
+}
+
+.receipt-item {
+    width: 466px;
+    height: 157px;
+
+    margin: 10px auto;
+
+    background: #EDF4FF;
+    border-radius: 6px;
+}
+.receipt-item:hover {
+    background: #DCEBFF;
+}
+
+.result {
+    width: 236px;
+    height: 231px;
+}
+.total-cost {
+    box-sizing: border-box;
+    padding: 15px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 3px 7px rgba(0, 101, 255, 0.15);
+    border-radius: 4px;
+
+    margin-bottom: 25px;
+}
+.total-cost > h3 {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #282828;
+    border-bottom: 1px solid #B5D2FF;
+}
+
+.cost {
+    text-align: end;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 46px;
+    letter-spacing: 0.095em;
+
+    color: #0065FF;
+}
+
+
+

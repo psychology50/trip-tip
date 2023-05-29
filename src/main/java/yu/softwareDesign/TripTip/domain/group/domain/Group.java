@@ -1,5 +1,6 @@
 package yu.softwareDesign.TripTip.domain.group.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
@@ -10,6 +11,7 @@ import yu.softwareDesign.TripTip.domain.user.domain.User;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"members", "meetings"})
 @Entity(name="group")
 @Table(name="GROUP_TBL")
 @NoArgsConstructor

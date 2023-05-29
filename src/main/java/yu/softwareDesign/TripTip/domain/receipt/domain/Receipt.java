@@ -22,15 +22,21 @@ public class Receipt extends BaseDateEntity {
     private Double total;
     @Column(name="IS_CLEAR")
     private Boolean is_clear;
+    @Column(name="PAYER_ID")
+    private Long payer_id;
+    @Column(name="PAYER_NAME")
+    private String payer_name;
 
     // 이미지 필드 추가
 
     @Builder
-    public Receipt(Long receipt_id, String receipt_name, Double total, Boolean is_clear) {
+    public Receipt(Long receipt_id, String receipt_name, Double total, Boolean is_clear, Long payer_id, String payer_name) {
         this.receipt_id = receipt_id;
         this.receipt_name = receipt_name;
-        this.total = Double.NaN;
-        this.is_clear = Boolean.FALSE;
+        this.total = total;
+        this.is_clear = is_clear;
+        this.payer_id = payer_id;
+        this.payer_name = payer_name;
     }
 
     @ManyToOne @JoinColumn(name="MEETING_ID")

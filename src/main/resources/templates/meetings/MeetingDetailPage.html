@@ -8,6 +8,8 @@
   <meta charset="UTF-8">
   <title>Trip Tip</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/groups/detail_group.css">
+  <link rel="stylesheet" href="/css/meetings/detail_meeting.css">
 </head>
 <body>
 <div id="wrapper">
@@ -17,8 +19,37 @@
   </header>
 
   <div class="content-box flex">
+    <div class="content-inner-box flex" th:object="${meetingDetailDto}">
+      <section class="group-profile">
+        <img class="group-image" src="/img/trip_tip_logo.png" alt="그룹 로고">
+        <p class="group-code" th:text="*{group.group_code}"></p>
+        <p class="group-name" th:text="*{group.group_name}"></p>
+        <p class="leader-meeting" th:text="*{leader_username}"></p>
+        <p class="meeting-date" th:text="*{meeting_day}"></p>
+        <input id="group-id" type="hidden" th:value="*{group.group_id}">
+        <input id="meeting-id" type="hidden" th:value="*{meeting_id}">
+        <button class="btn-group receipt-add-btn bold">영수증 추가</button>
+        <button class="btn-group meeting-del-btn bold">모임 삭제</button>
+      </section>
 
+      <section class="receipt-list">
+        <h3 class="list-title">결제 내역</h3>
+        <article class="receipt-item flex" th:each="r, stat : *{receipts}">
+          <input id="receipt-id" th:value="${r.receipt_id}" type="hidden">
+          <p id="receipt-name" th:text="${r.receipt_name}"></p>
+          <p id="payer-name" th:text="${r.payer_name}"></p>
+        </article>
+      </section>
+
+      <section class="result">
+        <article class="total-cost bold">
+          <h3>총 비용</h3>
+          <p class="cost bold">0원</p>
+        </article>
+      </section>
+    </div>
   </div>
 </div>
+<script src="/js/meetings/meetingDetail.js"></script>
 </body>
 </html>

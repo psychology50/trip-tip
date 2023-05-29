@@ -34,24 +34,32 @@ public class ReceiptApi {
     private final ParticipantSearchService participantSearchService;
 
     @GetMapping("/create")
-    public String createForm(@PathVariable(value = "group_id") Long group_id,
+    public String createForm(Authentication authentication,
+                             @PathVariable(value = "group_id") Long group_id,
                              @PathVariable(value = "meeting_id") Long meeting_id,
                              Model model) {
+        User user = (User)authentication.getPrincipal();
         ReceiptSelectDto receiptSelectDto = ReceiptSelectDto.builder()
                 .total(Double.NaN)
-                .is_clear(Boolean.FALSE).build();
-        List<User> users = userSearchService.findUserByGroupId(group_id);
-        receiptSelectDto.setUsers(users);
-        for (int i=0; i<users.size(); i++) {
-            receiptSelectDto.addParticipant(Participant.builder()
-                    .cost(Double.NaN)
-                    .is_clear(Boolean.FALSE).build());
-        }
+                .is_clear(Boolean.FALSE)
+                .payer_id(user.getUser_id())
+                .payer_name(user.getUsername())
+                .users(userSearchService.findUserByGroupId(group_id))
+                .build();
+
+        receiptSelectDto.getUsers().forEach(u -> {
+                    Participant p = Participant.builder()
+                            .cost(Double.NaN)
+                            .is_clear(Boolean.FALSE)
+                            .build();
+                    p.setUser(u);
+                    receiptSelectDto.addParticipant(p);
+        });
 
         log.info("Receipt Create Form : {}", receiptSelectDto.getUsers());
 
         model.addAttribute("receiptSelectDto", receiptSelectDto);
-        return "/groups/meetings/receipts/createReceipts";
+        return "/receipts/ReceiptCreatePage";
     }
 
     // TODO: users를 잘 받아오긴 하나, Redirection을 하면 에러가 발생하는 것에 주의

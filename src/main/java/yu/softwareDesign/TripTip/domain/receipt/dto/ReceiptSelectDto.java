@@ -16,17 +16,22 @@ public class ReceiptSelectDto {
     private String receipt_name;
     private Double total;
     private Boolean is_clear;
+    private Long payer_id;
+    private String payer_name;
 
     // user 닉네임 정보와 각 cost 수집
     private List<User> users;
     private List<Participant> participants;
 
     @Builder
-    public ReceiptSelectDto(Long receipt_id, String receipt_name, Double total, Boolean is_clear) {
+    public ReceiptSelectDto(Long receipt_id, String receipt_name, Double total, Boolean is_clear, Long payer_id, String payer_name, List<User> users) {
         this.receipt_id = receipt_id;
         this.receipt_name = receipt_name;
         this.total = total;
         this.is_clear = is_clear;
+        this.payer_id = payer_id;
+        this.payer_name = payer_name;
+        this.users = users;
     }
 
     public Receipt toEntity() {
@@ -35,6 +40,7 @@ public class ReceiptSelectDto {
                 .receipt_name(receipt_name)
                 .total(total)
                 .is_clear(is_clear)
+                .payer_id(payer_id)
                 .build();
     }
 
