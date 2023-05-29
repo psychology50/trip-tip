@@ -1,4 +1,6 @@
 const userSearchBar = document.getElementById("user-search-bar");
+const groupCreateForm = document.getElementById("group-create-form");
+
 const memberList = [];
 
 const getInputValue = () => {
@@ -74,5 +76,47 @@ const addUserToTable = (user) => {
     nicknameCell.textContent = user.nickname;
     nicknameCell.classList.add("nickname");
 }
+
+groupCreateForm.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+    }
+});
+
+groupCreateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const groupName = document.querySelector(".group-name-input").value;
+    const memberData = memberList.map((user) => (
+            {
+                user_id: user.user_id,
+                username: user.username,
+                nickname: user.nickname,
+            }
+        ));
+    const requestBody = {
+        group_name: groupName,
+        members: memberData,
+    };
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/groups/save", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // 응답 데이터 처리
+            const group_id = JSON.parse(xhr.responseText);
+            console.log(group_id);
+            alert("그룹 생성에 성공했습니다.");
+            window.location.href = "/api/group/" + group_id + "/detail";
+        } else {
+            // 오류 처리
+            console.error(xhr.responseText);
+            alert("그룹 생성에 실패했습니다.");
+        }
+    }
+    xhr.send(JSON.stringify(requestBody));
+});
+
 
 getInputValue();

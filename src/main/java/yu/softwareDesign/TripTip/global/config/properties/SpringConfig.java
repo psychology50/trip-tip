@@ -43,7 +43,7 @@ public class SpringConfig {
     @Bean
     public GroupSearchService groupSearchService() {return new GroupSearchService(groupRepo);}
     @Bean
-    public GroupManageService groupManageService() {return new GroupManageService(groupRepo);}
+    public GroupManageService groupManageService() {return new GroupManageService(groupRepo, userRepo, memberRepo);}
     @Bean
     public GroupJoinService groupJoinService() {return new GroupJoinService(groupRepo, memberRepo);}
 

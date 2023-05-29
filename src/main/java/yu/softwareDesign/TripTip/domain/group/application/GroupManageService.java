@@ -6,7 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
+import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
+import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;
@@ -21,6 +23,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class GroupManageService {
     private final GroupRepo groupRepo;
+    private final UserRepo userRepo;
+    private final MemberRepo memberRepo;
 
     private String generateGroupCode() {
         String code;
@@ -37,13 +41,15 @@ public class GroupManageService {
      * @return Group
      */
     @Transactional
-    public Optional<Group> saveGroup(User user, GroupCreateDto group_form) {
+    public Optional<Group> save(User user, GroupCreateDto group_form) {
         Group group = (group_form.getGroup_id() != null)
                 ? group_form.toEntity(group_form.getGroup_code())
                 : group_form.toEntity(generateGroupCode());
 
+
         if (!groupRepo.existsByGroupId(group.getGroup_id())) { // create
-            group.setLeader(user);
+            group.setLeader(userRepo.findById(user.getUser_id()).orElseThrow(() ->
+                    new IllegalArgumentException("해당 유저가 존재하지 않습니다.")));
             groupRepo.saveAndFlush(group);
         }
 
@@ -56,9 +62,10 @@ public class GroupManageService {
                 member.setGroup(group);
                 memberList.add(member);
             });
+            memberRepo.saveAll(memberList);
         }
 
-        return Optional.ofNullable(groupRepo.save(group)); // update
+        return Optional.of(group); // update
     }
 
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
