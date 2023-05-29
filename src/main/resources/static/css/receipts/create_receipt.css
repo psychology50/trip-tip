@@ -1,0 +1,126 @@
+.receipt-list {
+    box-sizing: border-box;
+    padding: 20px 40px;
+}
+
+.calc-method {
+    margin: 20px auto;
+    justify-content: space-between;
+
+    width: 306px;
+    height: 38px;
+}
+
+.select-btn {
+    border: none;
+    background: none;
+    text-align: center;
+
+    width: 90px;
+    height: 29px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: 0.03em;
+
+    color: #282828;
+}
+
+
+.total {
+    display: block;
+    width: 388px;
+    margin: 40px auto 50px auto;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 55px;
+    text-align: center;
+    /* identical to box height */
+
+    letter-spacing: 0.095em;
+
+    color: #000000;
+
+    border: none;
+    border-bottom: 1px solid #B5D2FF;
+}
+
+.total:focus {
+    outline: none;
+}
+
+.participant-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.participant {
+    box-sizing: border-box;
+    width: 570px;
+    height: 70px;
+    padding: 0 20px;
+}
+
+.add-member {
+    border-top: 1px solid #B5D2FF;
+}
+
+.name {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.profile {
+    width: 75px;
+}
+
+.nickname {
+    box-sizing: border-box;
+    text-align: end;
+    padding-right: 20px;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    color: #6A6A6A;
+}
+
+.receipt-submit-btn {
+    width: 102px;
+    height: 36px;
+    margin-top: 25px;
+
+    border: 1px solid #0065FF;
+    border-radius: 4px;
+    background: none;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.15em;
+
+    color: #0065FF;
+}
+
+.receipt-submit-btn:hover {
+    background-color: #0052CC;
+    color: #FFFFFF;
+}

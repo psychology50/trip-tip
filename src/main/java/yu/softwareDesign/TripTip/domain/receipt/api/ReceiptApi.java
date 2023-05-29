@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
+import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
+import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService;
 import yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService;
@@ -31,6 +33,8 @@ public class ReceiptApi {
     private final ReceiptSearchService receiptSearchService;
     private final ReceiptManageService receiptManageService;
     private final UserSearchService userSearchService;
+    private final GroupSearchService groupSearchService;
+    private final MeetingSearchService meetingSearchService;
     private final ParticipantSearchService participantSearchService;
 
     @GetMapping("/create")
@@ -42,9 +46,10 @@ public class ReceiptApi {
         ReceiptSelectDto receiptSelectDto = ReceiptSelectDto.builder()
                 .total(Double.NaN)
                 .is_clear(Boolean.FALSE)
-                .payer_id(user.getUser_id())
-                .payer_name(user.getUsername())
+                .payer(user)
                 .users(userSearchService.findUserByGroupId(group_id))
+                .group(groupSearchService.findGroupById(group_id).get())
+                .meeting(meetingSearchService.findMeetingById(meeting_id).get())
                 .build();
 
         receiptSelectDto.getUsers().forEach(u -> {

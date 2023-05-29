@@ -7,12 +7,13 @@ import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
+import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonIgnoreProperties({"members", "is_leader", "participants"})
+@JsonIgnoreProperties({"members", "is_leader", "participants", "pay_receipts"})
 @Entity(name="user")
 @Table(name="USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -64,4 +65,6 @@ public class User extends BaseDateEntity {
     private List<Group> is_leader = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<Participant> participants = new ArrayList<>();
+    @OneToMany(mappedBy = "payer")
+    private List<Receipt> pay_receipts = new ArrayList<>();
 }

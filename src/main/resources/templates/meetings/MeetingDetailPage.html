@@ -37,7 +37,7 @@
         <article class="receipt-item flex" th:each="r, stat : *{receipts}">
           <input id="receipt-id" th:value="${r.receipt_id}" type="hidden">
           <p id="receipt-name" th:text="${r.receipt_name}"></p>
-          <p id="payer-name" th:text="${r.payer_name}"></p>
+          <p id="payer-name" th:text="${r.payer.username}"></p>
         </article>
       </section>
 

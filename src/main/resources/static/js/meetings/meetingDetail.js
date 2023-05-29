@@ -7,7 +7,7 @@ ReceiptAddBtn.addEventListener("click", (e) => {
     const group_id = document.querySelector("#group-id").value;
     const meeting_id = document.querySelector("#meeting-id").value;
 
-    window.location.href = `/meetings/${meeting_id}/groups/${group_id}/receipts/create`;
+    window.location.href = `/api/groups/${group_id}/meetings/${meeting_id}/receipts/create`;
 });
 
 MeetingDeleteBtn.addEventListener("click", (e) => {

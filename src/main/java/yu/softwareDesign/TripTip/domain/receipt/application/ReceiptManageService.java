@@ -40,10 +40,6 @@ public class ReceiptManageService {
         List<User> users = dto.getUsers();
         List<Participant> participants = dto.getParticipants();
 
-
-
-
-
         return new Receipt();
     }
 }

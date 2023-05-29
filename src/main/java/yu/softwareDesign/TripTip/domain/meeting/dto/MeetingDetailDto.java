@@ -20,7 +20,6 @@ public class MeetingDetailDto {
     private Long meeting_id;
     private LocalDate meeting_day;
 
-
     private List<Receipt> receipts;
 
     @Builder

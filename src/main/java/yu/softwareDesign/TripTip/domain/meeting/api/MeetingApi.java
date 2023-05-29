@@ -27,6 +27,7 @@ public class MeetingApi {
     private final MeetingSearchService meetingSearchService;
     private final MeetingManageService meetingManageService;
 
+    // TODO : 생성일이 UTC 기준이라 오차 생김
     @Operation(summary = "모임 생성 및 수정 요청", description = "모임을 생성 및 수정 요청")
     @GetMapping("/save")
     public ResponseEntity<MeetingListDto> meetingSaveRequest(@PathVariable(name = "group_id") Long group_id) {
