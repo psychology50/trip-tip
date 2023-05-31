@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+>
 <head>
     <meta charset="UTF-8">
     <title>Trip Tip</title>
@@ -13,67 +12,42 @@
     <link rel="stylesheet" href="/css/receipts/create_receipt.css">
 </head>
 <body>
-  <div id="wrapper">
+<div id="wrapper">
     <header id="head-bar" class="flex">
-      <img src="/img/logo_blue.png" alt="main_logo">
-      <h1 class="bold">TRIP TIP</h1>
+        <img src="/img/logo_blue.png" alt="main_logo">
+        <h1 class="bold">TRIP TIP</h1>
     </header>
 
     <div class="content-box flex">
-      <div class="content-inner-box flex" th:object="${receiptSelectDto}">
-        <section class="group-profile">
-          <img class="group-image" src="/img/trip_tip_logo.png" alt="그룹 로고">
-          <p class="group-code" th:text="*{group.group_code}"></p>
-          <p class="group-name" th:text="*{group.group_name}"></p>
-          <p class="leader-meeting" th:text="*{group.leader.username}"></p>
-          <p class="meeting-date" th:text="*{meeting.meeting_day}"></p>
-          <input id="group-id" type="hidden" th:value="*{group.group_id}">
-          <input id="meeting-id" type="hidden" th:value="*{meeting.meeting_id}">
-        </section>
+        <div class="content-inner-box flex">
+            <section class="group-profile">
+                <img class="group-image" src="/img/trip_tip_logo.png" alt="그룹 로고">
+                <p class="group-code">group_code</p>
+                <p class="group-name">group_name</p>
+                <p class="leader-meeting">group_leader_username</p>
+                <p class="meeting-date">meeting_day</p>
+                <input id="group-id" type="hidden" th:value="${group_id}">
+                <input id="meeting-id" type="hidden" th:value="${meeting_id}">
+            </section>
 
-        <section class="receipt-list">
-          <div class="calc-method flex">
-            <button class="select-btn bold">N분의 1</button>
-            <button class="select-btn bold">직접 입력</button>
-          </div>
-          <form th:action="@{'/api/groups/' + ${group_id} + '/meetings/' + ${meeting_id} + '/receipts/create'}" method="post">
-            <input class="total" placeholder="금액을 입력해주세요" required>
-            <table class="participant-list">
-              <tbody>
-              <tr class="participant">
-                <td>
-                  <input type="checkbox" th:field="*{payer}"
-                         th:value="*{payer.user_id}" th:checked=true/>
-                </td>
-                <td class="profile"><img src="/icon/ic_boy1.png" alt="default profile img"></td>
-                <td class="name" th:text="*{payer.username}"></td>
-                <td class="nickname" th:text="*{payer.nickname}"></td>
-              </tr>
-              <tr class="participant add-member" th:each="u, stat : *{users}" th:if="${u.user_id} != *{payer.user_id}">
-                <td>
-                  <input type="checkbox" th:field="*{users}"
-                         th:value="${u.user_id}" th:checked=true />
-                </td>
-                <td class="profile"><img src="/icon/ic_girl1.png" alt="default profile img"></td>
-                <td class="name" th:text="${u.username}"></td>
-                <td class="nickname" th:text="${u.nickname}"></td>
-              </tr>
-              </tbody>
-            </table>
-            <div class="flex" style="justify-content: end">
-              <button class="receipt-submit-btn bold" type="submit">생성</button>
-            </div>
-          </form>
-        </section>
+            <section class="receipt-list">
+                <div class="calc-method flex">
+                    <button id="dutch-pay-btn" class="select-btn active bold">N분의 1</button>
+                    <button id="each-pay-btn" class="select-btn bold">직접 입력</button>
+                </div>
+                <form id="receipt-create-form" method="post">
+                </form>
+            </section>
 
-        <section class="result">
-          <article class="total-cost bold">
-            <h3>총 비용</h3>
-            <p class="cost bold">0원</p>
-          </article>
-        </section>
-      </div>
+            <section class="result">
+                <article class="total-cost bold">
+                    <h3>총 비용</h3>
+                    <p class="cost bold">0원</p>
+                </article>
+            </section>
+        </div>
     </div>
-  </div>
+</div>
+<script src="/js/receipts/receiptCreate.js"></script>
 </body>
 </html>

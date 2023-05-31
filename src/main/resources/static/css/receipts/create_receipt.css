@@ -31,6 +31,10 @@
     color: #282828;
 }
 
+.active {
+    border-bottom: 2px solid #0065FF;
+}
+
 
 .total {
     display: block;
@@ -90,15 +94,35 @@
 
 .nickname {
     box-sizing: border-box;
+    width: 124px;
     text-align: end;
-    padding-right: 20px;
-
     font-family: 'Noto Sans KR';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
     color: #6A6A6A;
+}
+
+.each-input {
+    width: 140px;
+    height: 40px;
+
+    background: #F9F9F9;
+    border-radius: 5px;
+
+    text-align: end;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    /* identical to box height */
+
+    letter-spacing: 0.02em;
+
+    color: #0065FF;
+
 }
 
 .receipt-submit-btn {
