@@ -19,8 +19,10 @@ public class GroupDetailDto {
     private String leader_username;
     private List<Meeting> meetings;
 
+    private Integer total;
+
     @Builder
-    public GroupDetailDto(Long group_id, String group_name, String group_code, String group_img, Long leader_id, String leader_username, List<Meeting> meetings) {
+    public GroupDetailDto(Long group_id, String group_name, String group_code, String group_img, Long leader_id, String leader_username, List<Meeting> meetings, Integer total) {
         this.group_id = group_id;
         this.group_name = group_name;
         this.group_code = group_code;
@@ -28,6 +30,7 @@ public class GroupDetailDto {
         this.leader_id = leader_id;
         this.leader_username = leader_username;
         this.meetings = meetings;
+        this.total = total;
     }
 
     public Group toEntity() {

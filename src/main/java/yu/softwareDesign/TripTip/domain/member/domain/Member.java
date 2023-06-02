@@ -1,16 +1,14 @@
 package yu.softwareDesign.TripTip.domain.member.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 @Entity(name="member")
 @Table(name="MEMBER")
 @NoArgsConstructor
+@Getter
 @ToString(of = {"user", "group"})
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

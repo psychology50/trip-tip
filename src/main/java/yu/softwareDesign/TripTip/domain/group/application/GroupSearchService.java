@@ -31,4 +31,14 @@ public class GroupSearchService {
     public List<Group> findRecentGroupByUser(User user) {
         return groupRepo.findRecentGroupByUser(user, PageRequest.of(0, 3));
     }
+
+    private boolean isGroupMember(Group group, User user) {
+        return group.getMembers().stream().anyMatch(member -> member.getUser().getUser_id().equals(user.getUser_id()));
+    }
+
+    // TODO : Where is best choice Type casting?
+    public Integer getTotalGroupCost(Long group_id) {
+
+        return groupRepo.getTotalGroupCost(group_id).orElseGet(() -> 0.0).intValue();
+    }
 }

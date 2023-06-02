@@ -13,6 +13,7 @@ import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService
 import yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService;
+import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
@@ -75,16 +76,13 @@ public class ReceiptApi {
 
     // TODO: users를 잘 받아오긴 하나, Redirection을 하면 에러가 발생하는 것에 주의
     @PostMapping("/create")
-    public void create(@PathVariable(value = "group_id") Long group_id,
-                               @PathVariable(value = "meeting_id") Long meeting_id,
-                               @RequestBody ReceiptCreateDto receiptCreateDto,
-                               Authentication authentication) {
+    public ResponseEntity<Receipt> create(@PathVariable(value = "group_id") Long group_id,
+                                          @PathVariable(value = "meeting_id") Long meeting_id,
+                                          @RequestBody ReceiptCreateDto receiptCreateDto) {
         log.info("receiptSelectDto = {}", receiptCreateDto);
         log.info("getPayer = {}", receiptCreateDto.getPayer());
         log.info("getUsers = {}", receiptCreateDto.getParticipationUsers());
 
-//        receiptManageService.selectPay(receiptSelectDto, (User)authentication.getPrincipal(), group_id, meeting_id);
-
-//        return new RedirectView("/api");
+        return ResponseEntity.ok(receiptManageService.save(receiptCreateDto));
     }
 }

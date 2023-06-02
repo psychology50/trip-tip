@@ -15,6 +15,7 @@ import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingDetailDto;
 import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingListDto;
+import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
@@ -50,6 +51,8 @@ public class MeetingApi {
                 .meeting_id(meeting.getMeeting_id())
                 .meeting_day(meeting.getMeeting_day())
                 .receipts(meeting.getReceipts())
+                .total((meeting.getReceipts() != null)
+                        ? (int) meeting.getReceipts().stream().mapToDouble(Receipt::getTotal).sum() : 0)
                 .build());
 
         return "meetings/MeetingDetailPage";

@@ -1,5 +1,6 @@
 package yu.softwareDesign.TripTip.domain.receipt.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
@@ -7,8 +8,10 @@ import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties({"participants", "meeting", "payer"})
 @Entity(name="receipt")
 @Table(name="RECEIPT")
 @NoArgsConstructor
@@ -36,8 +39,8 @@ public class Receipt extends BaseDateEntity {
     @ManyToOne @JoinColumn(name="MEETING_ID")
     private Meeting meeting;
     @OneToMany(mappedBy = "receipt")
-    private List<Participant> participants;
-    @ManyToOne @JoinColumn(name="USER_ID")
+    private List<Participant> participants = new ArrayList<>();
+    @ManyToOne @JoinColumn(name="payer")
     private User payer;
 
     public void setMeeting(Meeting meeting) {

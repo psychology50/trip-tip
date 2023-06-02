@@ -45,10 +45,12 @@
 }
 
 .receipt-item {
+    box-sizing: border-box;
     width: 466px;
     height: 157px;
 
-    margin: 10px auto;
+    margin: 30px 20px;
+    padding: 20px;
 
     background: #EDF4FF;
     border-radius: 6px;

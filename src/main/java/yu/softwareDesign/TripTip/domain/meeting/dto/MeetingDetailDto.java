@@ -21,14 +21,17 @@ public class MeetingDetailDto {
     private LocalDate meeting_day;
 
     private List<Receipt> receipts;
+    private Integer total;
+
 
     @Builder
-    public MeetingDetailDto(Group group, Long leader_id, String leader_username, Long meeting_id, LocalDate meeting_day, List<Receipt> receipts) {
+    public MeetingDetailDto(Group group, Long leader_id, String leader_username, Long meeting_id, LocalDate meeting_day, List<Receipt> receipts, Integer total) {
         this.group = group;
         this.leader_id = leader_id;
         this.leader_username = leader_username;
         this.meeting_id = meeting_id;
         this.meeting_day = meeting_day;
         this.receipts = receipts;
+        this.total = total;
     }
 }

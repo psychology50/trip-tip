@@ -89,6 +89,7 @@ public class GroupApi {
                                              .collect(Collectors.toList()))
                 .leader_id(group.getLeader().getUser_id())
                 .leader_username(group.getLeader().getUsername())
+                .total(groupSearchService.getTotalGroupCost(group_id))
                 .build());
         return "groups/GroupDetailPage";
     }

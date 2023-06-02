@@ -25,4 +25,7 @@ public interface GroupRepo extends JpaRepository<Group, Long> {
 
     @Query("SELECT case when count(g) > 0 then true else false end from group g where g.group_code = :group_code")
     Boolean existsByGroupCode(String group_code);
+
+    @Query("SELECT SUM(r.total) FROM receipt r WHERE r.meeting.group.group_id = :group_id")
+    Optional<Double> getTotalGroupCost(@Param("group_id") Long group_id);
 }

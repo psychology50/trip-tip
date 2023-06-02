@@ -17,4 +17,8 @@ public interface ReceiptRepo extends JpaRepository<Receipt, Long> {
     @Query("SELECT r FROM receipt r WHERE r.meeting.meeting_id = :meeting_id")
     public List<Receipt> findReceiptByMeetingId(@Param("meeting_id") Long meeting_id);
 
+    @Query("SELECT SUM(r.total) FROM receipt r WHERE r.meeting.meeting_id = :meeting_id")
+    public Double totalByMeetingId(@Param("meeting_id") Long meeting_id);
+
+
 }

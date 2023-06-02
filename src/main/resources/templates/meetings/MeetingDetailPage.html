@@ -34,7 +34,7 @@
 
       <section class="receipt-list">
         <h3 class="list-title">결제 내역</h3>
-        <article class="receipt-item flex" th:each="r, stat : *{receipts}">
+        <article class="receipt-item" th:each="r, stat : *{receipts}">
           <input id="receipt-id" th:value="${r.receipt_id}" type="hidden">
           <p id="receipt-name" th:text="${r.receipt_name}"></p>
           <p id="payer-name" th:text="${r.payer.username}"></p>
@@ -43,8 +43,8 @@
 
       <section class="result">
         <article class="total-cost bold">
-          <h3>총 비용</h3>
-          <p class="cost bold">0원</p>
+          <h3>모임 전체 지출</h3>
+          <p class="cost bold" th:text="|*{total}원|"></p>
         </article>
       </section>
     </div>

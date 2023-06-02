@@ -8,26 +8,28 @@ const form = document.querySelector("#receipt-create-form");
 
 let flag = true; // true: dutchPayBtn, false: equalPayBtn
 
-dutchPayBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+const initBtnEvent = (response) => {
+    dutchPayBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    if (!flag) {
-        flag = true;
-        dutchPayBtn.classList.add("active");
-        eachPayBtn.classList.remove("active");
-        initPage();
-    }
-});
-eachPayBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+        if (!flag) {
+            flag = true;
+            dutchPayBtn.classList.add("active");
+            eachPayBtn.classList.remove("active");
+            paintPage(response);
+        }
+    });
+    eachPayBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    if (flag) {
-        flag = false;
-        dutchPayBtn.classList.remove("active");
-        eachPayBtn.classList.add("active");
-        initPage();
-    }
-});
+        if (flag) {
+            flag = false;
+            dutchPayBtn.classList.remove("active");
+            eachPayBtn.classList.add("active");
+            paintPage(response);
+        }
+    });
+}
 
 
 const initPage = () => {
@@ -38,8 +40,9 @@ const initPage = () => {
             // 응답 데이터 처리
             const response = JSON.parse(xhr.responseText);
             console.log(response);
-            addFormEventListener(response);
             paintPage(response);
+            initBtnEvent(response);
+            addFormEventListener(response);
         } else {
             console.log("status : ", xhr.status);
             // 오류 처리
@@ -176,7 +179,8 @@ const EachInput = (id) => {
     userEachInput.type = "number";
     userEachInput.name = `cost_${id}`;
     userEachInput.className = "each-input";
-    userEachInput.placeholder = 0;
+    userEachInput.placeholder = '0';
+    userEachInput.required = true;
     userEach.appendChild(userEachInput);
     return userEach;
 }
@@ -197,46 +201,54 @@ const paintSubmitBtn = () => {
 }
 
 const addFormEventListener = (response) => {
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-        const selectedUsers = formData.getAll("participationUsers");
-        // console.log("formData = ", formData.forEach((value, key) => console.log(key, value)));
-        const data = {
-            "receipt_id": null,
-            "receipt_name": "새 영수증",
-            "total": formData.get("total"),
-            "is_clear": false,
-            "payer": response.payer,
-            "participationUsers": response.participationUsers.map((user) => {
-                const is_checked = selectedUsers.includes(user.user_id.toString());
-                return (is_checked) ? {...user, cost: formData.get(`cost_${user.user_id}`)} : {...user, selected: false, cost: 0};
-            }),
-            "meeting": response.meeting,
-        };
-
-        console.log("data = ", data);
-
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", `/api/groups/${group_id}/meetings/${meeting_id}/receipts/create`);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                // 응답 데이터 처리
-                const response = JSON.parse(xhr.responseText);
-                console.log(response);
-                alert("영수증이 생성되었습니다.");
-                window.location.href = `/api/groups/${group_id}/meetings/${meeting_id}/detail`;
-            } else {
-                console.log("status : ", xhr.status);
-                // 오류 처리
-                console.log(xhr.responseText);
-            }
-        }
-        xhr.send(JSON.stringify(data));
-    });
+    form.addEventListener("submit", (e) => pushData(e, response));
 }
 
+const pushData = (e, response) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const selectedUsers = formData.getAll("participationUsers");
+    const N = selectedUsers.length;
+    // console.log("formData = ", formData.forEach((value, key) => console.log(key, value)));
+    const data = {
+        "receipt_id": null,
+        "receipt_name": "새 영수증",
+        "total": (formData.get("total") != null) ? formData.get("total") : 0,
+        "is_clear": false,
+        "payer": response.payer,
+        "participationUsers": response.participationUsers.map((user) => {
+            const is_checked = selectedUsers.includes(user.user_id.toString());
+            return (is_checked)
+                ? {...user,
+                    cost: (formData.get("total") != null)
+                        ? formData.get("total")/N
+                        : formData.get(`cost_${user.user_id}`),
+                    selected: (formData.get(`cost_${user.user_id}`) !== '0')}
+                : {...user, selected: false, cost: 0};
+        }),
+        "meeting": response.meeting,
+    };
+
+    console.log("data = ", data);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `/api/groups/${group_id}/meetings/${meeting_id}/receipts/create`);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // 응답 데이터 처리
+            const response = JSON.parse(xhr.responseText);
+            console.log(response);
+            alert("영수증이 생성되었습니다.");
+            window.location.href = `/api/groups/${group_id}/meetings/${meeting_id}/detail`;
+        } else {
+            console.log("status : ", xhr.status);
+            // 오류 처리
+            console.log(xhr.responseText);
+        }
+    }
+    xhr.send(JSON.stringify(data));
+}
 
 initPage();

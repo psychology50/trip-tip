@@ -47,10 +47,10 @@ public class GroupManageService {
                 : group_form.toEntity(generateGroupCode());
         User leader = userRepo.findById(user.getUser_id()).orElseThrow(() ->
                 new IllegalArgumentException("해당 유저가 존재하지 않습니다."));
+        group.setLeader(leader);
 
         if (!groupRepo.existsByGroupId(group.getGroup_id())) { // create
-            group.setLeader(leader);
-            groupRepo.saveAndFlush(group);
+            groupRepo.save(group);
         }
 
         List<User> members = group_form.getMembers();
@@ -71,7 +71,6 @@ public class GroupManageService {
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
     @Transactional
     public void clearGroup(Group group) {
-
         groupRepo.save(group);
     }
 

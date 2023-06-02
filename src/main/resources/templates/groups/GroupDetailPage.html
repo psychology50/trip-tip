@@ -38,8 +38,8 @@
 
       <section class="result">
         <article class="total-cost bold">
-            <h3>총 비용</h3>
-            <p class="cost bold">0원</p>
+            <h3>그룹 전체 지출</h3>
+            <p class="cost bold" th:text="|*{total}원|"></p>
         </article>
         <button class="btn-group clear-btn bold" th:onclick="|location.href='@{/api/groups/clear}'|">정산하기</button>
       </section>

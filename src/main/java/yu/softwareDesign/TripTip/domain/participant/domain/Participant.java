@@ -22,8 +22,8 @@ public class Participant {
     @Builder
     public Participant(Long participant_id, Double cost, Boolean is_clear) {
         this.participant_id = participant_id;
-        this.cost = Double.NaN;
-        this.is_clear = Boolean.FALSE;
+        this.cost = cost;
+        this.is_clear = is_clear;
     }
 
     @ManyToOne @JoinColumn(name="USER_ID")

@@ -12,4 +12,16 @@ public interface ParticipantRepo extends JpaRepository<Participant, Long> {
 
     @Query("SELECT p FROM participant p WHERE p.receipt.meeting.meeting_id = :meeting_id")
     List<Participant> findByMeetingId(Long meeting_id);
+
+    @Query("SELECT p FROM participant p WHERE p.receipt.receipt_id = :receipt_id AND p.user.user_id = :user_id")
+    Participant findByReceiptIdAndUserId(Long receipt_id, Long user_id);
+
+    @Query("SELECT p FROM participant p WHERE p.receipt.receipt_id = :receipt_id")
+    List<Participant> findAllByReceiptId(Long receipt_id);
+
+    @Query("SELECT CASE WHEN COUNT(p) > 0 THEN TRUE ELSE FALSE END FROM participant p WHERE p.receipt.receipt_id = :receipt_id AND p.user.user_id = :user_id")
+    Boolean existsByReceiptIdAndUserId(Long receipt_id, Long user_id);
+
+    @Query("DELETE FROM participant p WHERE p.receipt.receipt_id = :receipt_id AND p.user.user_id = :user_id")
+    void deleteByReceiptIdAndUserId(Long receipt_id, Long user_id);
 }
