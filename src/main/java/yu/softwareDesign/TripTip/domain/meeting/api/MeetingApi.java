@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,12 +67,12 @@ public class MeetingApi {
         return "meetings/MeetingEditPage";
     }
 
-    // TODO
     @Operation(summary = "모임 삭제 요청", description = "모임을 삭제 요청")
     @DeleteMapping("/{meeting_id}/delete")
-    public ResponseEntity<String> meetingDeleteRequest(@PathVariable(name = "group_id") Long group_id, Authentication authentication) {
-        meetingManageService.deleteMeeting((User)authentication.getPrincipal(), group_id);
+    public ResponseEntity<String> meetingDeleteRequest(@PathVariable(name = "group_id") Long group_id,
+                                                       @PathVariable(name = "meeting_id") Long meeting_id,
+                                                       Authentication authentication) {
+        meetingManageService.deleteMeeting((User)authentication.getPrincipal(), meeting_id);
         return ResponseEntity.ok("모임 삭제 완료");
     }
-
 }

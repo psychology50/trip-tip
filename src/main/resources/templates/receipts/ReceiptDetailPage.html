@@ -5,20 +5,83 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-  <meta charset="UTF-8">
-  <title>Trip Tip</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <title>Trip Tip</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/groups/detail_group.css">
+    <link rel="stylesheet" href="/css/meetings/detail_meeting.css">
+<!--    <link rel="stylesheet" href="/css/receipts/create_receipt.css">-->
+    <link rel="stylesheet" href="/css/receipts/detail_receipt.css">
 </head>
 <body>
 <div id="wrapper">
-  <header id="head-bar" class="flex">
-    <img src="/img/logo_blue.png" alt="main_logo">
-    <h1 class="bold">TRIP TIP</h1>
-  </header>
+    <header id="head-bar" class="flex">
+        <section class="logo-section flex">
+            <a id="back-btn" href="javascript:window.history.back();">
+                <img id="back-btn-img" src="/icon/ic_back_btn.png" alt="back_btn">
+            </a>
+            <img th:onclick="|location.href='@{/api}'|" src="/img/logo_blue.png" alt="main_logo">
+            <h1 class="bold">TRIP TIP</h1>
+        </section>
+        <section class="profile-section flex">
+            <a th:href="@{'/api/users/logout'}" class="submit-a-group logout-btn bold">로그아웃</a>
+            <img th:onclick="|location.href='@{/api/users/notify}'|" src="/icon/ic_bell_disabled.png" alt="notification">
+            <img th:onclick="|location.href='@{/api/users/profile}'|" src="/icon/ic_user.png" alt="profile">
+        </section>
+    </header>
 
-  <div class="content-box flex">
+    <div class="content-box flex">
+        <div class="content-inner-box flex" th:object="${receiptDetailDto}">
+            <section class="group-profile">
+                <img class="group-image" src="/img/trip_tip_logo.png" alt="그룹 로고">
+                <p class="group-code" th:text="*{meeting.group.group_code}">group_code</p>
+                <p class="group-name" th:text="*{meeting.group.group_name}">group_name</p>
+                <p class="leader-meeting" th:text="*{meeting.group.leader.username}">group_leader_username</p>
+                <p class="meeting-date" th:text="*{meeting.meeting_day}">meeting_day</p>
+                <p class="receipt-name" th:text="*{receipt_name}">receipt-name</p>
+                <input id="group-id" type="hidden" th:value="${group_id}">
+                <input id="meeting-id" type="hidden" th:value="${meeting_id}">
+                <input id="receipt-id" type="hidden" th:value="${receipt_id}">
+                <button class="btn-group receipt-del-btn bold">영수증 삭제</button>
+                <h3 th:text="${exception}"></h3>
+            </section>
 
-  </div>
+            <section class="receipt-list">
+                <h3 class="list-title" th:text="|결제자: *{payer_username}|">결제 내역</h3>
+                <input id="payer-id" type="hidden" th:value="*{payer_id}">
+                <table class="participant-list">
+                    <tbody>
+                        <tr class="participant">
+                            <td>
+                                <img src = "/icon/ic_boy1.png" alt="참여자 프로필 사진">
+                            </td>
+                            <td class="name" th:text="*{payer_username}">username</td>
+                            <td class="nickname" th:text="*{payer_nickname}">nickname</td>
+                            <td class="cost" th:text="|*{payer_cost}원|">amount</td>
+                        </tr>
+                        <tr class="participant add-member" th:each="p : *{participants}" th:if="${p.user.user_id} != *{payer_id}">
+                            <td>
+                                <img src = "/icon/ic_boy1.png" alt="참여자 프로필 사진">
+                            </td>
+                            <td class="name" th:text="${p.user.username}">username</td>
+                            <td class="nickname" th:text="${p.user.nickname}">nickname</td>
+                            <td class="cost" th:text="|${p.cost.intValue()}원|">amount</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form id="receipt-create-form" method="post">
+                </form>
+            </section>
+
+            <section class="result">
+                <article class="total-cost bold">
+                    <h3>영수증 총 지출</h3>
+                    <p class="cost bold" th:text="|*{total}원|"></p>
+                </article>
+            </section>
+        </div>
+    </div>
 </div>
+<script src="/js/receipts/receiptDelete.js"></script>
 </body>
 </html>

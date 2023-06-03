@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip.global.config.security;
+package yu.softwareDesign.TripTip.global.config.security.Authentication;
 
 import org.springframework.security.core.GrantedAuthority;
 import yu.softwareDesign.TripTip.domain.user.domain.User;

@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip.global.config.security;
+package yu.softwareDesign.TripTip.global.config.security.Authentication;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;

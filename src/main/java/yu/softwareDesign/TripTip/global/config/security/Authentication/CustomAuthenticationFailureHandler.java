@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip.global.config.security;
+package yu.softwareDesign.TripTip.global.config.security.Authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;

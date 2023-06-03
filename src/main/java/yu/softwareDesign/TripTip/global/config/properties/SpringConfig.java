@@ -45,7 +45,7 @@ public class SpringConfig {
     @Bean
     public GroupManageService groupManageService() {return new GroupManageService(groupRepo, userRepo, memberRepo);}
     @Bean
-    public GroupJoinService groupJoinService() {return new GroupJoinService(groupRepo, memberRepo);}
+    public GroupJoinService groupJoinService() {return new GroupJoinService(groupRepo, memberRepo, userRepo);}
 
     // meeting service
     @Bean

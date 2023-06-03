@@ -13,8 +13,18 @@
 <body>
 <div id="wrapper">
   <header id="head-bar" class="flex">
-    <img src="/img/logo_blue.png" alt="main_logo">
-    <h1 class="bold">TRIP TIP</h1>
+    <section class="logo-section flex">
+      <a id="back-btn" href="javascript:window.history.back();">
+        <img id="back-btn-img" src="/icon/ic_back_btn.png" alt="back_btn">
+      </a>
+      <img th:onclick="|location.href='@{/api}'|" src="/img/logo_blue.png" alt="main_logo">
+      <h1 class="bold">TRIP TIP</h1>
+    </section>
+    <section class="profile-section flex">
+      <a th:href="@{'/api/users/logout'}" class="submit-a-group logout-btn bold">로그아웃</a>
+      <img th:onclick="|location.href='@{/api/users/notify}'|" src="/icon/ic_bell_disabled.png" alt="notification">
+      <img th:onclick="|location.href='@{/api/users/profile}'|" src="/icon/ic_user.png" alt="profile">
+    </section>
   </header>
 
   <div class="content-box flex">
@@ -26,6 +36,8 @@
         <p class="leader" th:text="*{leader_username}"></p>
         <input id="group-id" type="hidden" th:value="*{group_id}">
         <button class="btn-group meeting-add-btn bold">모임 추가</button>
+        <button id="add-member-btn" class="btn-group meeting-add-btn bold">멤버 추가</button>
+        <button class="btn-group group-del-btn bold">그룹 삭제</button>
       </section>
 
       <section class="meeting-list">
@@ -46,6 +58,7 @@
     </div>
   </div>
   <script src="/js/meetings/meetingCreate.js"></script>
+  <script src="/js/groups/groupDetail.js"></script>
 </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-a:link, a:visited {
+.submit-a-group:link, .submit-a-group:visited {
     margin: 10px 0;
 
     padding: 15px 0px;
@@ -6,7 +6,7 @@ a:link, a:visited {
     text-decoration: none;
     display: inline-block;
 }
-a:hover, a:active {
+.submit-a-group:hover, .submit-a-group:active {
     background-color: #FF4500;
 }
 
@@ -185,6 +185,13 @@ a:hover, a:active {
 }
 
 .group-list-btn {
+    box-sizing: border-box;
+    padding: 15px 0px;
+    margin-bottom: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
     width: auto;
     height: 45px;
 

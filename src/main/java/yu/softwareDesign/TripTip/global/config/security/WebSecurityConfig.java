@@ -1,11 +1,11 @@
 package yu.softwareDesign.TripTip.global.config.security;
 
-import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.security.ConditionalOnDefaultWebSecurity;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,11 +17,17 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAccessDeniedHandler;
+import yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAuthenticationFailureHandler;
+import yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAuthenticationProvider;
+import yu.softwareDesign.TripTip.global.config.security.Permission.MethodSecurityConfig;
 
 @Configuration
 @EnableWebSecurity
 @ConditionalOnDefaultWebSecurity
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+@Import(MethodSecurityConfig.class)
+//@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class WebSecurityConfig {
     @Bean
     PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder();}
@@ -40,9 +46,9 @@ public class WebSecurityConfig {
     }
 
     private AccessDeniedHandler accessDeniedHandler() {
-        CustomAccessDeniedHandler accessDeniedHandler = new CustomAccessDeniedHandler();
-        accessDeniedHandler.setErrorPage("/denied");
-        return accessDeniedHandler;
+//        CustomAccessDeniedHandler accessDeniedHandler = new CustomAccessDeniedHandler();
+//        accessDeniedHandler.setErrorPage("/denied");
+        return new CustomAccessDeniedHandler();
     }
 
 //    private providerAdminServer(AdminServerProperties adminServerProperties) {

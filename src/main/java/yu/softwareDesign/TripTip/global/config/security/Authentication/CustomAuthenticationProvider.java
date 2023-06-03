@@ -1,4 +1,4 @@
-package yu.softwareDesign.TripTip.global.config.security;
+package yu.softwareDesign.TripTip.global.config.security.Authentication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;

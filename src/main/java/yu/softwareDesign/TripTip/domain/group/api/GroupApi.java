@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -130,7 +131,8 @@ public class GroupApi {
      */
     @Operation(summary = "그룹 삭제 요청", description = "그룹을 삭제 요청")
     @PostMapping("/{group_id}/delete")
-    public RedirectView groupDeleteRequest(@PathVariable(value="group_id", required = true) Long group_id) {
+    @PreAuthorize("hasPermission(#group_id, 'Group', 'DELETE')")
+    public RedirectView groupDeleteRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
         groupManageService.deleteGroup(group_id);
         return new RedirectView("/api");
     }
@@ -146,7 +148,7 @@ public class GroupApi {
     @PostMapping("/join")
     public RedirectView groupJoinRequest(GroupJoinDto dto, Authentication authentication) {
         boolean flag = groupJoinService.joinGroup((User) authentication.getPrincipal(), dto);
-        return new RedirectView("/api/groups/list");
+        return (flag) ? new RedirectView("/api/groups/list") : new RedirectView("/api");
     }
 
     /**

@@ -1,0 +1,64 @@
+.receipt-del-btn {
+    margin-top: 25px;
+
+    border: 1px solid #FF4500;
+    background: #FF4500;
+    color: #ffffff;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+}
+
+.receipt-del-btn:hover {
+    background: rgba(255, 69, 0, 0.72);
+}
+
+.participant-list {
+    box-sizing: border-box;
+    margin: 20px;
+
+    border-collapse: collapse;
+    width: 92%;
+}
+
+.participant {
+    box-sizing: border-box;
+    width: 570px;
+    height: 70px;
+    padding: 0 20px;
+}
+
+.add-member {
+    border-top: 1px solid #B5D2FF;
+}
+
+.name {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.profile {
+    width: 75px;
+}
+
+.nickname {
+    box-sizing: border-box;
+    width: 124px;
+    text-align: end;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    color: #6A6A6A;
+}

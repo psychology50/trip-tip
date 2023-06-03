@@ -20,4 +20,13 @@ public class ParticipantSearchService {
         return participantRepo.findByMeetingId(meeting_id);
     }
 
+    @Transactional
+    public List<Participant> findParticipantsByReceiptId(Long receipt_id) {
+        return participantRepo.findByReceiptId(receipt_id);
+    }
+
+    @Transactional
+    public Integer getCostByReceiptIdAndUserId(Long receipt_id, Long user_id) {
+        return participantRepo.findCostByReceiptIdAndUserId(receipt_id, user_id).orElseGet(() -> 0.0).intValue();
+    }
 }

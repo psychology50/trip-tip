@@ -1,11 +1,12 @@
 const ReceiptAddBtn = document.querySelector(".receipt-add-btn");
 const MeetingDeleteBtn = document.querySelector(".meeting-del-btn");
+const ReceiptsItems = document.querySelectorAll(".receipt-item");
+
+const group_id = document.querySelector("#group-id").value;
+const meeting_id = document.querySelector("#meeting-id").value;
 
 ReceiptAddBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
-    const group_id = document.querySelector("#group-id").value;
-    const meeting_id = document.querySelector("#meeting-id").value;
 
     window.location.href = `/api/groups/${group_id}/meetings/${meeting_id}/receipts/create`;
 });
@@ -13,8 +14,9 @@ ReceiptAddBtn.addEventListener("click", (e) => {
 MeetingDeleteBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const group_id = document.querySelector("#group-id").value;
-    const meeting_id = document.querySelector("#meeting-id").value;
+    if (!confirm("정말 삭제하시겠습니까?")) {
+        return;
+    }
 
     const xhr = new XMLHttpRequest();
     xhr.open("DELETE", `/api/groups/${group_id}/meetings/${meeting_id}/delete`);
@@ -22,8 +24,6 @@ MeetingDeleteBtn.addEventListener("click", (e) => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
             // 응답 데이터 처리
-            const response = JSON.parse(xhr.responseText);
-            console.log(response);
             window.location.href = `/groups/${group_id}/detail`;
         } else {
             console.log("status : ", xhr.status);
@@ -33,3 +33,13 @@ MeetingDeleteBtn.addEventListener("click", (e) => {
     }
     xhr.send();
 });
+
+ReceiptsItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const receipt_id = item.querySelector("#receipt-id").value;
+        window.location.href = `/api/groups/${group_id}/meetings/${meeting_id}/receipts/${receipt_id}/detail`;
+    });
+});
+

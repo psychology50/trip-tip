@@ -12,8 +12,18 @@
 <body>
 <div id="wrapper">
     <header id="head-bar" class="flex">
-        <img src="/img/logo_blue.png" alt="main_logo">
-        <h1 class="bold">TRIP TIP</h1>
+        <section class="logo-section flex">
+            <a id="back-btn" href="javascript:window.history.back();">
+                <img id="back-btn-img" src="/icon/ic_back_btn.png" alt="back_btn">
+            </a>
+            <img th:onclick="|location.href='@{/api}'|" src="/img/logo_blue.png" alt="main_logo">
+            <h1 class="bold">TRIP TIP</h1>
+        </section>
+        <section class="profile-section flex" sec:authorize="isAuthenticated()">
+            <a th:href="@{'/api/users/logout'}" class="submit-a-group logout-btn bold">로그아웃</a>
+            <img th:onclick="|location.href='@{/api/users/notify}'|" src="/icon/ic_bell_disabled.png" alt="notification">
+            <img th:onclick="|location.href='@{/api/users/profile}'|" src="/icon/ic_user.png" alt="profile">
+        </section>
     </header>
 
     <div class="content-box flex">

@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto;
+import yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptDetailDto;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserParticipationDto;
@@ -84,5 +86,47 @@ public class ReceiptApi {
         log.info("getUsers = {}", receiptCreateDto.getParticipationUsers());
 
         return ResponseEntity.ok(receiptManageService.save(receiptCreateDto));
+    }
+
+    @GetMapping("/{receipt_id}/detail")
+    public String detail(@PathVariable(value = "group_id") Long group_id,
+                         @PathVariable(value = "meeting_id") Long meeting_id,
+                         @PathVariable(value = "receipt_id") Long receipt_id,
+                         @RequestParam(value="exception", required = false) String exception,
+                         Model model) {
+        Receipt receipt = receiptSearchService.findReceiptById(receipt_id).orElseThrow(() ->
+                new IllegalArgumentException("Receipt Not Found"));
+        model.addAttribute(
+                "receiptDetailDto",
+                ReceiptDetailDto.builder()
+                        .meeting(receipt.getMeeting())
+                        .participants(receipt.getParticipants())
+                        .receipt_id(receipt.getReceipt_id())
+                        .receipt_name(receipt.getReceipt_name())
+                        .total(receipt.getTotal().intValue())
+                        .is_clear(receipt.getIs_clear())
+                        .payer_id(receipt.getPayer().getUser_id())
+                        .payer_username(receipt.getPayer().getUsername())
+                        .payer_nickname(receipt.getPayer().getNickname())
+                        .payer_cost(
+                                participantSearchService.getCostByReceiptIdAndUserId(receipt_id, receipt.getPayer().getUser_id())
+                        )
+                        .build()
+        );
+        model.addAttribute("exception", exception);
+
+        return "receipts/ReceiptDetailPage";
+    }
+
+//    @DeleteMapping("/{receipt_id}/delete")
+    @GetMapping("/{receipt_id}/delete")
+
+//    @PreAuthorize("isPayer(#receipt_id)")
+    @PreAuthorize("@securityService.isPayer(#receipt_id)")
+    public ResponseEntity<String> delete(@PathVariable(value = "group_id") Long group_id,
+                                         @PathVariable(value = "meeting_id") Long meeting_id,
+                                         @PathVariable(value = "receipt_id") Long receipt_id) {
+        receiptManageService.delete(receipt_id);
+        return ResponseEntity.ok("receipt delete success");
     }
 }

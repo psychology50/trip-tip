@@ -1,3 +1,11 @@
+#head-bar > h1 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #003585;
+    margin-left: 10px;
+}
+
 .register-box {
     width: 494px;
     height: 750px;

@@ -27,11 +27,12 @@
     line-height: 23px;
     letter-spacing: 0.15em;
 
-    color: #0065FF;
-    background-color: #FFFFFF;
+    border: 1px solid #FF4500;
+    background: #FF4500;
+    color: #ffffff;
 }
 .meeting-del-btn:hover {
-    background-color: #F5F5F5;
+    background: rgba(255, 69, 0, 0.72);
 }
 
 .receipt-list {

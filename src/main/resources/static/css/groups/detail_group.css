@@ -52,12 +52,34 @@
     line-height: 23px;
     letter-spacing: 0.15em;
 
+    margin-bottom: 10px;
+
     color: #0065FF;
     background-color: #FFFFFF;
 }
 .meeting-add-btn:hover {
     background-color: #F5F5F5;
 }
+
+.group-del-btn {
+    margin-top: 25px;
+
+    border: 1px solid #FF4500;
+    background: #FF4500;
+    color: #ffffff;
+
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 0.15em;
+}
+
+.group-del-btn:hover {
+    background: rgba(255, 69, 0, 0.72);
+}
+
 
 .meeting-list {
     width: 514px;

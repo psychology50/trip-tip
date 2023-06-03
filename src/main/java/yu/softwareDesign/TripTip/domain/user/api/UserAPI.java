@@ -118,7 +118,6 @@ public class UserAPI {
     @GetMapping("/logout")
     public String logoutRequest(HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         if (authentication != null) {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
@@ -132,7 +131,7 @@ public class UserAPI {
      * @return 유저 프로필 페이지
      */
     @Operation(summary = "유저 프로필", description = "유저 개인 정보와 영수증 정보들을 확인할 수 있는 페이지")
-    @GetMapping("/detail")
+    @GetMapping("/profile")
     public String profileRequest(Model model) {
 
         return "users/UserProfilePage";
@@ -204,6 +203,6 @@ public class UserAPI {
         User user = (User) authentication.getPrincipal();
         model.addAttribute("username", user.getUsername());
         model.addAttribute("exception", exception);
-        return "users/DeniedPage";
+        return "denied";
     }
 }

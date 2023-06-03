@@ -29,7 +29,7 @@ public class GroupManageService {
     private String generateGroupCode() {
         String code;
         do {
-            code = UUID.randomUUID().toString();
+            code = UUID.randomUUID().toString().substring(0, 10);
         } while (groupRepo.existsByGroupCode(code));
 
         return code;

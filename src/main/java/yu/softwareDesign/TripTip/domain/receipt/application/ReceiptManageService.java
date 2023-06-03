@@ -59,4 +59,9 @@ public class ReceiptManageService {
         updatedReceipt.setMeeting(receiptCreateDto.getMeeting());
         return receiptRepo.save(updatedReceipt);
     }
+
+    @Transactional
+    public void delete(Long receipt_id) {
+        receiptRepo.deleteById(receipt_id);
+    }
 }
