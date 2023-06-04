@@ -1,30 +1,35 @@
 package yu.softwareDesign.TripTip.domain.group.application;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
+import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
+import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
+import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
+import yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo;
+import yu.softwareDesign.TripTip.domain.settlement.domain.Settlement;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @sample [yu.softwareDesign.TripTip.domain.group.application.GroupCreateServiceTest]
  */
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class GroupManageService {
     private final GroupRepo groupRepo;
     private final UserRepo userRepo;
     private final MemberRepo memberRepo;
+    private final SettlementRepo settlementRepo;
 
     private String generateGroupCode() {
         String code;
@@ -70,11 +75,74 @@ public class GroupManageService {
 
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
     @Transactional
-    public void settleGroup(Long user_id, Long group_id) {
+    public void settleGroup(Long group_id) {
+        Map<User, Map<User, Double>> settlementMap = new HashMap<>();
+        Group group = groupRepo.findById(group_id).orElseThrow(() ->
+                new IllegalArgumentException("해당 그룹이 존재하지 않습니다.")
+        );
 
+        for (Meeting m : group.getMeetings()) {
+            List<Receipt> receipts = m.getReceipts();
 
-//        groupRepo.save(group);
+            for (Receipt r :receipts) {
+                User payer = r.getPayer();
+                List<Participant> participants = r.getParticipants();
+
+                for (Participant p : participants) {
+                    User debtor = p.getUser();
+                    Double cost = p.getCost();
+
+                    if (payer.getUser_id().equals(debtor.getUser_id())) {
+                        continue;
+                    }
+
+                    if (settlementMap.containsKey(payer)) {
+                        Map<User, Double> debtorMap = settlementMap.get(payer);
+                        if (debtorMap.containsKey(debtor)) {
+                            debtorMap.put(debtor, debtorMap.get(debtor) + cost);
+                        } else {
+                            debtorMap.put(debtor, cost);
+                        }
+                    } else {
+                        Map<User, Double> debtorMap = new HashMap<>();
+                        debtorMap.put(debtor, cost);
+                        settlementMap.put(payer, debtorMap);
+                    }
+
+                    if (settlementMap.containsKey(debtor)) {
+                        Map<User, Double> debtorMap = settlementMap.get(debtor);
+                        if (debtorMap.containsKey(payer)) {
+                            debtorMap.put(payer, debtorMap.get(payer) - cost);
+                        } else {
+                            debtorMap.put(payer, -cost);
+                        }
+                    } else {
+                        Map<User, Double> debtorMap = new HashMap<>();
+                        debtorMap.put(payer, -cost);
+                        settlementMap.put(debtor, debtorMap);
+                    }
+
+                }
+
+            }
+        }
+
+        for (User payer : settlementMap.keySet()) {
+            Map<User, Double> debtorMap = settlementMap.get(payer);
+            for (User debtor : debtorMap.keySet()) {
+                Double cost = debtorMap.get(debtor);
+                if (cost > 0) {
+                    Settlement settlement = Settlement.builder()
+                            .amount(cost)
+                            .build();
+                    settlement.setReceiver(payer);
+                    settlement.setSender(debtor);
+                    settlementRepo.save(settlement);
+                }
+            }
+        }
     }
+
 
     // TODO: group과 관련된 모든 정보를 삭제해야 함
     @Transactional

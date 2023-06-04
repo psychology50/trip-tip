@@ -8,6 +8,7 @@ import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
+import yu.softwareDesign.TripTip.domain.settlement.domain.Settlement;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
 import java.util.ArrayList;
@@ -67,4 +68,8 @@ public class User extends BaseDateEntity {
     private List<Participant> participants = new ArrayList<>();
     @OneToMany(mappedBy = "payer")
     private List<Receipt> pay_receipts = new ArrayList<>();
+    @OneToMany(mappedBy = "sender")
+    private List<Settlement> sentSettlements = new ArrayList<>();
+    @OneToMany(mappedBy = "receiver")
+    private List<Settlement> receivedSettlements = new ArrayList<>();
 }

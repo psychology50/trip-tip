@@ -169,7 +169,7 @@ public class GroupApi {
     @PostMapping("/{group_id}/settle")
     public ResponseEntity<String> groupSettleRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
         User user = (User)authentication.getPrincipal();
-        groupManageService.settleGroup(user.getUser_id(), group_id);
+        groupManageService.settleGroup(group_id);
         return ResponseEntity.ok("정산 완료");
     }
 }

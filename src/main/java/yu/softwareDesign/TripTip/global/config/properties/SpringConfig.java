@@ -15,6 +15,7 @@ import yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService;
 import yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo;
+import yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
 import yu.softwareDesign.TripTip.domain.user.application.UserSignService;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
@@ -28,6 +29,7 @@ public class SpringConfig {
     private final MeetingRepo meetingRepo;
     private final ReceiptRepo receiptRepo;
     private final ParticipantRepo participantRepo;
+    private final SettlementRepo settlementRepo;
 
     // user service
     @Bean
@@ -43,7 +45,7 @@ public class SpringConfig {
     @Bean
     public GroupSearchService groupSearchService() {return new GroupSearchService(groupRepo);}
     @Bean
-    public GroupManageService groupManageService() {return new GroupManageService(groupRepo, userRepo, memberRepo);}
+    public GroupManageService groupManageService() {return new GroupManageService(groupRepo, userRepo, memberRepo, settlementRepo);}
     @Bean
     public GroupJoinService groupJoinService() {return new GroupJoinService(groupRepo, memberRepo, userRepo);}
 
