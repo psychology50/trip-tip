@@ -27,7 +27,15 @@
   </header>
 
   <div class="content-box flex">
-
+    <div class="content-inner-box flex">
+      <table>
+        <tr th:each="g : ${groupList}">
+          <td th:text="${g.group_code}"></td>
+          <td th:text="${g.group_name}"></td>
+          <td th:text="${g.leader.username}"></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 </body>

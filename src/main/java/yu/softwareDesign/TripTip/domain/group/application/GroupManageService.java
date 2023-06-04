@@ -70,8 +70,10 @@ public class GroupManageService {
 
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
     @Transactional
-    public void clearGroup(Group group) {
-        groupRepo.save(group);
+    public void settleGroup(Long user_id, Long group_id) {
+
+
+//        groupRepo.save(group);
     }
 
     // TODO: group과 관련된 모든 정보를 삭제해야 함
@@ -87,4 +89,6 @@ public class GroupManageService {
         group.setLeader(null);
         groupRepo.delete(group);
     }
+
+
 }

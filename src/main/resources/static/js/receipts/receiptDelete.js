@@ -12,9 +12,8 @@ receiptDelBtn.addEventListener("click", (e) => {
     }
 
     const xhr = new XMLHttpRequest();
-    // xhr.open("DELETE", `/api/groups/${group_id}/meetings/${meeting_id}/receipts/${receipt_id}/delete`);
-    xhr.open("GET", `/api/groups/${group_id}/meetings/${meeting_id}/receipts/${receipt_id}/delete`);
-
+    xhr.open("DELETE", `/api/groups/${group_id}/meetings/${meeting_id}/receipts/${receipt_id}/delete`);
+    // xhr.open("GET", `/api/groups/${group_id}/meetings/${meeting_id}/receipts/${receipt_id}/delete`);
     xhr.setRequestHeader("Content-Type", "application/json");
     let flag = false;
     xhr.onreadystatechange = () => {

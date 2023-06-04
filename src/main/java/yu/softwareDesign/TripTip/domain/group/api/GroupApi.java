@@ -131,7 +131,7 @@ public class GroupApi {
      */
     @Operation(summary = "그룹 삭제 요청", description = "그룹을 삭제 요청")
     @PostMapping("/{group_id}/delete")
-    @PreAuthorize("hasPermission(#group_id, 'Group', 'DELETE')")
+    @PreAuthorize("@securityService.isLeader(#group_id)")
     public RedirectView groupDeleteRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
         groupManageService.deleteGroup(group_id);
         return new RedirectView("/api");
@@ -162,5 +162,14 @@ public class GroupApi {
     public RedirectView groupLeaveRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
 //        groupJoinService.leaveGroup((User) authentication.getPrincipal(), dto);
         return new RedirectView("/api/groups");
+    }
+
+    @Operation(summary = "그룹 정산 요청", description = "그룹 정산 요청")
+    @PreAuthorize("@securityService.isLeader(#group_id)")
+    @PostMapping("/{group_id}/settle")
+    public ResponseEntity<String> groupSettleRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
+        User user = (User)authentication.getPrincipal();
+        groupManageService.settleGroup(user.getUser_id(), group_id);
+        return ResponseEntity.ok("정산 완료");
     }
 }

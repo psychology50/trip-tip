@@ -29,7 +29,12 @@ public class SecurityService {
         User user = userSearchService.findUserById(((User) authentication.getPrincipal()).getUser_id()).orElseThrow(()
             -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
         log.info("isLeader = {}", user);
-        return user.getIs_leader().stream().anyMatch(group -> group.getGroup_id().equals(group_id));
+
+        boolean is_leader = user.getIs_leader().stream().anyMatch(group -> group.getGroup_id().equals(group_id));
+
+        if (!is_leader)
+            exception_handling();
+        return is_leader;
     }
 
     public boolean isMember(Long group_id) {
@@ -37,7 +42,12 @@ public class SecurityService {
         User user = userSearchService.findUserById(((User) authentication.getPrincipal()).getUser_id()).orElseThrow(()
                 -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
         log.info("isMember = {}", user);
-        return user.getMembers().stream().anyMatch(member -> member.getGroup().getGroup_id().equals(group_id));
+
+        boolean is_member = user.getMembers().stream().anyMatch(member -> member.getGroup().getGroup_id().equals(group_id));
+
+        if (!is_member)
+            exception_handling();
+        return is_member;
     }
 
     public boolean isPayer(Long receipt_id) {
@@ -48,19 +58,22 @@ public class SecurityService {
 
         boolean is_payer = user.getPay_receipts().stream().anyMatch(receipt -> receipt.getReceipt_id().equals(receipt_id));
 
-        if (!is_payer) {
-            attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            if (attributes != null) {
+        if (!is_payer)
+            exception_handling();
+        return is_payer;
+    }
+
+    private void exception_handling() {
+        attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (attributes != null) {
 //                String currentUrl = attributes.getRequest().getRequestURI();
 //                String currentUrl = attributes.getRequest().getRequestURL().toString();
-                // XXX: 신뢰할 수 없는 url. 좋지 않다.
-                String currentUrl = attributes.getRequest().getHeader("referer");
-                attributes.getRequest().getSession().setAttribute("accessDeniedUrl", currentUrl);
-            }
-            log.info("attributes = {}", attributes);
-
-            throw new AccessDeniedException("You do not have permission to access this resource.");
+            // XXX: 신뢰할 수 없는 url. 좋지 않다.
+            String currentUrl = attributes.getRequest().getHeader("referer");
+            attributes.getRequest().getSession().setAttribute("accessDeniedUrl", currentUrl);
         }
-        return is_payer;
+        log.info("attributes = {}", attributes);
+
+        throw new AccessDeniedException("You do not have permission to access this resource.");
     }
 }

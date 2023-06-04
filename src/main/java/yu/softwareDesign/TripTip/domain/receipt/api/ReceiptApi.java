@@ -118,10 +118,7 @@ public class ReceiptApi {
         return "receipts/ReceiptDetailPage";
     }
 
-//    @DeleteMapping("/{receipt_id}/delete")
-    @GetMapping("/{receipt_id}/delete")
-
-//    @PreAuthorize("isPayer(#receipt_id)")
+    @DeleteMapping("/{receipt_id}/delete")
     @PreAuthorize("@securityService.isPayer(#receipt_id)")
     public ResponseEntity<String> delete(@PathVariable(value = "group_id") Long group_id,
                                          @PathVariable(value = "meeting_id") Long meeting_id,

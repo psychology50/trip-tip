@@ -68,6 +68,7 @@ public class MeetingApi {
     }
 
     @Operation(summary = "모임 삭제 요청", description = "모임을 삭제 요청")
+    @PreAuthorize("@securityService.isMember(#group_id)")
     @DeleteMapping("/{meeting_id}/delete")
     public ResponseEntity<String> meetingDeleteRequest(@PathVariable(name = "group_id") Long group_id,
                                                        @PathVariable(name = "meeting_id") Long meeting_id,
