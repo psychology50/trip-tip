@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
-import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
 import yu.softwareDesign.TripTip.domain.user.domain.User;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
@@ -21,7 +20,6 @@ import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 @RequiredArgsConstructor
 @Log4j2
 public class CommonAPI {
-    private final UserRepo userRepo;
     private final GroupSearchService groupSearchService;
 
     @GetMapping("")
@@ -52,10 +50,10 @@ public class CommonAPI {
         return "index";
     }
 
-    @GetMapping("/api/admin")
-    public String admin(@SessionAttribute(value = "admin", required = false) UserDto admin, Model model) {
-        log.info("admin : {}", admin);
-        model.addAttribute("admin", admin);
-        return "admin";
-    }
+//    @GetMapping("/api/admin")
+//    public String admin(@SessionAttribute(value = "admin", required = false) UserDto admin, Model model) {
+//        log.info("admin : {}", admin);
+//        model.addAttribute("admin", admin);
+//        return "admin";
+//    }
 }

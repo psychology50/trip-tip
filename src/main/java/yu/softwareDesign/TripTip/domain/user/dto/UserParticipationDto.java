@@ -21,12 +21,4 @@ public class UserParticipationDto {
         this.cost = cost;
         this.selected = selected;
     }
-
-    public User toEntity() {
-        return User.builder()
-                .user_id(user_id)
-                .username(username)
-                .nickname(nickname)
-                .build();
-    }
 }

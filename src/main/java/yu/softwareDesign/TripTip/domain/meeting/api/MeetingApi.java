@@ -37,7 +37,6 @@ public class MeetingApi {
         return ResponseEntity.ok(MeetingListDto.builder().meeting_id(m.getMeeting_id()).meeting_day(m.getMeeting_day()).build());
     }
 
-    // TODO
     @Operation(summary = "모임 상세 페이지", description = "모임 상세 정보를 볼 수 있는 페이지")
     @GetMapping("/{meeting_id}/detail")
     public String meetingDetailPageRequest(@PathVariable(name = "group_id") Long group_id,
@@ -59,13 +58,13 @@ public class MeetingApi {
         return "meetings/MeetingDetailPage";
     }
 
-    // TODO
-    @Operation(summary = "모임 수정 페이지", description = "모임을 수정할 수 있는 페이지")
-    @GetMapping("/{meeting_id}/update")
-    public String meetingUpdatePageRequest(@PathVariable(name = "group_id") Long group_id, Model model) {
-
-        return "meetings/MeetingEditPage";
-    }
+//    // TODO
+//    @Operation(summary = "모임 수정 페이지", description = "모임을 수정할 수 있는 페이지")
+//    @GetMapping("/{meeting_id}/update")
+//    public String meetingUpdatePageRequest(@PathVariable(name = "group_id") Long group_id, Model model) {
+//
+//        return "meetings/MeetingEditPage";
+//    }
 
     @Operation(summary = "모임 삭제 요청", description = "모임을 삭제 요청")
     @PreAuthorize("@securityService.isMember(#group_id)")

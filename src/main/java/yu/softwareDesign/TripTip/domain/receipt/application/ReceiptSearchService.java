@@ -23,18 +23,6 @@ public class ReceiptSearchService {
         return receiptRepo.findById(id);
     }
 
-    public List<Receipt> findReceiptByUserId(Long user_id) {
-        return receiptRepo.findReceiptByUserId(user_id);
-    }
-
-    public List<Receipt> findReceiptByGroupId(Long group_id) {
-        return receiptRepo.findReceiptByGroupId(group_id);
-    }
-
-    public List<Receipt> findReceiptByMeetingId(Long meeting_id) {
-        return receiptRepo.findReceiptByMeetingId(meeting_id);
-    }
-
     public List<Receipt> findReceiptAll() {
         return receiptRepo.findAll();
     }

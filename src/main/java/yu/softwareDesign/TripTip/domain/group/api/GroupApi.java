@@ -53,7 +53,6 @@ public class GroupApi {
         return "groups/GroupCreatePage";
     }
 
-    // TODO
     /**
      * 그룹 생성 및 수정 요청
      * @param dto
@@ -70,7 +69,6 @@ public class GroupApi {
         return ResponseEntity.ok(group_id.toString());
     }
 
-    // TODO
     /**
      * 그룹 상세 페이지
      * @param group_id
@@ -95,7 +93,6 @@ public class GroupApi {
         return "groups/GroupDetailPage";
     }
 
-    // TODO
     /**
      * 그룹 목록 페이지
      * @param authentication
@@ -109,21 +106,20 @@ public class GroupApi {
         return "groups/GroupListPage";
     }
 
-    // TODO
-    /**
-     * 그룹 수정 요청.
-     * 수정된 폼은 groupSaveRequest 에서 처리
-     * @param model
-     * @return 그룹 수정 페이지
-     */
-    @Operation(summary = "그룹 수정 페이지", description = "그룹을 수정할 수 있는 페이지")
-    @GetMapping("/{group_id}/update")
-    public String groupUpdatePagePageRequest(@PathVariable Long group_id, Model model) {
+//    // TODO
+//    /**
+//     * 그룹 수정 요청.
+//     * 수정된 폼은 groupSaveRequest 에서 처리
+//     * @param model
+//     * @return 그룹 수정 페이지
+//     */
+//    @Operation(summary = "그룹 수정 페이지", description = "그룹을 수정할 수 있는 페이지")
+//    @GetMapping("/{group_id}/update")
+//    public String groupUpdatePagePageRequest(@PathVariable Long group_id, Model model) {
+//
+//        return "groups/GroupEditPage";
+//    }
 
-        return "groups/GroupEditPage";
-    }
-
-    // TODO : 권한 인증 단계 구현
     /**
      * 그룹 삭제 요청 (그룹장만 가능)
      * @param group_id
@@ -137,7 +133,6 @@ public class GroupApi {
         return new RedirectView("/api");
     }
 
-    // TODO : 플래그 분기점 처리
     /**
      * 그룹 가입 요청
      * @param dto
@@ -151,18 +146,19 @@ public class GroupApi {
         return (flag) ? new RedirectView("/api/groups/list") : new RedirectView("/api");
     }
 
-    /**
-     * 그룹 탈퇴 요청
-     * @param group_id
-     * @param authentication
-     * @return 그룹 목록 페이지
-     */
-    @Operation(summary = "그룹 탈퇴 요청", description = "그룹에서 탈퇴 요청")
-    @PostMapping("/{group_id}/leave")
-    public RedirectView groupLeaveRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
-//        groupJoinService.leaveGroup((User) authentication.getPrincipal(), dto);
-        return new RedirectView("/api/groups");
-    }
+//    // TODO
+//    /**
+//     * 그룹 탈퇴 요청
+//     * @param group_id
+//     * @param authentication
+//     * @return 그룹 목록 페이지
+//     */
+//    @Operation(summary = "그룹 탈퇴 요청", description = "그룹에서 탈퇴 요청")
+//    @PostMapping("/{group_id}/leave")
+//    public RedirectView groupLeaveRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
+////        groupJoinService.leaveGroup((User) authentication.getPrincipal(), dto);
+//        return new RedirectView("/api/groups");
+//    }
 
     @Operation(summary = "그룹 정산 요청", description = "그룹 정산 요청")
     @PreAuthorize("@securityService.isLeader(#group_id)")

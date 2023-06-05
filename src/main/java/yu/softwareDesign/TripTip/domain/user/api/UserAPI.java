@@ -137,31 +137,31 @@ public class UserAPI {
         return "users/UserProfilePage";
     }
 
-    // TODO: 구현
-    /**
-     * 유저 프로필 편집 페이지
-     * @param model
-     * @return 유저 프로필 편집 페이지
-     */
-    @Operation(summary = "유저 프로필 편집 페이지", description = "유저 개인 정보 수정 페이지")
-    @GetMapping("/update")
-    public String profileUpdatePageRequest(Model model) {
+//    // TODO: 구현
+//    /**
+//     * 유저 프로필 편집 페이지
+//     * @param model
+//     * @return 유저 프로필 편집 페이지
+//     */
+//    @Operation(summary = "유저 프로필 편집 페이지", description = "유저 개인 정보 수정 페이지")
+//    @GetMapping("/update")
+//    public String profileUpdatePageRequest(Model model) {
+//
+//        return "users/UserEditPage";
+//    }
 
-        return "users/UserEditPage";
-    }
-
-    // TODO: 구현
-    /**
-     * 유저 프로필 편집 처리
-     * @param model
-     * @return 유저 프로필 페이지
-     */
-    @Operation(summary = "유저 프로필 편집", description = "유저 개인 정보 편집")
-    @PostMapping("/update")
-    public RedirectView profileUpdateRequest(Model model) {
-
-        return new RedirectView("api/users/detail");
-    }
+//    // TODO: 구현
+//    /**
+//     * 유저 프로필 편집 처리
+//     * @param model
+//     * @return 유저 프로필 페이지
+//     */
+//    @Operation(summary = "유저 프로필 편집", description = "유저 개인 정보 편집")
+//    @PostMapping("/update")
+//    public RedirectView profileUpdateRequest(Model model) {
+//
+//        return new RedirectView("api/users/detail");
+//    }
 
     // TODO: 구현
     /**

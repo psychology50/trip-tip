@@ -9,7 +9,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
 import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService;
 import yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService;
 import yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService;
@@ -32,7 +31,6 @@ public class ReceiptApi {
     private final ReceiptSearchService receiptSearchService;
     private final ReceiptManageService receiptManageService;
     private final UserSearchService userSearchService;
-    private final GroupSearchService groupSearchService;
     private final MeetingSearchService meetingSearchService;
     private final ParticipantSearchService participantSearchService;
 

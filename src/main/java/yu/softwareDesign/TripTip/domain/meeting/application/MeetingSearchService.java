@@ -22,15 +22,6 @@ public class MeetingSearchService {
     public Optional<Meeting> findMeetingById(Long id) {
         return meetingRepo.findById(id);
     }
-
-    public List<Meeting> findMeetingByUserId(Long userId) {
-        return meetingRepo.findMeetingByUserId(userId);
-    }
-
-    public List<Meeting> findMeetingByGroupId(Long groupId) {
-        return meetingRepo.findMeetingByGroupId(groupId);
-    }
-
     public List<Meeting> findMeetingAll() {
         return meetingRepo.findAll();
     }
