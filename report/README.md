@@ -1,4 +1,5 @@
 # 모임 정산 관리 서비스. trip-tip
+### 2. Analysis
 Software Design Web Service
 
 <div align="center">

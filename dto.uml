@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>yu.softwareDesign.TripTip.domain.meeting.dto</OriginalElement>
+  <nodes>
+    <node x="2079.0" y="2205.0">yu.softwareDesign.TripTip.global.config.security.Authentication.UserContext</node>
+    <node x="1302.0" y="3997.5">yu.softwareDesign.TripTip.domain.group.dto.GroupDetailDto</node>
+    <node x="1349.0" y="5099.5">yu.softwareDesign.TripTip.domain.receipt.domain.Receipt</node>
+    <node x="5376.5" y="3123.5">yu.softwareDesign.TripTip.domain.group.application.GroupManageService</node>
+    <node x="3272.0" y="3724.5">yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAuthenticationFailureHandler</node>
+    <node x="3272.0" y="3607.5">yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAccessDeniedHandler</node>
+    <node x="5021.5" y="2305.5">yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService</node>
+    <node x="4468.0" y="2727.0">org.springframework.data.jpa.repository.JpaRepository</node>
+    <node x="3665.0" y="388.5">yu.softwareDesign.TripTip.domain.user.api.UserAPI</node>
+    <node x="3056.5" y="2918.5">yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto</node>
+    <node x="3926.0" y="1822.0">yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo</node>
+    <node x="3451.5" y="2494.5">yu.softwareDesign.TripTip.domain.meeting.api.MeetingApi</node>
+    <node x="2502.5" y="3292.0">yu.softwareDesign.TripTip.domain.user.domain.Address</node>
+    <node x="127.5" y="2207.5">yu.softwareDesign.TripTip.domain.member.domain.Member</node>
+    <node x="2632.0" y="2473.0">yu.softwareDesign.TripTip.domain.group.dao.GroupRepo</node>
+    <node x="1339.5" y="4548.5">yu.softwareDesign.TripTip.domain.meeting.domain.Meeting</node>
+    <node x="2057.5" y="2505.5">yu.softwareDesign.TripTip.domain.user.domain.User</node>
+    <node x="120.0" y="4581.5">yu.softwareDesign.TripTip.domain.group.domain.Group</node>
+    <node x="1668.0" y="4504.5">yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptDetailDto</node>
+    <node x="2766.5" y="3292.0">yu.softwareDesign.TripTip.domain.user.domain.Phone</node>
+    <node x="361.0" y="4748.0">yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity</node>
+    <node x="3421.5" y="1403.5">yu.softwareDesign.TripTip.global.config.security.SecurityService</node>
+    <node x="2985.5" y="3292.0">yu.softwareDesign.TripTip.domain.user.domain.RoleType</node>
+    <node x="2462.0" y="2714.5">yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto</node>
+    <node x="3713.5" y="1403.5">yu.softwareDesign.TripTip.domain.user.application.UserSearchService</node>
+    <node x="5198.5" y="2860.5">yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo</node>
+    <node x="3976.5" y="2505.5">yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService</node>
+    <node x="495.5" y="3803.5">yu.softwareDesign.TripTip.domain.user.dto.UserParticipationDto</node>
+    <node x="3232.0" y="3241.5">yu.softwareDesign.TripTip.global.config.security.WebSecurityConfig</node>
+    <node x="4407.0" y="1685.5">yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService</node>
+    <node x="3225.0" y="275.0">yu.softwareDesign.TripTip.domain.user.dao.UserRepo</node>
+    <node x="3272.0" y="3468.5">yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAuthenticationProvider</node>
+    <node x="2037.5" y="165.5">yu.softwareDesign.TripTip.global.common.CommonAPI</node>
+    <node x="4527.0" y="2640.5">yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo</node>
+    <node x="4594.0" y="476.5">yu.softwareDesign.TripTip.domain.user.application.UserSignService</node>
+    <node x="4849.5" y="1720.5">yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo</node>
+    <node x="3890.5" y="2272.5">yu.softwareDesign.TripTip.domain.receipt.api.ReceiptApi</node>
+    <node x="-228.0" y="4526.5">yu.softwareDesign.TripTip.domain.user.dto.UserDto</node>
+    <node x="5392.0" y="1348.5">yu.softwareDesign.TripTip.global.config.properties.SpringConfig</node>
+    <node x="2106.5" y="2076.5">yu.softwareDesign.TripTip.global.config.security.Authentication.CustomUserDetailsService</node>
+    <node x="3019.0" y="2505.5">yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService</node>
+    <node x="917.5" y="3748.5">yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto</node>
+    <node x="3364.0" y="2920.5">yu.softwareDesign.TripTip.domain.meeting.dto.MeetingListDto</node>
+    <node x="5826.5" y="1460.5">yu.softwareDesign.TripTip.domain.member.dao.MemberRepo</node>
+    <node x="5349.0" y="-169.5">yu.softwareDesign.TripTip.domain.group.api.GroupApi</node>
+    <node x="4459.5" y="726.5">yu.softwareDesign.TripTip.domain.user.dto.UserLoginDto</node>
+    <node x="1815.0" y="154.0">yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto</node>
+    <node x="1718.5" y="5110.5">yu.softwareDesign.TripTip.domain.participant.domain.Participant</node>
+    <node x="3955.5" y="2074.5">yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService</node>
+    <node x="2319.0" y="132.5">yu.softwareDesign.TripTip.domain.group.application.GroupSearchService</node>
+    <node x="4123.5" y="726.5">yu.softwareDesign.TripTip.domain.user.dto.UserRegisterDto</node>
+    <node x="5409.0" y="96.5">yu.softwareDesign.TripTip.domain.group.application.GroupJoinService</node>
+    <node x="2502.5" y="3609.0">yu.softwareDesign.TripTip.domain.user.domain.Bank</node>
+    <node x="670.5" y="3350.5">yu.softwareDesign.TripTip.domain.settlement.domain.Settlement</node>
+    <node x="2546.0" y="2189.5">yu.softwareDesign.TripTip.domain.group.dto.RecentGroupDto</node>
+    <node x="36.5" y="5110.5">yu.softwareDesign.TripTip.domain.meeting.dto.MeetingDetailDto</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="-8.5" y="-126.5" />
+      <point x="5568.5" y="326.75" />
+      <point x="132.0" y="-8.25" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.api.ReceiptApi" target="yu.softwareDesign.TripTip.domain.user.application.UserSearchService" relationship="TO_ONE">
+      <point x="-226.5" y="0.0" />
+      <point x="3807.0" y="2355.0" />
+      <point x="-50.0" y="71.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo" relationship="TO_ONE">
+      <point x="-30.0" y="126.5" />
+      <point x="5547.0" y="1730.166666666666" />
+      <point x="67.5" y="-4.83333333333394" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.member.dao.MemberRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="-5.0" y="14.5" />
+      <point x="5892.0" y="3025.0" />
+      <point x="4597.0" y="3025.0" />
+      <point x="0.0" y="148.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.SecurityService" target="yu.softwareDesign.TripTip.domain.user.application.UserSearchService" relationship="TO_ONE">
+      <point x="115.5" y="0.0" />
+      <point x="-143.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" target="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" relationship="TO_MANY">
+      <point x="5.25" y="226.5" />
+      <point x="5.25" y="-215.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService" target="yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo" relationship="TO_ONE">
+      <point x="-0.0" y="-49.5" />
+      <point x="5157.0" y="1739.833333333334" />
+      <point x="67.5" y="4.83333333333394" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.api.MeetingApi" target="yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService" relationship="TO_ONE">
+      <point x="-225.5" y="0.0" />
+      <point x="158.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupSearchService" target="yu.softwareDesign.TripTip.domain.group.dao.GroupRepo" relationship="TO_ONE">
+      <point x="0.0" y="82.5" />
+      <point x="2457.0" y="2555.0" />
+      <point x="-165.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService" target="yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo" relationship="TO_ONE">
+      <point x="-70.0" y="49.5" />
+      <point x="4527.0" y="1915.0" />
+      <point x="191.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.domain.Group" target="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" relationship="TO_MANY">
+      <point x="-0.0" y="193.5" />
+      <point x="217.0" y="5021.5" />
+      <point x="1472.25" y="5021.5" />
+      <point x="-4.75" y="226.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" target="yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo" relationship="TO_ONE">
+      <point x="-200.5" y="-22.5" />
+      <point x="5277.0" y="3172.5" />
+      <point x="-0.0" y="14.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.WebSecurityConfig" target="yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAuthenticationProvider" relationship="CREATE">
+      <point x="-3.0" y="93.5" />
+      <point x="0.0" y="-49.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.api.ReceiptApi" target="yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService" relationship="TO_ONE">
+      <point x="-5.0" y="-82.5" />
+      <point x="-5.0" y="60.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="-10.0" y="215.5" />
+      <point x="1467.0" y="5560.5" />
+      <point x="2257.0" y="5560.5" />
+      <point x="20.0" y="369.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" relationship="TO_MANY">
+      <point x="10.0" y="369.5" />
+      <point x="2247.0" y="5550.5" />
+      <point x="1477.0" y="5550.5" />
+      <point x="-0.0" y="215.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.api.UserAPI" target="yu.softwareDesign.TripTip.domain.user.application.UserSearchService" relationship="TO_ONE">
+      <point x="0.0" y="126.5" />
+      <point x="0.0" y="-71.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.application.UserSearchService" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="-60.0" y="71.5" />
+      <point x="3797.0" y="1824.0" />
+      <point x="3378.25" y="1824.0" />
+      <point x="21.25" y="60.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.member.domain.Member" target="yu.softwareDesign.TripTip.domain.group.domain.Group" relationship="TO_ONE">
+      <point x="-6.25" y="127.5" />
+      <point x="-6.25" y="-193.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.api.GroupApi" target="yu.softwareDesign.TripTip.domain.group.application.GroupJoinService" relationship="TO_ONE">
+      <point x="0.0" y="104.5" />
+      <point x="0.0" y="-38.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.dto.MeetingDetailDto" target="yu.softwareDesign.TripTip.domain.group.domain.Group" relationship="TO_ONE">
+      <point x="-10.0" y="-204.5" />
+      <point x="-10.0" y="193.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="-191.0" y="0.0" />
+      <point x="3449.5" y="1915.0" />
+      <point x="3449.5" y="2812.75" />
+      <point x="-129.0" y="-62.25" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto" target="yu.softwareDesign.TripTip.domain.user.dto.UserParticipationDto" relationship="TO_MANY">
+      <point x="-179.5" y="0.0" />
+      <point x="181.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.member.domain.Member" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="89.5" y="53.75" />
+      <point x="1274.5" y="2388.75" />
+      <point x="1274.5" y="2870.0" />
+      <point x="-179.5" y="-5.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.settlement.domain.Settlement" target="yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity" relationship="GENERALIZATION">
+      <point x="-106.5" y="0.0" />
+      <point x="428.25" y="3555.0" />
+      <point x="-8.75" y="-27.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService" target="yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo" relationship="TO_ONE">
+      <point x="190.0" y="0.0" />
+      <point x="-67.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" target="yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity" relationship="GENERALIZATION">
+      <point x="-137.5" y="0.0" />
+      <point x="76.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.user.domain.Address" relationship="TO_ONE">
+      <point x="40.0" y="369.5" />
+      <point x="2277.0" y="3278.25" />
+      <point x="2624.5" y="3278.25" />
+      <point x="-0.0" y="-138.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.api.GroupApi" target="yu.softwareDesign.TripTip.domain.group.application.GroupSearchService" relationship="TO_ONE">
+      <point x="-228.0" y="0.0" />
+      <point x="2457.0" y="-65.0" />
+      <point x="0.0" y="-82.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.group.dao.GroupRepo" relationship="TO_ONE">
+      <point x="-18.5" y="-126.5" />
+      <point x="5558.5" y="706.5" />
+      <point x="2870.0" y="706.5" />
+      <point x="73.0" y="-82.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="11.25" y="60.0" />
+      <point x="3368.25" y="2822.75" />
+      <point x="-129.0" y="-52.25" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.application.UserSignService" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="-0.0" y="-38.5" />
+      <point x="4697.0" y="336.75" />
+      <point x="132.0" y="1.75" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.domain.Group" target="yu.softwareDesign.TripTip.domain.member.domain.Member" relationship="TO_MANY">
+      <point x="-97.0" y="-5.0" />
+      <point x="118.0" y="4770.0" />
+      <point x="118.0" y="2335.0" />
+      <point x="-89.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" target="yu.softwareDesign.TripTip.domain.member.dao.MemberRepo" relationship="TO_ONE">
+      <point x="200.5" y="0.0" />
+      <point x="5902.0" y="3195.0" />
+      <point x="5.0" y="14.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.participant.domain.Participant" target="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" relationship="TO_ONE">
+      <point x="-118.5" y="0.0" />
+      <point x="128.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.user.domain.Phone" relationship="TO_ONE">
+      <point x="50.0" y="369.5" />
+      <point x="2287.0" y="3268.25" />
+      <point x="2866.0" y="3268.25" />
+      <point x="-0.0" y="-116.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService" relationship="CREATE">
+      <point x="-185.0" y="57.5" />
+      <point x="4597.0" y="1532.5" />
+      <point x="-0.0" y="-49.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.user.application.UserSignService" relationship="CREATE">
+      <point x="-185.0" y="-32.5" />
+      <point x="4697.0" y="1442.5" />
+      <point x="-0.0" y="38.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.participant.domain.Participant" relationship="TO_MANY">
+      <point x="-10.0" y="369.5" />
+      <point x="2227.0" y="5047.5" />
+      <point x="1842.0" y="5047.5" />
+      <point x="5.0" y="-204.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.api.UserAPI" target="yu.softwareDesign.TripTip.domain.user.dto.UserLoginDto" relationship="CREATE">
+      <point x="192.0" y="44.0" />
+      <point x="4562.5" y="559.0" />
+      <point x="-0.0" y="-94.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.Authentication.CustomUserDetailsService" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="130.5" y="0.0" />
+      <point x="3308.25" y="2115.0" />
+      <point x="-48.75" y="60.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.WebSecurityConfig" target="yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAccessDeniedHandler" relationship="CREATE">
+      <point x="141.0" y="93.5" />
+      <point x="86.0" y="-38.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.WebSecurityConfig" target="yu.softwareDesign.TripTip.global.config.security.Authentication.CustomAuthenticationFailureHandler" relationship="CREATE">
+      <point x="-147.0" y="93.5" />
+      <point x="3270.0" y="3686.5" />
+      <point x="3462.5" y="3686.5" />
+      <point x="0.0" y="-38.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptDetailDto" target="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" relationship="TO_ONE">
+      <point x="-169.0" y="-5.0" />
+      <point x="137.5" y="-5.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupJoinService" target="yu.softwareDesign.TripTip.domain.member.domain.Member" relationship="CREATE">
+      <point x="-168.0" y="-4.5" />
+      <point x="217.0" y="130.5" />
+      <point x="0.0" y="-127.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.dto.GroupDetailDto" target="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" relationship="TO_MANY">
+      <point x="0.0" y="237.5" />
+      <point x="0.0" y="-226.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo" relationship="TO_ONE">
+      <point x="-185.0" y="47.5" />
+      <point x="4117.0" y="1522.5" />
+      <point x="-0.0" y="-93.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.domain.Group" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="3.75" y="-193.5" />
+      <point x="220.75" y="2880.0" />
+      <point x="-179.5" y="5.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.api.GroupApi" target="yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto" relationship="CREATE">
+      <point x="-187.0" y="104.5" />
+      <point x="5390.0" y="2725.0" />
+      <point x="155.0" y="-150.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.group.application.GroupJoinService" relationship="CREATE">
+      <point x="11.5" y="-126.5" />
+      <point x="11.5" y="38.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.group.domain.Group" relationship="TO_MANY">
+      <point x="-50.0" y="369.5" />
+      <point x="2187.0" y="3348.5" />
+      <point x="230.75" y="3348.5" />
+      <point x="13.75" y="-193.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupJoinService" target="yu.softwareDesign.TripTip.domain.group.dao.GroupRepo" relationship="TO_ONE">
+      <point x="-168.0" y="12.0" />
+      <point x="2860.0" y="147.0" />
+      <point x="63.0" y="-82.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.Authentication.UserContext" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="0.0" y="50.0" />
+      <point x="0.0" y="-369.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.security.Authentication.CustomUserDetailsService" target="yu.softwareDesign.TripTip.global.config.security.Authentication.UserContext" relationship="CREATE">
+      <point x="0.0" y="38.5" />
+      <point x="0.0" y="-50.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="-200.5" y="-3.5" />
+      <point x="3017.0" y="3191.5" />
+      <point x="3017.0" y="335.0" />
+      <point x="-132.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService" relationship="CREATE">
+      <point x="-28.5" y="-126.5" />
+      <point x="5548.5" y="716.5" />
+      <point x="3177.0" y="716.5" />
+      <point x="-0.0" y="-49.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.dto.MeetingDetailDto" target="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" relationship="TO_MANY">
+      <point x="180.5" y="0.0" />
+      <point x="-128.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService" relationship="CREATE">
+      <point x="-20.0" y="126.5" />
+      <point x="5557.0" y="2355.0" />
+      <point x="135.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.member.domain.Member" relationship="TO_MANY">
+      <point x="-15.75" y="-369.5" />
+      <point x="2221.25" y="2378.75" />
+      <point x="89.5" y="43.75" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" target="yu.softwareDesign.TripTip.domain.participant.domain.Participant" relationship="TO_MANY">
+      <point x="10.0" y="215.5" />
+      <point x="1487.0" y="5540.5" />
+      <point x="1837.0" y="5540.5" />
+      <point x="-0.0" y="204.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.common.CommonAPI" target="yu.softwareDesign.TripTip.domain.group.application.GroupSearchService" relationship="TO_ONE">
+      <point x="119.5" y="0.0" />
+      <point x="-138.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupJoinService" target="yu.softwareDesign.TripTip.domain.member.dao.MemberRepo" relationship="TO_ONE">
+      <point x="168.0" y="0.0" />
+      <point x="5897.0" y="135.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_MANY">
+      <point x="-155.0" y="0.0" />
+      <point x="179.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.api.ReceiptApi" target="yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService" relationship="TO_ONE">
+      <point x="0.0" y="82.5" />
+      <point x="0.0" y="-49.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo" relationship="TO_ONE">
+      <point x="10.0" y="126.5" />
+      <point x="5587.0" y="2875.0" />
+      <point x="78.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.participant.domain.Participant" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="118.5" y="0.0" />
+      <point x="2237.0" y="5315.0" />
+      <point x="0.0" y="369.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.api.GroupApi" target="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" relationship="TO_ONE">
+      <point x="228.0" y="0.0" />
+      <point x="5969.5" y="-65.0" />
+      <point x="5969.5" y="3268.5" />
+      <point x="5577.0" y="3268.5" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.api.MeetingApi" target="yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService" relationship="TO_ONE">
+      <point x="225.5" y="0.0" />
+      <point x="-140.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="14.5" />
+      <point x="0.0" y="-148.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" target="yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity" relationship="GENERALIZATION">
+      <point x="-128.0" y="-10.5" />
+      <point x="437.0" y="5304.5" />
+      <point x="-0.0" y="27.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.dto.UserDto" target="yu.softwareDesign.TripTip.domain.group.domain.Group" relationship="TO_MANY">
+      <point x="145.0" y="5.0" />
+      <point x="-97.0" y="5.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.api.UserAPI" target="yu.softwareDesign.TripTip.domain.user.dto.UserRegisterDto" relationship="CREATE">
+      <point x="192.0" y="54.0" />
+      <point x="4281.5" y="569.0" />
+      <point x="-0.0" y="-358.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto" target="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" relationship="TO_ONE">
+      <point x="-0.0" y="226.5" />
+      <point x="1097.0" y="4670.25" />
+      <point x="-137.5" y="-104.75" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.api.UserAPI" target="yu.softwareDesign.TripTip.domain.user.application.UserSignService" relationship="TO_ONE">
+      <point x="192.0" y="0.0" />
+      <point x="-103.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.settlement.domain.Settlement" relationship="TO_MANY">
+      <point x="-40.0" y="369.5" />
+      <point x="2197.0" y="3555.0" />
+      <point x="106.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.settlement.domain.Settlement" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="0.0" y="-204.5" />
+      <point x="777.0" y="3294.0" />
+      <point x="2177.0" y="3294.0" />
+      <point x="-60.0" y="369.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.user.application.UserSearchService" relationship="CREATE">
+      <point x="-185.0" y="20.0" />
+      <point x="143.5" y="20.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.group.application.GroupSearchService" relationship="CREATE">
+      <point x="1.5" y="-126.5" />
+      <point x="5578.5" y="215.0" />
+      <point x="138.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupJoinService" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="-168.0" y="22.0" />
+      <point x="3357.0" y="157.0" />
+      <point x="-0.0" y="-60.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.api.ReceiptApi" target="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptSearchService" relationship="TO_ONE">
+      <point x="226.5" y="0.0" />
+      <point x="-135.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService" relationship="CREATE">
+      <point x="-10.0" y="126.5" />
+      <point x="5567.0" y="2555.0" />
+      <point x="140.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.member.dao.MemberRepo" relationship="TO_ONE">
+      <point x="185.0" y="0.0" />
+      <point x="-70.5" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.dao.ReceiptRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="-0.0" y="14.5" />
+      <point x="4917.0" y="2803.25" />
+      <point x="129.0" y="-71.75" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto" target="yu.softwareDesign.TripTip.domain.user.domain.User" relationship="TO_ONE">
+      <point x="179.5" y="0.0" />
+      <point x="2207.0" y="3975.0" />
+      <point x="-30.0" y="369.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService" target="yu.softwareDesign.TripTip.domain.user.dao.UserRepo" relationship="TO_ONE">
+      <point x="-190.0" y="0.0" />
+      <point x="3388.25" y="1735.0" />
+      <point x="31.25" y="60.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" target="yu.softwareDesign.TripTip.domain.group.dao.GroupRepo" relationship="TO_ONE">
+      <point x="-200.5" y="6.5" />
+      <point x="2862.0" y="3201.5" />
+      <point x="65.0" y="82.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService" target="yu.softwareDesign.TripTip.domain.group.dao.GroupRepo" relationship="TO_ONE">
+      <point x="-158.0" y="0.0" />
+      <point x="165.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="-78.5" y="0.0" />
+      <point x="129.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.domain.Receipt" target="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" relationship="TO_ONE">
+      <point x="128.0" y="-10.5" />
+      <point x="1616.5" y="5304.5" />
+      <point x="1616.5" y="4780.0" />
+      <point x="137.5" y="5.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService" target="yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo" relationship="TO_ONE">
+      <point x="0.0" y="49.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" target="yu.softwareDesign.TripTip.domain.member.domain.Member" relationship="CREATE">
+      <point x="20.0" y="-71.5" />
+      <point x="5597.0" y="2439.5" />
+      <point x="89.5" y="104.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.participant.application.ParticipantSearchService" target="yu.softwareDesign.TripTip.domain.participant.dao.ParticipantRepo" relationship="TO_ONE">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.domain.Meeting" target="yu.softwareDesign.TripTip.domain.group.domain.Group" relationship="TO_ONE">
+      <point x="-14.75" y="226.5" />
+      <point x="1462.25" y="5011.5" />
+      <point x="227.0" y="5011.5" />
+      <point x="10.0" y="193.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.domain.Group" target="yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity" relationship="GENERALIZATION">
+      <point x="97.0" y="0.0" />
+      <point x="-76.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService" target="yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo" relationship="TO_ONE">
+      <point x="-0.0" y="49.5" />
+      <point x="3177.0" y="2659.833333333334" />
+      <point x="-70.0" y="4.83333333333394" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.api.ReceiptApi" target="yu.softwareDesign.TripTip.domain.receipt.application.ReceiptManageService" relationship="TO_ONE">
+      <point x="5.0" y="-82.5" />
+      <point x="4122.0" y="2197.5" />
+      <point x="4537.0" y="2197.5" />
+      <point x="-60.0" y="49.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.user.domain.Bank" relationship="TO_ONE">
+      <point x="30.0" y="369.5" />
+      <point x="2267.0" y="3571.0" />
+      <point x="2582.5" y="3571.0" />
+      <point x="0.0" y="-94.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptDetailDto" target="yu.softwareDesign.TripTip.domain.participant.domain.Participant" relationship="TO_MANY">
+      <point x="-5.0" y="270.5" />
+      <point x="-5.0" y="-204.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService" target="yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo" relationship="TO_ONE">
+      <point x="-0.0" y="49.5" />
+      <point x="4117.0" y="2650.166666666666" />
+      <point x="-70.0" y="-4.83333333333394" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.common.CommonAPI" target="yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto" relationship="CREATE">
+      <point x="-119.5" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.group.dao.GroupRepo" target="org.springframework.data.jpa.repository.JpaRepository" relationship="INTERFACE_GENERALIZATION">
+      <point x="75.0" y="82.0" />
+      <point x="2872.0" y="2832.75" />
+      <point x="-129.0" y="-42.25" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo" relationship="TO_ONE">
+      <point x="0.0" y="126.5" />
+      <point x="5577.0" y="2655.0" />
+      <point x="70.0" y="0.0" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.global.config.properties.SpringConfig" target="yu.softwareDesign.TripTip.domain.group.application.GroupManageService" relationship="CREATE">
+      <point x="30.0" y="126.5" />
+      <point x="30.0" y="-71.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.user.domain.RoleType" relationship="TO_ONE">
+      <point x="60.0" y="369.5" />
+      <point x="2297.0" y="3258.25" />
+      <point x="3076.0" y="3258.25" />
+      <point x="-0.0" y="-94.5" />
+    </edge>
+    <edge source="yu.softwareDesign.TripTip.domain.user.domain.User" target="yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity" relationship="GENERALIZATION">
+      <point x="-20.0" y="369.5" />
+      <point x="2217.0" y="4474.5" />
+      <point x="442.0" y="4474.5" />
+      <point x="5.0" y="-27.0" />
+    </edge>
+  </edges>
+  <settings layout="Compact" zoom="0.8363927722785646" showDependencies="true" x="2431.0097910792774" y="393.60945343653526" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
