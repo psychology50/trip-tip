@@ -27,7 +27,7 @@ Software Design Web Service
 |:---:|:---:|:---:|:---:|
 |2023/06/06|v1.0.0|First Writing|YANG JAESEO|
 |2023/06/08|v1.0.1|Update Class diagram|YANG JAESEO|
-| | | | |
+|2023/06/09|v1.0.2|Update Sequence diagram|YANG JAESEO|
 | | | | |
 | | | | |
 
@@ -637,7 +637,7 @@ Spring MVC 패턴을 사용하여 구현하였다.
 
 &nbsp;&nbsp;&nbsp;
 2.3.4. Service
-<div align="center"><img src=""></img></div>
+<div align="center"><img src="https://github.com/psychology50/trip-tip/assets/96044622/f92045d7-514c-431b-bb32-877b208f4a3a"></img></div>
 <table align="center">
   <tr>
     <td> <b>ClassName</b> </td>
@@ -1174,7 +1174,9 @@ bb40-f7b8fcd55bc9"></img></div>
 
 &nbsp;&nbsp;&nbsp;
 2.8.2. CommonAPI
-<div align="center"><img src="https://github.com/psychology50/trip-tip/assets/96044622/0403a326-4890-4f4b-96f0-c9bcf34258a8"></img></div>
+<div align="center">
+<img src="https://github.com/psychology50/trip-tip/assets/96044622/0403a326-4890-4f4b-96f0-c9bcf34258a8"></img>
+</div>
 <table align="center">
   <tr>
     <td> <b>ClassName</b> </td>
@@ -1227,6 +1229,130 @@ bb40-f7b8fcd55bc9"></img></div>
 
 ## [ 3. Sequence diagram ]
 
+### 3.1. Login
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/45d9dbfc-0de5-40a2-8ab7-d747d8125a1d">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+Login Use case에서의 Sequence Diagram이다. SpringSecurity 내부에서 인증 과정을 거치기 때문에 정확한 호출 순서는 구현하지 못하였다. 유저가 입력한 아이디 패스워드를 이용해 DB에 저장된 정보와 비교하여 인증을 진행한다. 인증이 완료되면 유저의 권한 정보를 이용해 권한을 부여한다. 권한이 부여되면 유저는 해당 권한을 이용해 서비스를 이용할 수 있다.<br/>
+&nbsp;&nbsp;&nbsp;
+로그인에 실패하면 로그인 페이지에 리다이렉션하며 아무런 변화가 없다.
+
+### 3.2. Register
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/6844e1b9-034d-44a3-91de-b30caa079bfc">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+Register Use case에서의 Sequence Diagram이다. 유저가 TripTip 기능들을 사용하기 위해 회원가입 버튼을 누르면 회원가입 폼이 있는 페이지를 반환한다.<br/>
+&nbsp;&nbsp;&nbsp;
+모든 정보를 기입하고 요청을 보내면 사용자 이용하려는 닉네임 중복 여부를 판단하고, 중복되지 않으면 DB에 반영하고 리다이렉션한다. 만약, 중복된 닉네임 정보가 있을 경우에는 예외 처리를 통해 사용자에게 알려준다.
+
+### 3.3. Create Group
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/a3927235-bacc-4764-8720-5197fb7bf59c">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+Create Group Use case에서의 Sequence Diagram이다. 유저가 그룹 생성 버튼을 누르면 그룹 생성 폼이 있는 페이지를 반환한다. 해당 페이지에서는 그룹에 추가할 멤버를 검색할 수 있다. 비동기 통신을 이용하여 검색한 멤버를 페이지에 띄워준다. 검색한 멤버를 선택하면 멤버를 추가할 수 있는 버튼이 활성화된다. 멤버를 추가하고 그룹 생성 버튼을 누르면 그룹 생성 요청을 보낸다. <br/>
+&nbsp;&nbsp;&nbsp;
+모든 그룹은 고유한 문자열을 코드값으로 가지고 있어서, Service 내부에서 코드값이 중복되지 않는지 검사한다. 중복되지 않으면 그룹을 생성하고 DB에 반영한다. 중복이 있는 경우, 중복이 없는 코드를 만들때까지 코드 생성 함수를 반복한다. 그룹 생성이 완료되면 생성된 그룹 데이터를 Client에게 반환한다.
+
+### 3.3. Join Group
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/cc625f4d-68b7-4e76-ae48-22ae46f221ff">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+가입하고자 하는 그룹의 코드를 입력하고 요청을 보내면 Service 내부에서 해당 코드를 가진 그룹이 존재하는지 검사한다. 존재하지 않으면 예외 처리를 통해 사용자에게 알려준다. 존재하는 경우, 그룹에 가입한다.
+
+### 3.4. Detail Group
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/b5336079-24b0-4404-bd66-61d756bcb310">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+메인 페이지 혹은 그룹 리스트 페이지에서 가입한 그룹 목록이 나열된다. 이 중에서 상제 정보를 알고자 하는 그룹을 클릭하면 이벤트가 발생한다. group_id를 매핑하여 서버에 요청을 보내게 되면, Service에서는 해당 id를 가진 Group 정보를 반환한다. 반환된 정보를 이용하여 그룹의 상세 정보를 구성하여 페이지를 반환한다.
+
+### 3.5 Delete Group
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/30012b0d-be58-41c7-8eb7-c61617c968e8">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+그룹을 삭제하고자 하는 경우의 Sequence diagram이다. 그룹을 삭제하고자 하는 경우, 그룹의 리더만이 삭제할 수 있다. 그룹의 리더가 삭제 버튼을 누르면 그룹 삭제 요청을 보내게 된다. 해당 요청에 대해 Security Service에서 요청을 낚아채 그룹의 리더인지 판단하고, 리더가 맞다면 그룹을 삭제한다. 그룹을 삭제하면 그룹에 속한 모든 데이터가 삭제된다. 만약, 리더가 아니라면 예외 처리를 통해 사용자에게 알려준다.
+
+### 3.6. Create Meeting
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/6e3f6553-7786-49a1-82ff-73e34663fa4e">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+그룹 상세 페이지에서 모임 생성 버튼을 누르면 모임 생성 폼이 있는 페이지를 반환한다. 해당 페이지에서는 모임의 이름과 날짜를 입력할 수 있다. 날짜는 달력을 통해 선택할 수 있으며, 오늘 날짜 이전의 날짜는 선택할 수 없다. 모임 생성 버튼을 누르면 모임 생성 요청을 보내게 된다. 모임 생성 요청에 대해 Security Service에서 요청을 낚아채 그룹의 리더인지 판단하고, 리더가 맞다면 모임을 생성한다. 모임을 생성하면 생성된 모임 데이터를 Client에게 반환한다. 만약, 리더가 아니라면 예외 처리를 통해 사용자에게 알려준다.
+
+### 3.7. Detail Meeting
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/300bfccd-2c00-4849-92a3-0ad382a791db">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+그룹 상세 페이지에서 상세 정보를 알고 싶은 모임을 클릭하면 이벤트가 발생한다. 해당 모임의 id를 매핑하여 서버에 요청을 보내게 되면, Service에서는 해당 id를 가진 Meeting 정보를 반환한다. 반환된 정보를 이용하여 모임의 상세 정보를 구성하여 페이지를 반환한다.
+
+### 3.8. Delete Meeting
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/35384f47-39f9-4980-ad58-8d6c63706505">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+해당 모임을 삭제하고자 하는 경우의 Sequence diagram이다. 모임을 삭제하고자 하는 경우, 그룹의 멤버만이 삭제할 수 있다. 그룹의 멤버가 삭제 버튼을 누르면 모임 삭제 요청을 보내게 된다. 해당 요청에 대해 Security Service에서 요청을 낚아채 그룹의 멤버인지 판단하고, 멤버가 맞다면 모임을 삭제한다. 모임을 삭제하면 모임에 속한 모든 데이터가 삭제된다. 만약, 멤버가 아니라면 예외 처리를 통해 사용자에게 알려준다.
+
+### 3.9. Create Receipt
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/472f7004-0667-46ba-9f4d-6e975f09a2e6">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+영수증을 생성하고자 하는 경우의 Sequence diagram이다. 모임 페이지 내에서 생성 버튼을 누르면 이벤트가 발생한다. 이 페이지는 Sever Side Rendering이 아닌, Client Side Rendering으로 동작한다. 따라서 createForm 요청을 보내면 페이지 구성을 위한 기본 정보를 반환하고, 추가 정보는 비동기 통신으로 호출하여 페이지를 마저 구성한다. 모든 정보를 기입하고 요청을 보내면 사용자가 입력한 정보를 이용하여 영수증을 생성한다. 영수증 생성이 완료되면 생성된 영수증 데이터를 Client에게 반환한다.
+
+### 3.10. Detail Receipt
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/4b6bb0f0-fb15-4d40-9c87-1579f1467bc3">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+모임 페이지 내에서 상세 정보를 알고 싶은 영수증을 클릭하면 이벤트가 발생한다. 해당 영수증의 id를 매핑하여 서버에 요청을 보내게 되면, Service에서는 해당 id를 가진 Receipt 정보를 반환한다. 반환된 정보를 이용하여 영수증의 상세 정보를 구성하여 페이지를 반환한다.
+
+### 3.11. Delete Receipt
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/fc909fe0-1017-4cc8-8887-22af262cabe3">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+해당 영수증을 삭제하고자 하는 경우의 Sequence diagram이다. 영수증을 삭제하고자 하는 경우, 영수증의 payer만이 삭제할 수 있다. 영수증의 payer가 삭제 버튼을 누르면 영수증 삭제 요청을 보내게 된다. 해당 요청에 대해 Security Service에서 요청을 낚아채 영수증의 payer인지 판단하고, payer가 맞다면 영수증을 삭제한다. 영수증을 삭제하면 영수증에 속한 모든 데이터가 삭제된다. 만약, payer가 아니라면 예외 처리를 통해 사용자에게 알려준다.
+
+### 3.12. Settlement
+
+<div align="center">
+  <img src="https://github.com/psychology50/trip-tip/assets/96044622/5d7fe373-f3da-4963-a7e6-c44467a2bf53">
+</div>
+
+&nbsp;&nbsp;&nbsp;
+최종 정산과 관련한 Sequence Diagram이다. 그룹 내 모든 모임이 끝난다고 판단하면 그룹의 리더가 정산하기 버튼을 누를 때 시작한다. 정산하기 버튼을 누르면 정산 요청을 보내게 된다. 해당 요청에 대해 Security Service에서 요청을 낚아채 그룹의 리더인지 판단하고, 리더가 맞다면 정산을 진행한다. <br/>
+&nbsp;&nbsp;&nbsp;
+정산을 진행하기 위해 그룹 내 모든 영수증을 조회하고, 각 영수증에 대해 payer가 지불한 금액을 조회한다. 이 정보를 이용하여 각 영수증에 대해 지불해야 할 금액을 계산한다. 계산된 정보를 이용하여 정산 내역을 생성하고, 각 유저에게 매핑하여 데이터를 등록한다.
 
 ## [ 4. State machine diagram ]
 

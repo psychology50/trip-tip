@@ -14,7 +14,8 @@ import java.time.format.DateTimeFormatter;
 
 @Service
 @RequiredArgsConstructor
-public class MeetingManageService {
+public class
+MeetingManageService {
     private final GroupRepo groupRepo;
     private final MeetingRepo meetingRepo;
 
