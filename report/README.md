@@ -23,13 +23,13 @@ Software Design Web Service
 
 ## [ Revision history ]
 
-|Revision date|Verision #|Description|Author|
-|:---:|:---:|:---:|:---:|
-|2023/04/05|v1.0.0-alpha|First Writing & Modeling|YANG JAESEO|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| Revision date |  Verision #  |       Description        |   Author    |
+|:-------------:|:------------:|:------------------------:|:-----------:|
+|  2023/04/05   | v1.0.0-alpha | First Writing & Modeling | YANG JAESEO |
+|  2023/06/08   |    v1.1.0    | Update Use case Diagram  | YANG JAESEO |
+|               |              |                          |             |
+|               |              |                          |             |
+|               |              |                          |             |
 
 ## [ Contents ]
 
@@ -72,7 +72,7 @@ Trip-Tip 서비스는 모임에 참여하는 인원들이 결제한 기록들을
 
 ### 2.1) Use case diagram
   
-![UseCaseDiagram](https://user-images.githubusercontent.com/96044622/235833931-3f380aed-f7f5-4751-b2c0-5b379682851e.png)
+![UseCaseDiagram](https://github.com/psychology50/trip-tip/assets/96044622/10e4ef87-9224-4986-80a5-09f31b5a0316)
 
 ### 2.2) Use case description
 
