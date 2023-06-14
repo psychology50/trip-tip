@@ -5,7 +5,6 @@ import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.user.domain.Address;
 import yu.softwareDesign.TripTip.domain.user.domain.Bank;
 import yu.softwareDesign.TripTip.domain.user.domain.Phone;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;

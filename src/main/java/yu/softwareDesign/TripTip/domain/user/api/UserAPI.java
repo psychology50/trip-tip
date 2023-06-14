@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
 import yu.softwareDesign.TripTip.domain.user.application.UserSignService;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
 import yu.softwareDesign.TripTip.domain.user.dto.UserLoginDto;
 import yu.softwareDesign.TripTip.domain.user.dto.UserRegisterDto;
@@ -73,7 +73,7 @@ public class UserAPI {
     @GetMapping("/search")
     @ResponseBody
     public ResponseEntity<UserDefaultDto> searchUser(@RequestParam("nickname") String nickname) {
-        User user = userSearchService.findUserByNickname(nickname).orElse(null);
+        CustomUser user = userSearchService.findUserByNickname(nickname).orElse(null);
         log.info("유저 검색 : {}", user);
 
         return (user != null)
@@ -200,7 +200,7 @@ public class UserAPI {
     @GetMapping("/denied")
     public String accessDenied(@RequestParam(value="exception", required = false) String exception, Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
+        CustomUser user = (CustomUser) authentication.getPrincipal();
         model.addAttribute("username", user.getUsername());
         model.addAttribute("exception", exception);
         return "denied";

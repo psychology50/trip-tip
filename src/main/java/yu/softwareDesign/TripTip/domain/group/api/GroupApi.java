@@ -19,7 +19,7 @@ import yu.softwareDesign.TripTip.domain.group.dto.GroupCreateDto;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupDetailDto;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDefaultDto;
 
 import java.util.Comparator;
@@ -46,7 +46,7 @@ public class GroupApi {
         model.addAttribute("groupCreateDto", new GroupCreateDto());
         log.info("그룹 생성 페이지 : {}", model.getAttribute("groupCreateDto"));
 
-        User user = (User)authentication.getPrincipal();
+        CustomUser user = (CustomUser)authentication.getPrincipal();
         UserDefaultDto leader_info = UserDefaultDto.builder().username(user.getUsername()).nickname(user.getNickname()).build();
         model.addAttribute("leader", leader_info);
 
@@ -63,7 +63,7 @@ public class GroupApi {
     public ResponseEntity<String> groupSaveRequest(@RequestBody GroupCreateDto dto, Authentication authentication) {
         log.info("그룹 생성 요청 : {}", dto);
         log.info("그룹 생성 요청 : {}", dto.getMembers());
-        Long group_id = groupManageService.save((User) authentication.getPrincipal(), dto).orElseThrow(()
+        Long group_id = groupManageService.save((CustomUser) authentication.getPrincipal(), dto).orElseThrow(()
                 -> new IllegalArgumentException("그룹 생성 혹은 수정 실패"))
                 .getGroup_id();
         return ResponseEntity.ok(group_id.toString());
@@ -102,7 +102,7 @@ public class GroupApi {
     @Operation(summary = "그룹 목록 페이지", description = "그룹 목록을 확인할 수 있는 페이지")
     @GetMapping("/list")
     public String groupListRequest(Authentication authentication, Model model) {
-        model.addAttribute("groupList", groupSearchService.findGroupByUser((User)authentication.getPrincipal()));
+        model.addAttribute("groupList", groupSearchService.findGroupByUser((CustomUser)authentication.getPrincipal()));
         return "groups/GroupListPage";
     }
 
@@ -142,7 +142,7 @@ public class GroupApi {
     @Operation(summary = "그룹 가입 요청", description = "그룹에 가입 요청")
     @PostMapping("/join")
     public RedirectView groupJoinRequest(GroupJoinDto dto, Authentication authentication) {
-        boolean flag = groupJoinService.joinGroup((User) authentication.getPrincipal(), dto);
+        boolean flag = groupJoinService.joinGroup((CustomUser) authentication.getPrincipal(), dto);
         return (flag) ? new RedirectView("/api/groups/list") : new RedirectView("/api");
     }
 
@@ -164,7 +164,7 @@ public class GroupApi {
     @PreAuthorize("@securityService.isLeader(#group_id)")
     @PostMapping("/{group_id}/settle")
     public ResponseEntity<String> groupSettleRequest(@PathVariable(value="group_id", required = true) Long group_id, Authentication authentication) {
-        User user = (User)authentication.getPrincipal();
+        CustomUser user = (CustomUser)authentication.getPrincipal();
         groupManageService.settleGroup(group_id);
         return ResponseEntity.ok("정산 완료");
     }

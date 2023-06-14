@@ -47,8 +47,8 @@ public class UserRegisterDto {
         this.zipCode = zipCode;
     }
 
-    public User toEntity() {
-        return User.builder()
+    public CustomUser toEntity() {
+        return CustomUser.builder()
                 .user_id(id)
                 .username(username)
                 .password(new BCryptPasswordEncoder().encode(password))

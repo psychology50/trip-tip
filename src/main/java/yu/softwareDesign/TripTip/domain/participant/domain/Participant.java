@@ -3,7 +3,7 @@ package yu.softwareDesign.TripTip.domain.participant.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 @Entity(name="participant")
 @Table(name="PARTICIPANT")
@@ -27,12 +27,12 @@ public class Participant {
     }
 
     @ManyToOne @JoinColumn(name="USER_ID")
-    private User user;
+    private CustomUser user;
 
     @ManyToOne @JoinColumn(name="RECEIPT_ID")
     private Receipt receipt;
 
-    public void setUser(User user) {
+    public void setUser(CustomUser user) {
         if (this.user != null) {
             this.user.getParticipants().remove(this);
         }

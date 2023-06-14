@@ -3,7 +3,7 @@ package yu.softwareDesign.TripTip.domain.receipt.dto;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 import yu.softwareDesign.TripTip.domain.user.dto.UserParticipationDto;
 
 import java.util.List;
@@ -17,13 +17,13 @@ public class ReceiptCreateDto {
     private Double total;
     private Boolean is_clear;
 
-    private User payer;
+    private CustomUser payer;
     private List<UserParticipationDto> participationUsers;
     private Meeting meeting;
 
     @Builder
     public ReceiptCreateDto(Long receipt_id, String receipt_name, Double total, Boolean is_clear,
-                            List<UserParticipationDto> participationUsers, User payer, Meeting meeting) {
+                            List<UserParticipationDto> participationUsers, CustomUser payer, Meeting meeting) {
         this.receipt_id = receipt_id;
         this.receipt_name = receipt_name;
         this.total = total;

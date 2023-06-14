@@ -4,10 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import yu.softwareDesign.TripTip.domain.group.dao.GroupRepo;
-import yu.softwareDesign.TripTip.domain.group.domain.Group;
 import yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -32,7 +31,7 @@ MeetingManageService {
     }
 
     @Transactional
-    public void deleteMeeting(User user, Long meeting_id) {
+    public void deleteMeeting(CustomUser user, Long meeting_id) {
         Meeting meeting = meetingRepo.findById(meeting_id).orElseThrow(() ->
                 new IllegalArgumentException("해당 모임이 존재하지 않습니다."));
         if (!meeting.getGroup().getLeader().getUser_id().equals(user.getUser_id())) {

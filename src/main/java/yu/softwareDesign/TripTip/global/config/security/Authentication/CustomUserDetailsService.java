@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String nickname) throws UsernameNotFoundException {
-        User user = userRepo.findByNickname(nickname).orElseThrow(() ->
+        CustomUser user = userRepo.findByNickname(nickname).orElseThrow(() ->
                 new UsernameNotFoundException("해당 닉네임을 찾을 수 없습니다."));
         log.info("loadUserByUsername user : {}", user);
 

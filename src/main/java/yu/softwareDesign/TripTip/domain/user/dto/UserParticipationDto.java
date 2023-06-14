@@ -1,7 +1,6 @@
 package yu.softwareDesign.TripTip.domain.user.dto;
 
 import lombok.*;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 @Getter @Setter
 @NoArgsConstructor

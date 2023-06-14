@@ -6,7 +6,7 @@ import lombok.*;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class Receipt extends BaseDateEntity {
     @OneToMany(mappedBy = "receipt")
     private List<Participant> participants = new ArrayList<>();
     @ManyToOne @JoinColumn(name="payer")
-    private User payer;
+    private CustomUser payer;
 
     public void setMeeting(Meeting meeting) {
         if (this.meeting != null) {
@@ -53,7 +53,7 @@ public class Receipt extends BaseDateEntity {
         }
     }
 
-    public void setPayer(User payer) {
+    public void setPayer(CustomUser payer) {
         if (this.payer != null) {
             this.payer.getPay_receipts().remove(this);
         }

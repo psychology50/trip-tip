@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.time.LocalDateTime;
 
@@ -19,11 +19,11 @@ public class Settlement extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne @JoinColumn(name = "SENDER_ID")
-    private User sender;
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "SENDER_ID")
+    private CustomUser sender;
 
-    @ManyToOne @JoinColumn(name = "RECEIVER_ID")
-    private User receiver;
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "RECEIVER_ID")
+    private CustomUser receiver;
 
     @Column(name = "AMOUNT")
     private Double amount;
@@ -35,7 +35,7 @@ public class Settlement extends BaseDateEntity {
     private Boolean isSent;
 
     @Builder
-    public Settlement(User sender, User receiver, Double amount) {
+    public Settlement(CustomUser sender, CustomUser receiver, Double amount) {
         this.sender = sender;
         this.receiver = receiver;
         this.amount = amount;
@@ -48,7 +48,7 @@ public class Settlement extends BaseDateEntity {
         this.isSent = true;
     }
 
-    public void setSender(User sender) {
+    public void setSender(CustomUser sender) {
         if (this.sender != null) {
             this.sender.getSentSettlements().remove(this);
         }
@@ -58,7 +58,7 @@ public class Settlement extends BaseDateEntity {
         }
     }
 
-    public void setReceiver(User receiver) {
+    public void setReceiver(CustomUser receiver) {
         if (this.receiver != null) {
             this.receiver.getReceivedSettlements().remove(this);
         }

@@ -8,7 +8,7 @@ import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
 import yu.softwareDesign.TripTip.domain.member.dao.MemberRepo;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +23,7 @@ public class GroupJoinService {
      * @return Boolean
      */
     @Transactional
-    public boolean joinGroup(User user, GroupJoinDto dto) {
+    public boolean joinGroup(CustomUser user, GroupJoinDto dto) {
         if (!groupRepo.existsByGroupCode(dto.getGroup_code())) return false;
 
         Member member = new Member();

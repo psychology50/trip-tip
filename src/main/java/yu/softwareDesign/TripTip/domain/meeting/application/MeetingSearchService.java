@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import yu.softwareDesign.TripTip.domain.meeting.dao.MeetingRepo;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
 
 import java.util.List;
 import java.util.Optional;

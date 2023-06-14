@@ -3,7 +3,7 @@ package yu.softwareDesign.TripTip.domain.member.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import yu.softwareDesign.TripTip.domain.group.domain.Group;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 @Entity(name="member")
 @Table(name="MEMBER")
@@ -21,12 +21,12 @@ public class Member {
     }
 
     @ManyToOne @JoinColumn(name="USER_ID")
-    private User user;
+    private CustomUser user;
 
     @ManyToOne @JoinColumn(name="GROUP_ID")
     private Group group;
 
-    public void setUser(User user) {
+    public void setUser(CustomUser user) {
         if (this.user != null && this.user.equals(user)) {
             return;
         }

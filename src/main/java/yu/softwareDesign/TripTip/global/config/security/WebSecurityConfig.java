@@ -61,6 +61,7 @@ public class WebSecurityConfig {
         http.csrf().disable(); // REST API 에서는 제거
         http.authorizeHttpRequests()
                     .requestMatchers("/", "/api", "/api/users/signup", "/api/users/signin").permitAll()
+                    .requestMatchers("/h2-console/**", "favicon.ico").permitAll() // 과제 제출용
                     .requestMatchers("/api/admin/*").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and()
@@ -71,6 +72,8 @@ public class WebSecurityConfig {
                     .loginProcessingUrl("/api/users/signin")
                     .defaultSuccessUrl("/api")
                     .permitAll()
+                .and()
+                    .headers().frameOptions().sameOrigin()
                 .and()
                     .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("api/users/logout"))

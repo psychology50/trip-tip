@@ -6,7 +6,7 @@ import lombok.*;
 import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.member.domain.Member;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +36,13 @@ public class Group extends BaseDateEntity {
     }
 
     @ManyToOne @JoinColumn(name="LEADER")
-    private User leader;
+    private CustomUser leader;
     @OneToMany(mappedBy = "group")
     private List<Member> members = new ArrayList<>();
     @OneToMany(mappedBy = "group")
     private List<Meeting> meetings = new ArrayList<>();
 
-    public void setLeader(User leader) {
+    public void setLeader(CustomUser leader) {
         if (this.leader != null) {
             this.leader.getIs_leader().remove(this);
         }

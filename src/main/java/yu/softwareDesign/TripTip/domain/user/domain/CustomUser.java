@@ -9,19 +9,18 @@ import yu.softwareDesign.TripTip.domain.baseModel.BaseDateEntity;
 import yu.softwareDesign.TripTip.domain.participant.domain.Participant;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.settlement.domain.Settlement;
-import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonIgnoreProperties({"members", "is_leader", "participants", "pay_receipts"})
-@Entity(name="user")
-@Table(name="USER")
+@JsonIgnoreProperties({"members", "is_leader", "participants", "pay_receipts", "sentSettlements", "receivedSettlements"})
+@Entity(name="custom_user")
+@Table(name="CUSTOM_USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 //@EqualsAndHashCode(of = {"user_id"}, callSuper=false)
 @ToString(of = {"username", "nickname"})
-public class User extends BaseDateEntity {
+public class CustomUser extends BaseDateEntity {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="USER_ID", updatable = false)
     private Long user_id;
@@ -47,8 +46,8 @@ public class User extends BaseDateEntity {
     private RoleType role;
 
     @Builder
-    public User(Long user_id, String username, String password, String nickname,
-                Phone phone, Bank bank, Address address, RoleType role)
+    public CustomUser(Long user_id, String username, String password, String nickname,
+                      Phone phone, Bank bank, Address address, RoleType role)
     {
         this.user_id = user_id;
         this.username = username;

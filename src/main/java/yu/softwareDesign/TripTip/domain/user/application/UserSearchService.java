@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,16 +18,16 @@ import java.util.Optional;
 public class UserSearchService {
     private final UserRepo userRepo;
 
-    public Optional<User> findUserById(Long id) {
+    public Optional<CustomUser> findUserById(Long id) {
         return userRepo.findById(id);
     }
 
-    public Optional<User> findUserByNickname(String nickname) {
+    public Optional<CustomUser> findUserByNickname(String nickname) {
         return userRepo.findByNickname(nickname);
     }
 
-    public List<User> findUserByGroupId(Long group_id) {return userRepo.findByGroupId(group_id);}
-    public List<User> findUserAll() {
+    public List<CustomUser> findUserByGroupId(Long group_id) {return userRepo.findByGroupId(group_id);}
+    public List<CustomUser> findUserAll() {
         return userRepo.findAll();
     }
 }

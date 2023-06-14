@@ -8,10 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import yu.softwareDesign.TripTip.domain.group.application.GroupSearchService;
 import yu.softwareDesign.TripTip.domain.group.dto.GroupJoinDto;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 import yu.softwareDesign.TripTip.domain.user.dto.UserDto;
 
 @Tag(name = "home", description = "HomePage API")
@@ -30,7 +29,7 @@ public class CommonAPI {
     @GetMapping("/api")
     public String index(Authentication authentication, Model model) {
         log.info("authentication : {}", authentication);
-        User user = (authentication != null) ? (User) authentication.getPrincipal() : null;
+        CustomUser user = (authentication != null) ? (CustomUser) authentication.getPrincipal() : null;
 
         UserDto userDto = (user != null)
                 ? UserDto.builder().username(user.getUsername())

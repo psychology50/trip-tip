@@ -2,7 +2,6 @@ package yu.softwareDesign.TripTip.global.config.security;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.util.logging.Logger;
 
@@ -26,7 +25,7 @@ public class SecurityService {
 
     public boolean isLeader(Long group_id) {
         authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userSearchService.findUserById(((User) authentication.getPrincipal()).getUser_id()).orElseThrow(()
+        CustomUser user = userSearchService.findUserById(((CustomUser) authentication.getPrincipal()).getUser_id()).orElseThrow(()
             -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
         log.info("isLeader = {}", user);
 
@@ -39,7 +38,7 @@ public class SecurityService {
 
     public boolean isMember(Long group_id) {
         authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userSearchService.findUserById(((User) authentication.getPrincipal()).getUser_id()).orElseThrow(()
+        CustomUser user = userSearchService.findUserById(((CustomUser) authentication.getPrincipal()).getUser_id()).orElseThrow(()
                 -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
         log.info("isMember = {}", user);
 
@@ -52,7 +51,7 @@ public class SecurityService {
 
     public boolean isPayer(Long receipt_id) {
         authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userSearchService.findUserById(((User) authentication.getPrincipal()).getUser_id()).orElseThrow(()
+        CustomUser user = userSearchService.findUserById(((CustomUser) authentication.getPrincipal()).getUser_id()).orElseThrow(()
                 -> new RuntimeException("해당 유저를 찾을 수 없습니다."));
         log.info("isPayer = {}", user);
 

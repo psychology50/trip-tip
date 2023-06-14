@@ -71,4 +71,4 @@ settleBtn.addEventListener("click", (e) => {
         }
     }
     xhr.send();
-}
+});

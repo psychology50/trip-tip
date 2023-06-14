@@ -17,7 +17,7 @@ import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptCreateDto;
 import yu.softwareDesign.TripTip.domain.receipt.dto.ReceiptDetailDto;
 import yu.softwareDesign.TripTip.domain.user.application.UserSearchService;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 import yu.softwareDesign.TripTip.domain.user.dto.UserParticipationDto;
 
 import java.util.stream.Collectors;
@@ -39,7 +39,7 @@ public class ReceiptApi {
                          @PathVariable(value = "meeting_id") Long meeting_id,
                          Authentication authentication,
                          Model model) {
-        User user = (User)authentication.getPrincipal();
+        CustomUser user = (CustomUser)authentication.getPrincipal();
 
         model.addAttribute("payer", user);
         model.addAttribute("group_id", group_id);
@@ -51,7 +51,7 @@ public class ReceiptApi {
     public ResponseEntity<ReceiptCreateDto> createForm(Authentication authentication,
                                                        @PathVariable(value = "group_id") Long group_id,
                                                        @PathVariable(value = "meeting_id") Long meeting_id) {
-        User user = (User)authentication.getPrincipal();
+        CustomUser user = (CustomUser)authentication.getPrincipal();
 
         ReceiptCreateDto receiptCreateDto = ReceiptCreateDto.builder()
                 .total(0.0)

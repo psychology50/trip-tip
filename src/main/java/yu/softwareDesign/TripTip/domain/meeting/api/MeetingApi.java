@@ -10,15 +10,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 import yu.softwareDesign.TripTip.domain.meeting.application.MeetingManageService;
 import yu.softwareDesign.TripTip.domain.meeting.application.MeetingSearchService;
 import yu.softwareDesign.TripTip.domain.meeting.domain.Meeting;
 import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingDetailDto;
 import yu.softwareDesign.TripTip.domain.meeting.dto.MeetingListDto;
 import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
-import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 @Tag(name = "meetings", description = "Meeting API")
 @Controller
@@ -72,7 +70,7 @@ public class MeetingApi {
     public ResponseEntity<String> meetingDeleteRequest(@PathVariable(name = "group_id") Long group_id,
                                                        @PathVariable(name = "meeting_id") Long meeting_id,
                                                        Authentication authentication) {
-        meetingManageService.deleteMeeting((User)authentication.getPrincipal(), meeting_id);
+        meetingManageService.deleteMeeting((CustomUser)authentication.getPrincipal(), meeting_id);
         return ResponseEntity.ok("모임 삭제 완료");
     }
 }

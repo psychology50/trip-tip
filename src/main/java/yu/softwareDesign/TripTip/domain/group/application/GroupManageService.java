@@ -15,7 +15,7 @@ import yu.softwareDesign.TripTip.domain.receipt.domain.Receipt;
 import yu.softwareDesign.TripTip.domain.settlement.dao.SettlementRepo;
 import yu.softwareDesign.TripTip.domain.settlement.domain.Settlement;
 import yu.softwareDesign.TripTip.domain.user.dao.UserRepo;
-import yu.softwareDesign.TripTip.domain.user.domain.User;
+import yu.softwareDesign.TripTip.domain.user.domain.CustomUser;
 
 import java.util.*;
 
@@ -46,11 +46,11 @@ public class GroupManageService {
      * @return Group
      */
     @Transactional
-    public Optional<Group> save(User user, GroupCreateDto group_form) {
+    public Optional<Group> save(CustomUser user, GroupCreateDto group_form) {
         Group group = (group_form.getGroup_id() != null)
                 ? group_form.toEntity(group_form.getGroup_code())
                 : group_form.toEntity(generateGroupCode());
-        User leader = userRepo.findById(user.getUser_id()).orElseThrow(() ->
+        CustomUser leader = userRepo.findById(user.getUser_id()).orElseThrow(() ->
                 new IllegalArgumentException("해당 유저가 존재하지 않습니다."));
         group.setLeader(leader);
 
@@ -58,7 +58,7 @@ public class GroupManageService {
             groupRepo.save(group);
         }
 
-        List<User> members = group_form.getMembers();
+        List<CustomUser> members = group_form.getMembers();
         List<Member> memberList = new ArrayList<>();
 
         members.add(leader);
@@ -76,7 +76,7 @@ public class GroupManageService {
     // TODO: group의 모든 정보를 초기화해야 함 (member 관계 정보 유지)
     @Transactional
     public void settleGroup(Long group_id) {
-        Map<User, Map<User, Double>> settlementMap = new HashMap<>();
+        Map<CustomUser, Map<CustomUser, Double>> settlementMap = new HashMap<>();
         Group group = groupRepo.findById(group_id).orElseThrow(() ->
                 new IllegalArgumentException("해당 그룹이 존재하지 않습니다.")
         );
@@ -85,11 +85,11 @@ public class GroupManageService {
             List<Receipt> receipts = m.getReceipts();
 
             for (Receipt r :receipts) {
-                User payer = r.getPayer();
+                CustomUser payer = r.getPayer();
                 List<Participant> participants = r.getParticipants();
 
                 for (Participant p : participants) {
-                    User debtor = p.getUser();
+                    CustomUser debtor = p.getUser();
                     Double cost = p.getCost();
 
                     if (payer.getUser_id().equals(debtor.getUser_id())) {
@@ -97,27 +97,27 @@ public class GroupManageService {
                     }
 
                     if (settlementMap.containsKey(payer)) {
-                        Map<User, Double> debtorMap = settlementMap.get(payer);
+                        Map<CustomUser, Double> debtorMap = settlementMap.get(payer);
                         if (debtorMap.containsKey(debtor)) {
                             debtorMap.put(debtor, debtorMap.get(debtor) + cost);
                         } else {
                             debtorMap.put(debtor, cost);
                         }
                     } else {
-                        Map<User, Double> debtorMap = new HashMap<>();
+                        Map<CustomUser, Double> debtorMap = new HashMap<>();
                         debtorMap.put(debtor, cost);
                         settlementMap.put(payer, debtorMap);
                     }
 
                     if (settlementMap.containsKey(debtor)) {
-                        Map<User, Double> debtorMap = settlementMap.get(debtor);
+                        Map<CustomUser, Double> debtorMap = settlementMap.get(debtor);
                         if (debtorMap.containsKey(payer)) {
                             debtorMap.put(payer, debtorMap.get(payer) - cost);
                         } else {
                             debtorMap.put(payer, -cost);
                         }
                     } else {
-                        Map<User, Double> debtorMap = new HashMap<>();
+                        Map<CustomUser, Double> debtorMap = new HashMap<>();
                         debtorMap.put(payer, -cost);
                         settlementMap.put(debtor, debtorMap);
                     }
@@ -127,9 +127,9 @@ public class GroupManageService {
             }
         }
 
-        for (User payer : settlementMap.keySet()) {
-            Map<User, Double> debtorMap = settlementMap.get(payer);
-            for (User debtor : debtorMap.keySet()) {
+        for (CustomUser payer : settlementMap.keySet()) {
+            Map<CustomUser, Double> debtorMap = settlementMap.get(payer);
+            for (CustomUser debtor : debtorMap.keySet()) {
                 Double cost = debtorMap.get(debtor);
                 if (cost > 0) {
                     Settlement settlement = Settlement.builder()
